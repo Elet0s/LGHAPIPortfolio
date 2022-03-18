@@ -18,35 +18,135 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EndingCredit.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="EndingLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Lock.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="PlayLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Skel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="StartLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Ston.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="TitleBackGround.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="TitleCharacter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="TitlePointor.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EndingCredit.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="EndingLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Key.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Lock.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="PlayLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Skel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="StartLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Ston.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="TitleBackGround.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="TitleCharacter.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="TitlePointor.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{0d3cb5c6-3638-4839-baaf-a4370413bec4}</ProjectGuid>
+    <ProjectGuid>{28b81aaf-e800-44eb-b3f0-3218a54adefe}</ProjectGuid>
     <RootNamespace>GameContents</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -72,9 +172,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -83,6 +187,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -90,6 +196,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +211,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +226,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +241,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,8 +250,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

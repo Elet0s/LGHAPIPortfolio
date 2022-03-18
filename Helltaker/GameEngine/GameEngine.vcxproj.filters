@@ -1,2 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="GameEngineLevel.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineActor.h">
+      <Filter>Object\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="GameEngineImageManager.h">
+      <Filter>Resources\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineSound.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngnieImage.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameEngineLevel.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineActor.cpp">
+      <Filter>Object\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="GameEngineImageManager.cpp">
+      <Filter>Resources\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineSound.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngnieImage.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Object">
+      <UniqueIdentifier>{8eca677e-8a5f-4aab-966f-1a4f561c0d55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Actor">
+      <UniqueIdentifier>{b49c9472-c64b-4e40-8128-dbbf5da66248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{15443b73-561a-482c-966e-47cc93d50db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Manager">
+      <UniqueIdentifier>{4d4b9d9c-d5f8-4dbb-a179-cf0537a1a721}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

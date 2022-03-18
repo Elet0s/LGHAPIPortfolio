@@ -1,2 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Play">
+      <UniqueIdentifier>{8f6a6dc2-d06f-41fb-9e08-c5e38fd9692b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ending">
+      <UniqueIdentifier>{ca84b178-9b05-4de5-953d-44a6741ddc43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{425646c0-0d78-4e02-9ca7-06e533fd3fba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title">
+      <UniqueIdentifier>{5eecfd44-3e3e-43cd-ab6d-d05a556aa5d1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Player.cpp">
+      <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="EndingCredit.cpp">
+      <Filter>Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="EndingLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleBackGround.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="StartLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Skel.cpp">
+      <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Ston.cpp">
+      <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Key.cpp">
+      <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Lock.cpp">
+      <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleCharacter.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitlePointor.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Player.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingCredit.h">
+      <Filter>Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleBackGround.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="StartLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Skel.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Ston.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Lock.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleCharacter.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitlePointor.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
