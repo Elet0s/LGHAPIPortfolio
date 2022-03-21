@@ -19,8 +19,8 @@
     <Filter Include="Play\Girls">
       <UniqueIdentifier>{dbc9a200-b545-4568-8d5a-310aec1210ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Girls\Global">
-      <UniqueIdentifier>{7b297de7-6f11-4ee6-bffa-05a92dcca415}</UniqueIdentifier>
+    <Filter Include="Play\Global">
+      <UniqueIdentifier>{32336289-971c-4285-becf-ea8c2ad7899d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,12 +37,6 @@
       <Filter>Level</Filter>
     </ClCompile>
     <ClCompile Include="Helltaker.cpp" />
-    <ClCompile Include="GamePlayUi.cpp">
-      <Filter>Play\Girls\Global</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Play\Girls\Global</Filter>
-    </ClCompile>
     <ClCompile Include="Skell.cpp">
       <Filter>Play</Filter>
     </ClCompile>
@@ -91,6 +85,12 @@
     <ClCompile Include="Trap.cpp">
       <Filter>Play</Filter>
     </ClCompile>
+    <ClCompile Include="GameUi.cpp">
+      <Filter>Play\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Play\Global</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EndingCredit.h">
@@ -106,12 +106,6 @@
       <Filter>Level</Filter>
     </ClInclude>
     <ClInclude Include="Helltaker.h" />
-    <ClInclude Include="GamePlayUi.h">
-      <Filter>Play\Girls\Global</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Play\Girls\Global</Filter>
-    </ClInclude>
     <ClInclude Include="Skell.h">
       <Filter>Play</Filter>
     </ClInclude>
@@ -159,6 +153,12 @@
     </ClInclude>
     <ClInclude Include="Trap.h">
       <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUi.h">
+      <Filter>Play\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Play\Global</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -35,7 +35,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GamePlayUi.h">
+    <ClInclude Include="GameUi.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -129,7 +129,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="GamePlayUi.cpp">
+    <ClCompile Include="GameUi.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -212,6 +212,7 @@
     <ProjectGuid>{28b81aaf-e800-44eb-b3f0-3218a54adefe}</ProjectGuid>
     <RootNamespace>GameContents</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>GameEngineContents</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

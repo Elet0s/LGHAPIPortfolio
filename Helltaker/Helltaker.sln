@@ -17,7 +17,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngine", "GameEngine\Ga
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngineBase", "GameEngineBase\GameEngineBase.vcxproj", "{D69151FE-59DB-4EE9-8428-29741C1EBB61}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameContents", "GameContents\GameContents.vcxproj", "{28B81AAF-E800-44EB-B3F0-3218A54ADEFE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngineContents", "GameEngineContents\GameContents.vcxproj", "{28B81AAF-E800-44EB-B3F0-3218A54ADEFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

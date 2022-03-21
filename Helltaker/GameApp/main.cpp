@@ -2,7 +2,7 @@
 #include<GameEngineBase/GameEngineWindow.h>
 #include<GameEngineBase/GameEngineDebug.h>
 //추가 포함디렉토리 설정을  "..\;" 로 경로 지정 참조기본위치가 저 설정을 따라감 
-#include<GameContents/Helltaker.h>
+#include<GameEngineContents/Helltaker.h>
 
 int __stdcall WinMain(_In_ HINSTANCE hInstance,
     _In_opt_ HINSTANCE hPrevInstance,
