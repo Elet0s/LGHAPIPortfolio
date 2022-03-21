@@ -1,7 +1,9 @@
 #pragma once
+
+// Ό³Έν :
 class EndingCredit
 {
-private:
+public:
 	// constrcuter destructer
 	EndingCredit();
 	~EndingCredit();
@@ -11,4 +13,10 @@ private:
 	EndingCredit(EndingCredit&& _Other) noexcept = delete;
 	EndingCredit& operator=(const EndingCredit& _Other) = delete;
 	EndingCredit& operator=(EndingCredit&& _Other) noexcept = delete;
+
+protected:
+
+private:
+
 };
+

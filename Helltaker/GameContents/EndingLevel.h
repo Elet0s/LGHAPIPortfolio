@@ -1,7 +1,10 @@
 #pragma once
-class EndingLevel
+#include <GameEngine/GameEngineLevel.h>
+
+// Ό³Έν :
+class EndingLevel : public GameEngineLevel
 {
-private:
+public:
 	// constrcuter destructer
 	EndingLevel();
 	~EndingLevel();
@@ -11,4 +14,12 @@ private:
 	EndingLevel(EndingLevel&& _Other) noexcept = delete;
 	EndingLevel& operator=(const EndingLevel& _Other) = delete;
 	EndingLevel& operator=(EndingLevel&& _Other) noexcept = delete;
+
+protected:
+	void Loading() override;
+	void Update();
+
+private:
+
 };
+

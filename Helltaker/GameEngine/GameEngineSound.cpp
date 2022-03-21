@@ -1,10 +1,10 @@
-#include"GameEngineSound.h"
+#include "GameEngineSound.h"
 
 GameEngineSound::GameEngineSound()
 {
-
 }
+
 GameEngineSound::~GameEngineSound()
 {
-
 }
+

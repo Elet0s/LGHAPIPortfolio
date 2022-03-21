@@ -19,11 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Azazel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Cerberus.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="EndingCredit.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="EndingLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="GamePlayUi.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Helltaker.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Justice.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -35,6 +55,26 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="LodingLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Lucifer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Malina.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Modeus.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Pandemonica.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Player.h">
       <SubType>
       </SubType>
@@ -43,11 +83,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Skel.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="StartLevel.h">
+    <ClInclude Include="Skell.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -59,21 +95,49 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="TitleCharacter.h">
+    <ClInclude Include="TitleLevel.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="TitlePointor.h">
+    <ClInclude Include="TitleLogo.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Trap.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Zdrada.h">
       <SubType>
       </SubType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Azazel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Cerberus.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="EndingCredit.cpp">
       <SubType>
       </SubType>
     </ClCompile>
     <ClCompile Include="EndingLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="GamePlayUi.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Helltaker.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Justice.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -85,6 +149,26 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="LodingLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Lucifer.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Malina.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Modeus.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Pandemonica.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Player.cpp">
       <SubType>
       </SubType>
@@ -93,11 +177,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Skel.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="StartLevel.cpp">
+    <ClCompile Include="Skell.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -109,11 +189,19 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="TitleCharacter.cpp">
+    <ClCompile Include="TitleLevel.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="TitlePointor.cpp">
+    <ClCompile Include="TitleLogo.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Trap.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Zdrada.cpp">
       <SubType>
       </SubType>
     </ClCompile>

@@ -1,10 +1,20 @@
-#include"EndingLevel.h"
+#include "EndingLevel.h"
 
 EndingLevel::EndingLevel()
 {
+}
+
+EndingLevel::~EndingLevel()
+{
+}
+
+
+void EndingLevel::Loading()
+{
 
 }
-EndingLevel::~EndingLevel()
+
+void EndingLevel::Update()
 {
 
 }

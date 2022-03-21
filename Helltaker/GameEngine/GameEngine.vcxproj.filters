@@ -14,7 +14,7 @@
     <ClInclude Include="GameEngineSound.h">
       <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngnieImage.h">
+    <ClInclude Include="GameEngineImage.h">
       <Filter>Resources</Filter>
     </ClInclude>
   </ItemGroup>

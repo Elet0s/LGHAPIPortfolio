@@ -1,10 +1,34 @@
-#include"PlayLevel.h"
+#include "PlayLevel.h"
+#include "Player.h"
+#include "GamePlayUi.h"
+
+enum class ORDER
+{
+	BACKGROUND,
+	PLAYER,
+	MONSTER,
+	UI
+};
 
 PlayLevel::PlayLevel()
 {
-
 }
+
 PlayLevel::~PlayLevel()
 {
+}
 
+void PlayLevel::Loading()
+{
+
+}
+
+void PlayLevel::Update()
+{
+
+}
+void PlayLevel::LevelChangeStart()
+{
+	CreateActor<Player>("Player", (int)ORDER::PLAYER);
+	CreateActor<GamePlayUi>("GamePlayUi", (int)ORDER::UI);
 }

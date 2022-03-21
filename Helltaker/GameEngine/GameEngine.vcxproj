@@ -171,7 +171,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GameEngnieImage.h">
+    <ClInclude Include="GameEngineImage.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -192,6 +192,14 @@
     <ClCompile Include="GameEngineLevel.cpp">
       <SubType>
       </SubType>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="GameEngineSound.cpp">
       <SubType>

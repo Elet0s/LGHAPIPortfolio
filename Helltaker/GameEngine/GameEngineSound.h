@@ -1,7 +1,10 @@
 #pragma once
-class GameEngineSound
+#include <GameEngineBase/GameEngineNameObject.h>
+
+// Ό³Έν :
+class GameEngineSound : public GameEngineNameObject
 {
-private:
+public:
 	// constrcuter destructer
 	GameEngineSound();
 	~GameEngineSound();
@@ -11,4 +14,10 @@ private:
 	GameEngineSound(GameEngineSound&& _Other) noexcept = delete;
 	GameEngineSound& operator=(const GameEngineSound& _Other) = delete;
 	GameEngineSound& operator=(GameEngineSound&& _Other) noexcept = delete;
+
+protected:
+
+private:
+
 };
+

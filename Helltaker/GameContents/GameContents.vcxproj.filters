@@ -13,28 +13,47 @@
     <Filter Include="Title">
       <UniqueIdentifier>{5eecfd44-3e3e-43cd-ab6d-d05a556aa5d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LodingLevel">
+      <UniqueIdentifier>{cf928db8-90e4-45b9-90cc-4e131309f437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Girls">
+      <UniqueIdentifier>{dbc9a200-b545-4568-8d5a-310aec1210ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Girls\Global">
+      <UniqueIdentifier>{7b297de7-6f11-4ee6-bffa-05a92dcca415}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Player.cpp">
-      <Filter>Play</Filter>
-    </ClCompile>
     <ClCompile Include="EndingCredit.cpp">
       <Filter>Ending</Filter>
     </ClCompile>
     <ClCompile Include="EndingLevel.cpp">
       <Filter>Level</Filter>
     </ClCompile>
-    <ClCompile Include="TitleBackGround.cpp">
-      <Filter>Title</Filter>
-    </ClCompile>
     <ClCompile Include="PlayLevel.cpp">
       <Filter>Level</Filter>
     </ClCompile>
-    <ClCompile Include="StartLevel.cpp">
+    <ClCompile Include="TitleLevel.cpp">
       <Filter>Level</Filter>
     </ClCompile>
-    <ClCompile Include="Skel.cpp">
+    <ClCompile Include="Helltaker.cpp" />
+    <ClCompile Include="GamePlayUi.cpp">
+      <Filter>Play\Girls\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Play\Girls\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Skell.cpp">
       <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleBackGround.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="LodingLevel.cpp">
+      <Filter>LodingLevel</Filter>
     </ClCompile>
     <ClCompile Include="Ston.cpp">
       <Filter>Play</Filter>
@@ -45,34 +64,65 @@
     <ClCompile Include="Lock.cpp">
       <Filter>Play</Filter>
     </ClCompile>
-    <ClCompile Include="TitleCharacter.cpp">
-      <Filter>Title</Filter>
+    <ClCompile Include="Pandemonica.cpp">
+      <Filter>Play\Girls</Filter>
     </ClCompile>
-    <ClCompile Include="TitlePointor.cpp">
-      <Filter>Title</Filter>
+    <ClCompile Include="Modeus.cpp">
+      <Filter>Play\Girls</Filter>
+    </ClCompile>
+    <ClCompile Include="Cerberus.cpp">
+      <Filter>Play\Girls</Filter>
+    </ClCompile>
+    <ClCompile Include="Malina.cpp">
+      <Filter>Play\Girls</Filter>
+    </ClCompile>
+    <ClCompile Include="Zdrada.cpp">
+      <Filter>Play\Girls</Filter>
+    </ClCompile>
+    <ClCompile Include="Azazel.cpp">
+      <Filter>Play\Girls</Filter>
+    </ClCompile>
+    <ClCompile Include="Justice.cpp">
+      <Filter>Play\Girls</Filter>
+    </ClCompile>
+    <ClCompile Include="Lucifer.cpp">
+      <Filter>Play\Girls</Filter>
+    </ClCompile>
+    <ClCompile Include="Trap.cpp">
+      <Filter>Play</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>Play</Filter>
-    </ClInclude>
     <ClInclude Include="EndingCredit.h">
       <Filter>Ending</Filter>
     </ClInclude>
     <ClInclude Include="EndingLevel.h">
       <Filter>Level</Filter>
     </ClInclude>
-    <ClInclude Include="TitleBackGround.h">
-      <Filter>Title</Filter>
-    </ClInclude>
     <ClInclude Include="PlayLevel.h">
       <Filter>Level</Filter>
     </ClInclude>
-    <ClInclude Include="StartLevel.h">
+    <ClInclude Include="TitleLevel.h">
       <Filter>Level</Filter>
     </ClInclude>
-    <ClInclude Include="Skel.h">
+    <ClInclude Include="Helltaker.h" />
+    <ClInclude Include="GamePlayUi.h">
+      <Filter>Play\Girls\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Play\Girls\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Skell.h">
       <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleBackGround.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="LodingLevel.h">
+      <Filter>LodingLevel</Filter>
     </ClInclude>
     <ClInclude Include="Ston.h">
       <Filter>Play</Filter>
@@ -83,11 +133,32 @@
     <ClInclude Include="Lock.h">
       <Filter>Play</Filter>
     </ClInclude>
-    <ClInclude Include="TitleCharacter.h">
-      <Filter>Title</Filter>
+    <ClInclude Include="Pandemonica.h">
+      <Filter>Play\Girls</Filter>
     </ClInclude>
-    <ClInclude Include="TitlePointor.h">
-      <Filter>Title</Filter>
+    <ClInclude Include="Modeus.h">
+      <Filter>Play\Girls</Filter>
+    </ClInclude>
+    <ClInclude Include="Cerberus.h">
+      <Filter>Play\Girls</Filter>
+    </ClInclude>
+    <ClInclude Include="Malina.h">
+      <Filter>Play\Girls</Filter>
+    </ClInclude>
+    <ClInclude Include="Zdrada.h">
+      <Filter>Play\Girls</Filter>
+    </ClInclude>
+    <ClInclude Include="Azazel.h">
+      <Filter>Play\Girls</Filter>
+    </ClInclude>
+    <ClInclude Include="Justice.h">
+      <Filter>Play\Girls</Filter>
+    </ClInclude>
+    <ClInclude Include="Lucifer.h">
+      <Filter>Play\Girls</Filter>
+    </ClInclude>
+    <ClInclude Include="Trap.h">
+      <Filter>Play</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

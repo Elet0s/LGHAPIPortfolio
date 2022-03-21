@@ -1,7 +1,10 @@
 #pragma once
-class PlayLevel
+#include <GameEngine/GameEngineLevel.h>
+
+// Ό³Έν :
+class PlayLevel : public GameEngineLevel
 {
-private:
+public:
 	// constrcuter destructer
 	PlayLevel();
 	~PlayLevel();
@@ -11,4 +14,11 @@ private:
 	PlayLevel(PlayLevel&& _Other) noexcept = delete;
 	PlayLevel& operator=(const PlayLevel& _Other) = delete;
 	PlayLevel& operator=(PlayLevel&& _Other) noexcept = delete;
+
+protected:
+	void Loading() override;
+	void Update() override;
+	void LevelChangeStart() override;
+private:
+
 };

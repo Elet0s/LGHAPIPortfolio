@@ -1,7 +1,10 @@
 #pragma once
-class TitleBackGround
+#include <GameEngine/GameEngineActor.h>
+
+// Ό³Έν :
+class TitleBackGround : public GameEngineActor
 {
-private:
+public:
 	// constrcuter destructer
 	TitleBackGround();
 	~TitleBackGround();
@@ -11,4 +14,14 @@ private:
 	TitleBackGround(TitleBackGround&& _Other) noexcept = delete;
 	TitleBackGround& operator=(const TitleBackGround& _Other) = delete;
 	TitleBackGround& operator=(TitleBackGround&& _Other) noexcept = delete;
+
+protected:
+	void Start() override;
+
+	void Render() override;
+
+private:
+
+
 };
+
