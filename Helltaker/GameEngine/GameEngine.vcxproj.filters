@@ -1,53 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="GameEngineLevel.h">
-      <Filter>Object</Filter>
+    <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="GameEngineEnum.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineRenderer.h">
+      <Filter>Object\Actor\SubObject</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineActor.h">
       <Filter>Object\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="GameEngineLevel.h">
+      <Filter>Object</Filter>
+    </ClInclude>
     <ClInclude Include="GameEngineImageManager.h">
       <Filter>Resources\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineSound.h">
-      <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineImage.h">
       <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineSound.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineActorSubObject.h">
+      <Filter>Object\Actor\SubObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameEngineLevel.cpp">
-      <Filter>Object</Filter>
+    <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="GameEngineRenderer.cpp">
+      <Filter>Object\Actor\SubObject</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineActor.cpp">
       <Filter>Object\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="GameEngineLevel.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
     <ClCompile Include="GameEngineImageManager.cpp">
       <Filter>Resources\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineImage.cpp">
+      <Filter>Resources</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineSound.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngnieImage.cpp">
-      <Filter>Resources</Filter>
+    <ClCompile Include="GameEngineActorSubObject.cpp">
+      <Filter>Object\Actor\SubObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Global">
+      <UniqueIdentifier>{9b561a60-0b7c-4faa-ad7c-4f2b78c9fb97}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Object">
-      <UniqueIdentifier>{8eca677e-8a5f-4aab-966f-1a4f561c0d55}</UniqueIdentifier>
+      <UniqueIdentifier>{594fc00e-0c70-47f5-91c6-fa0488b39a0c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Actor">
-      <UniqueIdentifier>{b49c9472-c64b-4e40-8128-dbbf5da66248}</UniqueIdentifier>
+      <UniqueIdentifier>{6b3106b6-1434-42b9-97af-b3fc8f995f44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Actor\SubObject">
+      <UniqueIdentifier>{fef1ded9-bc0b-4c0e-b3e6-5b0b7dc4f7d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources">
-      <UniqueIdentifier>{15443b73-561a-482c-966e-47cc93d50db1}</UniqueIdentifier>
+      <UniqueIdentifier>{ab92036d-1728-406b-8f11-0a1d40bdee96}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\Manager">
-      <UniqueIdentifier>{4d4b9d9c-d5f8-4dbb-a179-cf0537a1a721}</UniqueIdentifier>
+      <UniqueIdentifier>{d49b0ea3-d09e-418c-bc0e-6aef8e6805ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

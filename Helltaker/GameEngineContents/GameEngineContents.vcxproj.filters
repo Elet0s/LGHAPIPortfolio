@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Helltaker.h" />
+    <ClInclude Include="TitleBackGround.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="BotUi.h">
+      <Filter>Play\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Play\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="MBotUi.h">
+      <Filter>Menu\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuBackGround.h">
+      <Filter>Menu\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Play\Global</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Helltaker.cpp" />
+    <ClCompile Include="TitleBackGround.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="BotUi.cpp">
+      <Filter>Play\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Play\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="MBotUi.cpp">
+      <Filter>Menu\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuBackGround.cpp">
+      <Filter>Menu\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Play\Global</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Play">
+      <UniqueIdentifier>{1ab4c140-9de4-4b37-9bf5-ff713b3712e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title">
+      <UniqueIdentifier>{82e96824-63cc-4475-915a-093fbdb62f61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{f9380529-55b2-41a4-8293-6fd0fb450043}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Global">
+      <UniqueIdentifier>{7dd13e20-a8bd-47a9-8755-d248a78cc7be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menu">
+      <UniqueIdentifier>{d10815ad-a270-4b52-a308-687ae7f95fec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menu\Global">
+      <UniqueIdentifier>{0c2ab7f7-0066-4c13-b376-fc504d629c88}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

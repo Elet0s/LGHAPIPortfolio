@@ -1,6 +1,7 @@
 #include "PlayLevel.h"
 #include "Player.h"
-#include "GameUi.h"
+#include "BotUI.h"
+#include "Map.h"
 
 enum class ORDER
 {
@@ -29,6 +30,6 @@ void PlayLevel::Update()
 }
 void PlayLevel::LevelChangeStart()
 {
+	CreateActor<Map>("Map", (int)ORDER::BACKGROUND);
 	CreateActor<Player>("Player", (int)ORDER::PLAYER);
-	CreateActor<GameUi>("GameUi", (int)ORDER::UI);
 }

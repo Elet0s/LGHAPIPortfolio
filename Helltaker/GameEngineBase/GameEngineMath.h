@@ -1,4 +1,6 @@
 #pragma once
+
+// Ό³Έν :
 class GameEngineMath
 {
 private:
@@ -11,6 +13,11 @@ private:
 	GameEngineMath(GameEngineMath&& _Other) noexcept = delete;
 	GameEngineMath& operator=(const GameEngineMath& _Other) = delete;
 	GameEngineMath& operator=(GameEngineMath&& _Other) noexcept = delete;
+
+protected:
+
+private:
+
 };
 
 class float4
@@ -32,18 +39,22 @@ public:
 	{
 		return static_cast<int>(x);
 	}
+
 	int iy() const
 	{
 		return static_cast<int>(y);
 	}
+
 	int iz() const
 	{
 		return static_cast<int>(z);
 	}
+
 	int iw() const
 	{
 		return static_cast<int>(w);
 	}
+
 	int hix() const
 	{
 		return static_cast<int>(x * 0.5f);
@@ -62,6 +73,16 @@ public:
 	float4 Half() const
 	{
 		return { x * 0.5f, y * 0.5f , z * 0.5f, 1.0f };
+	}
+
+	float4 operator-(const float4& _Other) const
+	{
+		return { x - _Other.x, y - _Other.y, z - _Other.z, 1.0f };
+	}
+
+	float4 operator+(const float4& _Other) const
+	{
+		return { x + _Other.x, y + _Other.y, z + _Other.z, 1.0f };
 	}
 
 public:
@@ -85,6 +106,8 @@ public:
 	{
 
 	}
+
+
 };
 
 struct GameEngineRect

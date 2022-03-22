@@ -2,19 +2,22 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Platform">
-      <UniqueIdentifier>{6c4dda9a-a529-4798-a779-86b00bcf2ea6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Debug">
-      <UniqueIdentifier>{ef1bf2d7-0a43-49e4-b8d7-a172c39731d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object">
-      <UniqueIdentifier>{7fc75ef8-7df7-43b8-a094-38276cd11e7e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Math">
-      <UniqueIdentifier>{c4e0b93b-e767-4070-bf92-116cd9d884c7}</UniqueIdentifier>
+      <UniqueIdentifier>{145decad-c276-4fdd-a319-89a3d3c3fdcd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Sound">
-      <UniqueIdentifier>{174a5d9f-f338-421f-8902-c072a927ba29}</UniqueIdentifier>
+      <UniqueIdentifier>{236bc764-8170-40d4-965d-82b5f545f1a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{4c9ad120-bb92-46c0-ae2e-0f143655fbce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{db75f716-ccf4-42c2-b325-b26762129991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{9d77faa2-dad0-4213-85c8-932f1ac2b24c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="String">
+      <UniqueIdentifier>{bb83a665-60d8-4fb9-b1a6-9f3f96f7d95a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +33,9 @@
     <ClCompile Include="GameEngineNameObject.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngineString.cpp">
+      <Filter>String</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngineWindow.h">
@@ -43,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="GameEngineNameObject.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineString.h">
+      <Filter>String</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

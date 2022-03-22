@@ -1,11 +1,15 @@
 #pragma once
-#include<GameEngineBase/GameEngineNameObject.h>
-#include<GameEngineBase/GameEngineMath.h>
+#include <GameEngineBase/GameEngineNameObject.h>
+#include <GameEngineBase/GameEngineMath.h>
+#include "GameEngineEnum.h"
+#include <list>
 
 // 설명 :
+class GameEngineRenderer;
 class GameEngineLevel;
 class GameEngineActor : public GameEngineNameObject
 {
+	//// ActorBase
 public:
 	friend GameEngineLevel;
 
@@ -59,6 +63,20 @@ private:
 		Level_ = _Level;
 	}
 
+	/////////////////////////////////////////////////// Render
+public:
+	// 벡터의 값
+	// 가장 빠를겁니다.
+	// 디폴트 인자는 선언에서만 지정 가능합니다.
+	GameEngineRenderer* CreateRenderer(const std::string& _Image, RenderPivot _PivotType = RenderPivot::CENTER, const float4& _PivotPos = { 0,0 });
 
+	void Renderering();
+
+private:
+	// 이터레이터
+	std::list<GameEngineRenderer*>::iterator StartRenderIter;
+	std::list<GameEngineRenderer*>::iterator EndRenderIter;
+
+	std::list<GameEngineRenderer*> RenderList_;
 };
 

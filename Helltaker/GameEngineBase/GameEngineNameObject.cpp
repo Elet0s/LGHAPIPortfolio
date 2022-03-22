@@ -1,10 +1,10 @@
-#include"GameEngineNameObject.h"
+#include "GameEngineNameObject.h"
 
 GameEngineNameObject::GameEngineNameObject()
 {
-
 }
+
 GameEngineNameObject::~GameEngineNameObject()
 {
-
 }
+

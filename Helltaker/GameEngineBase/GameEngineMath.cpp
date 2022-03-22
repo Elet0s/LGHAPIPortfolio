@@ -1,10 +1,10 @@
-#include"GameEngineMath.h"
+#include "GameEngineMath.h"
 
 GameEngineMath::GameEngineMath()
 {
-
 }
+
 GameEngineMath::~GameEngineMath()
 {
-
 }
+
