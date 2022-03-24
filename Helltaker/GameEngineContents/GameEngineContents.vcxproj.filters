@@ -20,16 +20,16 @@
     <ClInclude Include="BotUi.h">
       <Filter>Play\Global</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Play\Global</Filter>
-    </ClInclude>
-    <ClInclude Include="MBotUi.h">
-      <Filter>Menu\Global</Filter>
-    </ClInclude>
     <ClInclude Include="MenuBackGround.h">
       <Filter>Menu\Global</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
+      <Filter>Play\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyEx.h">
+      <Filter>Play\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="ChapterBackGound.h">
       <Filter>Play\Global</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,16 +53,16 @@
     <ClCompile Include="BotUi.cpp">
       <Filter>Play\Global</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Play\Global</Filter>
-    </ClCompile>
-    <ClCompile Include="MBotUi.cpp">
-      <Filter>Menu\Global</Filter>
-    </ClCompile>
     <ClCompile Include="MenuBackGround.cpp">
       <Filter>Menu\Global</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
+      <Filter>Play\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyEx.cpp">
+      <Filter>Play\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="ChapterBackGound.cpp">
       <Filter>Play\Global</Filter>
     </ClCompile>
   </ItemGroup>

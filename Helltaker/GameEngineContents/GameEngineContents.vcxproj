@@ -127,6 +127,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,15 +156,15 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="ChapterBackGound.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Helltaker.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="MBotUi.h">
+    <ClInclude Include="KeyEx.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -201,15 +202,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="ChapterBackGound.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Helltaker.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="MBotUi.cpp">
+    <ClCompile Include="KeyEx.cpp">
       <SubType>
       </SubType>
     </ClCompile>

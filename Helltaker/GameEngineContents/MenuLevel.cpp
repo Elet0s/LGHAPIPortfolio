@@ -8,3 +8,16 @@ MenuLevel::~MenuLevel()
 {
 
 }
+
+void MenuLevel::Loading()
+{
+
+}
+void MenuLevel::Update()
+{
+
+}
+void MenuLevel::LevelChangeStart()
+{
+
+}

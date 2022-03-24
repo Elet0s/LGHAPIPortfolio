@@ -1,5 +1,7 @@
 #pragma once
-class MenuLevel
+#include<GameEngine/GameEngineLevel.h>
+
+class MenuLevel : public  GameEngineLevel
 {
 public:
 	MenuLevel();
@@ -11,7 +13,9 @@ public:
 	MenuLevel& operator=(const MenuLevel& _Other) = delete;
 	MenuLevel& operator=(MenuLevel&& _Other) noexcept = delete;
 protected:
-
+	void Loading() override;
+	void Update() override;
+	void LevelChangeStart() override;
 private:
 
 };
