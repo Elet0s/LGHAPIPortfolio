@@ -36,7 +36,6 @@ void Helltaker::GameInit()
 
 
 	CreateLevel<TitleLevel>("Title");
-	//CreateLevel<MenuLevel>("Menu");
 	CreateLevel<PlayLevel>("Play");
 	ChangeLevel("Play");
 }
