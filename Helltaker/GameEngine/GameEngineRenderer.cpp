@@ -13,6 +13,7 @@ GameEngineRenderer::GameEngineRenderer()
 	, PivotType_(RenderPivot::CENTER)
 	, ScaleMode_(RenderScaleMode::Image)
 	, TransColor_(RGB(255, 0, 255))
+	, RenderImagePivot_({ 0,0 })
 {
 }
 
@@ -30,6 +31,7 @@ void GameEngineRenderer::SetImageScale()
 
 	ScaleMode_ = RenderScaleMode::Image;
 	RenderScale_ = Image_->GetScale();
+	RenderImageScale_ = Image_->GetScale();
 }
 
 
@@ -66,4 +68,17 @@ void GameEngineRenderer::Render()
 	default:
 		break;
 	}
+}
+
+void GameEngineRenderer::SetIndex(size_t _Index)
+{
+	if (false == Image_->IsCut())
+	{
+		MsgBoxAssert("이미지를 부분적으로 사용할수 있게 잘려지있지 않은 이미지 입니다.");
+		return;
+	}
+
+	RenderImagePivot_ = Image_->GetCutPivot(_Index);
+	RenderScale_ = Image_->GetCutScale(_Index);
+	RenderImageScale_ = Image_->GetCutScale(_Index);
 }

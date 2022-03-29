@@ -66,7 +66,7 @@ public:
 
 public:
 	void Update();
-	void CreateKey(const std::string& _Name);
+	void CreateKey(const std::string& _Name, int _Key);
 
 	bool IsDown(const std::string& _Name);
 	bool IsUp(const std::string& _Name);

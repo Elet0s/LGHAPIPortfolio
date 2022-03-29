@@ -24,18 +24,9 @@ public:
 	GameEngineLevel& operator=(GameEngineLevel&& _Other) noexcept = delete;
 
 protected:
-	// 시점함수
-	// 만들어지면서 리소스나 액터를 만들때 써라
-	virtual void Loading() = 0;
-	// 이 레벨이 현재 레벨일때 해야할일을 실행한다.
-	virtual void Update() = 0;
-	// Current레벨 => Next레벨로 이전할때 현재레벨이 실행하는 함수.
-	virtual void LevelChangeStart() {}
-	// Current레벨 => Next레벨로 이전할때 이전레벨이 실행하는 함수.
-	virtual void LevelChangeEnd() {}
 
 	template<typename ActorType>
-	ActorType* CreateActor(const std::string& _Name, int _Order)
+	ActorType* CreateActor(int _Order = 0, const std::string& _Name = "")
 	{
 		ActorType* NewActor = new ActorType();
 		GameEngineActor* StartActor = NewActor;
@@ -61,8 +52,18 @@ protected:
 		//	FindGroup = AllActor_.find(_Order);
 		//}
 
-		return nullptr;
+		return NewActor;
 	}
+protected:
+	// 시점함수
+	// 만들어지면서 리소스나 액터를 만들때 써라
+	virtual void Loading() = 0;
+	// 이 레벨이 현재 레벨일때 해야할일을 실행한다.
+	virtual void Update() = 0;
+	// Current레벨 => Next레벨로 이전할때 현재레벨이 실행하는 함수.
+	virtual void LevelChangeStart() {}
+	// Current레벨 => Next레벨로 이전할때 이전레벨이 실행하는 함수.
+	virtual void LevelChangeEnd() {}
 
 private:
 	// std::vector로 관리하는게 더 좋다고 생각합니다.
@@ -70,5 +71,6 @@ private:
 
 	void ActorUpdate();
 	void ActorRender();
+	void ActorRelease();
 };
 

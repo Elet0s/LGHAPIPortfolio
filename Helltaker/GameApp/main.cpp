@@ -24,6 +24,7 @@ int __stdcall WinMain(_In_ HINSTANCE hInstance,
     //    거기에 대해서 그냥이라고 한다.
     //    
 
+    new int();
     GameEngine::Start<Helltaker>();
 
 
