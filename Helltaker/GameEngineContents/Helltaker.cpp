@@ -1,10 +1,10 @@
 #include "Helltaker.h"
-#include"TitleLevel.h"
-#include"MenuLevel.h"
-#include"PlayLevel.h"
+#include "TitleLevel.h"
+#include "MenuLevel.h"
+#include "PlayLevel.h"
 #include <GameEngineBase/GameEngineWindow.h>
-#include<GameEngineBase/GameEngineDirectory.h>
-#include<GameEngineBase/GameEngineFile.h>
+#include <GameEngineBase/GameEngineDirectory.h>
+#include <GameEngineBase/GameEngineFile.h>
 #include <GameEngine/GameEngineImageManager.h>
 
 Helltaker::Helltaker()
@@ -34,6 +34,9 @@ void Helltaker::GameInit()
 		GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
 	}
 
+
+	GameEngineImage* Image = GameEngineImageManager::GetInst()->Find("Plyer01.bmp");
+	Image->Cut({ 256, 256 });
 
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");

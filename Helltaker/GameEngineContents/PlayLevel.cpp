@@ -30,6 +30,6 @@ void PlayLevel::Update()
 }
 void PlayLevel::LevelChangeStart()
 {
-	CreateActor<ChapterBackGound>("BackGround", (int)ORDER::BACKGROUND);
-	CreateActor<Player>("Plyer", (int)ORDER::PLAYER);
+	CreateActor<Player>((int)ORDER::PLAYER);
+	CreateActor<BotUI>((int)ORDER::UI);
 }

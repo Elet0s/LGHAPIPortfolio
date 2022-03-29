@@ -21,9 +21,9 @@ void TitleLevel::Loading()
 	// 회사마다 다를수있겠지만
 	// Actor를 만들어야죠?
 
-	CreateActor<TitleBackGround>("TitleLogo", (int)ORDER::TitleBackGround);
+	CreateActor<TitleBackGround>(0);
 
-	CreateActor<TitleLogo>("TitleLogo", (int)ORDER::TitleLogo);
+	CreateActor<TitleLogo>(1);
 
 }
 
