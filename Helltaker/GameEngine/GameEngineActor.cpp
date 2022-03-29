@@ -3,6 +3,7 @@
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngine/GameEngineRenderer.h>
 
+
 GameEngineActor::GameEngineActor()
 	: Level_(nullptr)
 {

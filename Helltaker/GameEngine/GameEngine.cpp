@@ -5,6 +5,7 @@
 #include <GameEngineBase/GameEngineInput.h>
 #include<GameEngineBase/GameEngineTime.h>
 
+
 std::map<std::string, GameEngineLevel*> GameEngine::AllLevel_;
 GameEngineLevel* GameEngine::CurrentLevel_ = nullptr;
 GameEngineLevel* GameEngine::NextLevel_ = nullptr;
@@ -30,7 +31,7 @@ void GameEngine::GameInit()
 {
 
 }
-
+    
 void GameEngine::GameLoop()
 {
 
@@ -98,6 +99,8 @@ void GameEngine::EngineLoop()
     CurrentLevel_->ActorRender();
     WindowMainImage_->BitCopy(BackBufferImage_);
 
+    CurrentLevel_->ActorRelease();
+
 }
 
 void GameEngine::EngineEnd()
@@ -121,7 +124,7 @@ void GameEngine::EngineEnd()
 
     GameEngineWindow::Destroy();
     GameEngineInput::Destroy();
-    GameEngineTime::Destroy();
+    GameEngineWindow::Destroy();
 }
 
 void GameEngine::ChangeLevel(const std::string& _Name)
