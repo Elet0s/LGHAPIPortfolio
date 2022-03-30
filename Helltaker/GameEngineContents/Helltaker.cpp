@@ -1,7 +1,7 @@
 #include "Helltaker.h"
 #include "TitleLevel.h"
 #include "MenuLevel.h"
-#include "PlayLevel.h"
+#include "Chapter01.h"
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngineBase/GameEngineDirectory.h>
 #include <GameEngineBase/GameEngineFile.h>
@@ -17,7 +17,7 @@ Helltaker::~Helltaker()
 
 void Helltaker::GameInit()
 {
-	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 0, 0 }, { 1280, 720 });
+	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 0, 0 }, { 1920, 1080 });
 
 
 	// 현재 디렉토리
@@ -35,12 +35,11 @@ void Helltaker::GameInit()
 	}
 
 
-	GameEngineImage* Image = GameEngineImageManager::GetInst()->Find("Plyer01.bmp");
-	Image->Cut({ 256, 256 });
-
+//	GameEngineImage* Image = GameEngineImageManager::GetInst()->Find("Plyer01.bmp");
+//	Image->Cut({ 89, 92 });
 	CreateLevel<TitleLevel>("Title");
-	CreateLevel<PlayLevel>("Play");
-	ChangeLevel("Play");
+	CreateLevel<Chapter01>("Chapter01");
+	ChangeLevel("Chapter01");
 }
 
 void Helltaker::GameLoop()

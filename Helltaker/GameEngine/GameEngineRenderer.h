@@ -1,7 +1,9 @@
 #pragma once
 #include "GameEngineActorSubObject.h"
 #include "GameEngineEnum.h"
-// 설명 :
+
+
+// 설명 : 그리는걸 도와주는 클래스
 class GameEngineImage;
 class GameEngineRenderer : public GameEngineActorSubObject
 {
@@ -38,6 +40,7 @@ public:
 		ScaleMode_ = _Mode;
 	}
 
+	// 렌더러 스케일 뿐 아니라 이미지 스케일도 같이 맞춰줌
 	void SetImageScale();
 
 	inline void SetScale(const float4& _Scale)
@@ -47,20 +50,29 @@ public:
 	}
 
 	void SetImage(const std::string& _Name);
+
+	// 
 	void SetIndex(size_t _Index);
+
+
 
 protected:
 	void Render();
 
 private:
 	GameEngineImage* Image_;
-	RenderPivot PivotType_; // 센터 bot
+	RenderPivot PivotType_; // 센터 / bot
 	RenderScaleMode ScaleMode_;
+
+
 	float4 RenderPivot_;
+
+
 	float4 RenderScale_;
+
 	float4 RenderImageScale_;
 	float4 RenderImagePivot_;
+
 	unsigned int TransColor_;
 
 };
-

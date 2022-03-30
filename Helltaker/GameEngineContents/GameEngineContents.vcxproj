@@ -156,7 +156,31 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Chapter01.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Chapter02.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Chapter03.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="ChapterBackGound.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="ChapterSelect.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="EndEvent.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Event.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -168,7 +192,19 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="LifeCounter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Lock.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="MenuBackGround.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="MenuBotUI.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -176,11 +212,23 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Npc.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Player.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="PlayLevel.h">
+    <ClInclude Include="Skel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="StartEvent.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Ston.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -196,13 +244,41 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Wall.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BotUi.cpp">
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Chapter01.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Chapter02.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Chapter03.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="ChapterBackGound.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="ChapterSelect.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="EndEvent.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -214,7 +290,19 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="LifeCounter.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Lock.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="MenuBackGround.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MenuBotUI.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -222,11 +310,23 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Npc.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Player.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="PlayLevel.cpp">
+    <ClCompile Include="Skel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="StartEvent.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Ston.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -239,6 +339,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="TitleLogo.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
       <SubType>
       </SubType>
     </ClCompile>

@@ -3,7 +3,6 @@
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngine/GameEngineRenderer.h>
 
-
 GameEngineActor::GameEngineActor()
 	: Level_(nullptr)
 {
@@ -28,10 +27,9 @@ GameEngineActor::~GameEngineActor()
 
 void GameEngineActor::DebugRectRender()
 {
-	// 선생님은 기본적으로 중앙을 기준으로하는걸 좋아합니다.
+	// 선생님은 기본적으로 중앙을 기준으로하는걸 선호
 
 	GameEngineRect DebugRect(Position_, Scale_);
-
 
 	Rectangle(
 		GameEngine::BackBufferDC(),
@@ -40,6 +38,19 @@ void GameEngineActor::DebugRectRender()
 		DebugRect.CenterRight(),
 		DebugRect.CenterBot()
 	);
+}
+
+GameEngineRenderer* GameEngineActor::CreateRenderer(RenderPivot _PivotType /*= RenderPivot::CENTER*/, const float4& _PivotPos /*= { 0,0 }*/)
+{
+	GameEngineRenderer* NewRenderer = new GameEngineRenderer();
+
+	NewRenderer->SetActor(this);
+	// NewRenderer->SetImageScale();
+	NewRenderer->SetPivot(_PivotPos);
+	NewRenderer->SetType(_PivotType);
+
+	RenderList_.push_back(NewRenderer);
+	return NewRenderer;
 }
 
 GameEngineRenderer* GameEngineActor::CreateRenderer(
@@ -52,7 +63,7 @@ GameEngineRenderer* GameEngineActor::CreateRenderer(
 
 	NewRenderer->SetActor(this);
 	NewRenderer->SetImage(_Image);
-	NewRenderer->SetImageScale();
+
 	NewRenderer->SetPivot(_PivotPos);
 	NewRenderer->SetType(_PivotType);
 
@@ -87,3 +98,6 @@ GameEngineRenderer* GameEngineActor::CreateRendererToScale(
 	RenderList_.push_back(NewRenderer);
 	return NewRenderer;
 }
+
+
+
