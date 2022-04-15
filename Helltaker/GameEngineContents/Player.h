@@ -19,18 +19,10 @@ protected:
 
 private:
 	float Speed_;
+
 	void Start() override;
 	void Update() override;
 	void Render() override;
-
-
-private:
-	void IdleUpdate();
-	void MoveUpdate();
-	void AttackUpdate();
-
-	void IdleStart();
-	void MoveStart();
 };
 
 

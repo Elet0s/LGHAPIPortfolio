@@ -16,6 +16,7 @@ Player::~Player()
 {
 }
 
+
 void Player::Start()
 {
 	SetPosition(GameEngineWindow::GetScale().Half());
@@ -47,6 +48,8 @@ void Player::Update()
 	{
 		SetMove(float4::LEFT * GameEngineTime::GetDeltaTime() * Speed_);
 	}
+
+
 	if (true == GameEngineInput::GetInst()->IsPress("MoveUp"))
 	{
 		SetMove(float4::UP * GameEngineTime::GetDeltaTime() * Speed_);
