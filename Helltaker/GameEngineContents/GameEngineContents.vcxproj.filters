@@ -23,9 +23,6 @@
     <ClInclude Include="Player.h">
       <Filter>Chapter\Global</Filter>
     </ClInclude>
-    <ClInclude Include="ChapterBackGound.h">
-      <Filter>Chapter\Global</Filter>
-    </ClInclude>
     <ClInclude Include="Chapter01.h">
       <Filter>Level\Chapter</Filter>
     </ClInclude>
@@ -54,7 +51,7 @@
       <Filter>Chapter\Object</Filter>
     </ClInclude>
     <ClInclude Include="LifeCounter.h">
-      <Filter>Chapter\Ui</Filter>
+      <Filter>Chapter\Object\Ui</Filter>
     </ClInclude>
     <ClInclude Include="Event.h">
       <Filter>Chapter\Global</Filter>
@@ -70,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="EndEvent.h">
       <Filter>Menu\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="ChapterBackGound.h">
+      <Filter>Chapter\BackGround</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -93,9 +93,6 @@
       <Filter>Menu\Global</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Chapter\Global</Filter>
-    </ClCompile>
-    <ClCompile Include="ChapterBackGound.cpp">
       <Filter>Chapter\Global</Filter>
     </ClCompile>
     <ClCompile Include="Chapter01.cpp">
@@ -126,7 +123,7 @@
       <Filter>Chapter\Object</Filter>
     </ClCompile>
     <ClCompile Include="LifeCounter.cpp">
-      <Filter>Chapter\Ui</Filter>
+      <Filter>Chapter\Object\Ui</Filter>
     </ClCompile>
     <ClCompile Include="Event.cpp">
       <Filter>Chapter\Global</Filter>
@@ -142,6 +139,9 @@
     </ClCompile>
     <ClCompile Include="EndEvent.cpp">
       <Filter>Menu\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="ChapterBackGound.cpp">
+      <Filter>Chapter\BackGround</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,14 +169,17 @@
     <Filter Include="Chapter\Object">
       <UniqueIdentifier>{863f60f5-d79e-481f-a700-23ada83a2190}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chapter\Ui">
-      <UniqueIdentifier>{33b06d02-efad-4c99-b6e3-a2b4e0f3fa34}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Menu\UI">
       <UniqueIdentifier>{59e90494-457d-4c4d-9047-09380ddfdaa1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Menu\Event">
       <UniqueIdentifier>{4c5edd6c-88b2-4d0d-9978-bee3ec2318df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chapter\BackGround">
+      <UniqueIdentifier>{f7cb7e5a-3c4b-4ddb-b302-0163e3ad4f0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chapter\Object\Ui">
+      <UniqueIdentifier>{33b06d02-efad-4c99-b6e3-a2b4e0f3fa34}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
