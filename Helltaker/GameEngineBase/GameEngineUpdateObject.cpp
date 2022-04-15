@@ -1,13 +1,13 @@
 #include "GameEngineUpdateObject.h"
 
-GameEngineUpdateObject::GameEngineUpdateObject()
+GameEngineUpdateObject::GameEngineUpdateObject() 
 	: IsUpdate_(true)
 	, IsDeath_(false)
 	, IsReleaseUpdate_(false)
 {
 }
 
-GameEngineUpdateObject::~GameEngineUpdateObject()
+GameEngineUpdateObject::~GameEngineUpdateObject() 
 {
 }
 

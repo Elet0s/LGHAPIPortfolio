@@ -27,7 +27,7 @@ public:
 	// Bitmap Scale
 	inline float4 GetScale()
 	{
-		return float4(static_cast<float>(Info_.bmWidth), static_cast<float>(Info_.bmHeight));
+  		return float4(static_cast<float>(Info_.bmWidth), static_cast<float>(Info_.bmHeight));
 	}
 
 	inline HDC ImageDC()
@@ -53,19 +53,30 @@ public:
 		const float4& _CopyScale,
 		const float4& _OtherPivot, const float4& _OtherScale, unsigned int _TransColor);
 
+	void AlphaCopy(GameEngineImage* _Other, const float4& _CopyPos,
+		const float4& _CopyScale,
+		const float4& _OtherPivot, const float4& _OtherScale, unsigned int _TransColor);
+
 	void Cut(const float4& _CutSize);
 
-	bool IsCut()
+	void CutCount(int _x, int _y);
+
+	inline bool IsCut()
 	{
 		return 0 != CutPivot_.size();
 	}
 
-	float4 GetCutPivot(size_t _Index)
+	inline size_t GetCutCount()
+	{
+		return CutPivot_.size();
+	}
+
+	inline float4 GetCutPivot(size_t _Index)
 	{
 		return CutPivot_[_Index];
 	}
 
-	float4 GetCutScale(size_t _Index)
+	inline float4 GetCutScale(size_t _Index)
 	{
 		return CutScale_[_Index];
 	}
@@ -75,6 +86,13 @@ public:
 		CutPivot_.push_back(_CutPos);
 		CutScale_.push_back(_CutScale);
 	}
+
+	inline int GetImagePixel(const float4& _Pos) 
+	{
+		return GetImagePixel(_Pos.ix(), _Pos.iy());
+	}
+
+	int GetImagePixel(int _x, int _y);
 
 protected:
 
