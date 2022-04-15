@@ -34,7 +34,7 @@ SoundSystemCreater CreateInst = SoundSystemCreater();
 
 GameEngineSound::GameEngineSound() 
 {
-	// FMOD::System_Create();
+	//FMOD::System_Create();
 }
 
 GameEngineSound::~GameEngineSound() 
