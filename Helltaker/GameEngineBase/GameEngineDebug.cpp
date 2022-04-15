@@ -2,11 +2,11 @@
 
 
 
-GameEngineDebug::GameEngineDebug() 
+GameEngineDebug::GameEngineDebug()
 {
 }
 
-GameEngineDebug::~GameEngineDebug() 
+GameEngineDebug::~GameEngineDebug()
 {
 }
 

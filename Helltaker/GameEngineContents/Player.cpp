@@ -8,7 +8,7 @@
 #include <GameEngine/GameEngineLevel.h> 
 
 Player::Player()
-	: Speed_(100.0f)
+	: Speed_(150.0f)
 {
 }
 
@@ -16,16 +16,16 @@ Player::~Player()
 {
 }
 
-
 void Player::Start()
 {
 	SetPosition(GameEngineWindow::GetScale().Half());
 	SetScale(GameEngineWindow::GetScale());
+	CreateRenderer("Plyer01.bmp");
 
-	GameEngineRenderer* Render = CreateRenderer("Plyer01.bmp");
-	Render->SetIndex(10);
+	//GameEngineRenderer* Render = CreateRenderer("Plyer01.bmp");
+	//Render->SetIndex(10);
 
-	CreateRendererToScale("lovesign.bmp", float4(30.0f, 30.0f), RenderPivot::CENTER, float4(-30.0f, -30.0f));
+	//CreateRendererToScale("lovesign.bmp", float4(30.0f, 30.0f), RenderPivot::CENTER, float4(-30.0f, -30.0f));
 
 	if (false == GameEngineInput::GetInst()->IsKey("MoveLeft"))
 	{
@@ -48,8 +48,6 @@ void Player::Update()
 	{
 		SetMove(float4::LEFT * GameEngineTime::GetDeltaTime() * Speed_);
 	}
-
-
 	if (true == GameEngineInput::GetInst()->IsPress("MoveUp"))
 	{
 		SetMove(float4::UP * GameEngineTime::GetDeltaTime() * Speed_);
@@ -59,7 +57,6 @@ void Player::Update()
 	{
 		SetMove(float4::DOWN * GameEngineTime::GetDeltaTime() * Speed_);
 	}
-
 }
 	void Player::Render()
 	{

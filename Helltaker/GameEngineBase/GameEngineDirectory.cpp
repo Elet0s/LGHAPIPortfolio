@@ -3,25 +3,16 @@
 #include "GameEngineFile.h"
 #include "GameEngineString.h"
 
-GameEngineDirectory::GameEngineDirectory() 
+GameEngineDirectory::GameEngineDirectory()
 {
 	SetCurrentPath();
 }
 
-GameEngineDirectory::GameEngineDirectory(const std::string& _Path) 
-{
-	Path_ = _Path;
-	if (false == IsExits())
-	{
-		MsgBoxAssert("존재하지 않는 폴더로 디렉토리를 초기화하려고 했습니다.");
-	}
-}
-
-GameEngineDirectory::~GameEngineDirectory() 
+GameEngineDirectory::~GameEngineDirectory()
 {
 }
 
-void GameEngineDirectory::MoveParent() 
+void GameEngineDirectory::MoveParent()
 {
 	Path_ = Path_.parent_path();
 }
@@ -44,7 +35,7 @@ void GameEngineDirectory::MoveParent(const std::string& _Name)
 	}
 }
 
-void GameEngineDirectory::Move(const std::string& _Name) 
+void GameEngineDirectory::Move(const std::string& _Name)
 {
 	std::filesystem::path CheckPath = Path_;
 
@@ -59,7 +50,7 @@ void GameEngineDirectory::Move(const std::string& _Name)
 	Path_ = CheckPath;
 }
 
-std::vector<GameEngineFile> GameEngineDirectory::GetAllFile(const std::string& _Ext) 
+std::vector<GameEngineFile> GameEngineDirectory::GetAllFile(const std::string& _Ext)
 {
 	std::filesystem::directory_iterator DirIter(Path_);
 
@@ -97,7 +88,7 @@ std::vector<GameEngineFile> GameEngineDirectory::GetAllFile(const std::string& _
 		}
 
 		Return.push_back(GameEngineFile(Entry.path()));
-		
+
 	}
 
 	return Return;

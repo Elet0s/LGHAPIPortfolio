@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include <vector>
 
-// 설명 :
+// 설명 : 
 class GameEngineImage : public GameEngineNameObject
 {
 public:
@@ -23,9 +23,11 @@ public:
 
 	bool Load(const std::string& _Path);
 
+
+	// Bitmap Scale
 	inline float4 GetScale()
 	{
-  		return float4(static_cast<float>(Info_.bmWidth), static_cast<float>(Info_.bmHeight));
+		return float4(static_cast<float>(Info_.bmWidth), static_cast<float>(Info_.bmHeight));
 	}
 
 	inline HDC ImageDC()
@@ -33,45 +35,37 @@ public:
 		return ImageDC_;
 	}
 
-	// BitBlt
+	// 가장 근본
+	void BitCopy(GameEngineImage* _Other, const float4& _CopyPos,
+		const float4& _CopyScale,
+		const float4& _OtherPivot);
 	void BitCopy(GameEngineImage* _Other);
 	void BitCopy(GameEngineImage* _Other, const float4& _CopyPos);
 	void BitCopyCenter(GameEngineImage* _Other, const float4& _CopyPos);
 	void BitCopyCenterPivot(GameEngineImage* _Other, const float4& _CopyPos, const float4& _CopyPivot);
 	void BitCopyBot(GameEngineImage* _Other, const float4& _CopyPos);
 	void BitCopyBotPivot(GameEngineImage* _Other, const float4& _CopyPos, const float4& _CopyPivot);
-	void BitCopy(GameEngineImage* _Other, const float4& _CopyPos,
-		const float4& _CopyScale,
-		const float4& _OtherPivot);
 
+
+
+	// Trans 이걸로 통일
 	void TransCopy(GameEngineImage* _Other, const float4& _CopyPos,
-		const float4& _CopyScale,
-		const float4& _OtherPivot, const float4& _OtherScale, unsigned int _TransColor);
-
-	void AlphaCopy(GameEngineImage* _Other, const float4& _CopyPos,
 		const float4& _CopyScale,
 		const float4& _OtherPivot, const float4& _OtherScale, unsigned int _TransColor);
 
 	void Cut(const float4& _CutSize);
 
-	void CutCount(int _x, int _y);
-
-	inline bool IsCut()
+	bool IsCut()
 	{
 		return 0 != CutPivot_.size();
 	}
 
-	inline size_t GetCutCount()
-	{
-		return CutPivot_.size();
-	}
-
-	inline float4 GetCutPivot(size_t _Index)
+	float4 GetCutPivot(size_t _Index)
 	{
 		return CutPivot_[_Index];
 	}
 
-	inline float4 GetCutScale(size_t _Index)
+	float4 GetCutScale(size_t _Index)
 	{
 		return CutScale_[_Index];
 	}
@@ -81,13 +75,6 @@ public:
 		CutPivot_.push_back(_CutPos);
 		CutScale_.push_back(_CutScale);
 	}
-
-	inline int GetImagePixel(const float4& _Pos) 
-	{
-		return GetImagePixel(_Pos.ix(), _Pos.iy());
-	}
-
-	int GetImagePixel(int _x, int _y);
 
 protected:
 

@@ -3,14 +3,11 @@
 #include "GameEngineLevel.h"
 #include "GameEngineImageManager.h"
 #include <GameEngineBase/GameEngineInput.h>
-#include<GameEngineBase/GameEngineTime.h>
-
+#include <GameEngineBase/GameEngineTime.h>
 
 std::map<std::string, GameEngineLevel*> GameEngine::AllLevel_;
 GameEngineLevel* GameEngine::CurrentLevel_ = nullptr;
 GameEngineLevel* GameEngine::NextLevel_ = nullptr;
-GameEngineLevel* GameEngine::PrevLevel_ = nullptr;
-
 GameEngine* GameEngine::UserContents_ = nullptr;
 GameEngineImage* GameEngine::BackBufferImage_ = nullptr;
 GameEngineImage* GameEngine::WindowMainImage_ = nullptr; // 그려지면 화면에 진짜 나오게 되는 이미지
@@ -33,7 +30,7 @@ void GameEngine::GameInit()
 {
 
 }
-    
+
 void GameEngine::GameLoop()
 {
 
@@ -72,11 +69,8 @@ void GameEngine::EngineLoop()
     // 어느 시점
     if (nullptr != NextLevel_)
     {
-        PrevLevel_ = CurrentLevel_;
-
         if (nullptr != CurrentLevel_)
         {
-            CurrentLevel_->ActorLevelChangeEnd();
             CurrentLevel_->LevelChangeEnd();
         }
 
@@ -85,11 +79,13 @@ void GameEngine::EngineLoop()
         if (nullptr != CurrentLevel_)
         {
             CurrentLevel_->LevelChangeStart();
-            CurrentLevel_->ActorLevelChangeStart();
         }
 
         NextLevel_ = nullptr;
         GameEngineTime::GetInst()->Reset();
+
+        Rectangle(WindowMainImage_->ImageDC(), 0, 0, WindowMainImage_->GetScale().ix(), WindowMainImage_->GetScale().iy());
+        Rectangle(BackBufferImage_->ImageDC(), 0, 0, BackBufferImage_->GetScale().ix(), BackBufferImage_->GetScale().iy());
     }
 
     if (nullptr == CurrentLevel_)
@@ -98,12 +94,12 @@ void GameEngine::EngineLoop()
     }
 
     GameEngineInput::GetInst()->Update();
+
     // 레벨수준 시간제한이 있는 게임이라면
     // 매 프레임마다 시간을 체크해야하는데 그런일을 
     CurrentLevel_->Update();
-    CurrentLevel_->ActorUpdate(); 
+    CurrentLevel_->ActorUpdate();
     CurrentLevel_->ActorRender();
-    CurrentLevel_->CollisionDebugRender();
     WindowMainImage_->BitCopy(BackBufferImage_);
 
     CurrentLevel_->ActorRelease();
@@ -127,11 +123,9 @@ void GameEngine::EngineEnd()
     }
 
 
-    GameEngineSound::AllResourcesDestroy();
     GameEngineImageManager::Destroy();
-
-    GameEngineWindow::Destroy();
     GameEngineInput::Destroy();
+    GameEngineTime::Destroy();
     GameEngineWindow::Destroy();
 }
 

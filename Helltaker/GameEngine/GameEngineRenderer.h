@@ -1,13 +1,13 @@
 #pragma once
 #include "GameEngineActorSubObject.h"
 #include "GameEngineEnum.h"
-// 설명 :
+
+
+// 설명 : 그리는걸 도와주는 클래스
 class GameEngineImage;
-class GameEngineFolderImage;
 class GameEngineRenderer : public GameEngineActorSubObject
 {
 	friend GameEngineActor;
-	friend GameEngineLevel;
 
 public:
 	// constrcuter destructer
@@ -30,12 +30,7 @@ public:
 		RenderPivot_ = _Pos;
 	}
 
-	inline float4 GetPivot()
-	{
-		return RenderPivot_;
-	}
-
-	inline void SetPivotType(const RenderPivot& _Type)
+	inline void SetType(const RenderPivot& _Type)
 	{
 		PivotType_ = _Type;
 	}
@@ -45,6 +40,7 @@ public:
 		ScaleMode_ = _Mode;
 	}
 
+	// 렌더러 스케일 뿐 아니라 이미지 스케일도 같이 맞춰줌
 	void SetImageScale();
 
 	inline void SetScale(const float4& _Scale)
@@ -53,84 +49,30 @@ public:
 		RenderScale_ = _Scale;
 	}
 
-	inline float4 GetScale()
-	{
-		return RenderScale_;
-	}
-
-	inline float4 GetImagePivot()
-	{
-		return RenderImagePivot_;
-	}
-
-	inline float4 GetImageScale()
-	{
-		return RenderImageScale_;
-	}
-
-	inline GameEngineImage* GetImage()
-	{
-		return Image_;
-	}
-
-	inline void SetAlpha(unsigned int _Alpha)
-	{
-		Alpha_ = _Alpha;
-
-		if (Alpha_ >= 255)
-		{
-			Alpha_ = 255;
-		}
-	}
-
-	void CameraEffectOff()
-	{
-		IsCameraEffect_ = false;
-	}
-
-	void CameraEffectOn()
-	{
-		IsCameraEffect_ = true;
-	}
-
-	void SetPause(bool _Value)
-	{
-		Pause_ = _Value;
-	}
-
-	void PauseOn() 
-	{
-		Pause_ = true;
-	}
-
-	void PauseOff()
-	{
-		Pause_ = false;
-	}
-
-	void PauseSwitch()
-	{
-		Pause_ = !Pause_;
-	}
-
-	void SetImageScale();
-
 	void SetImage(const std::string& _Name);
+
+	// 
 	void SetIndex(size_t _Index);
 
+
+
 protected:
-	// EngineImage의 TransCopy 로 이미지를 백버퍼에 그린다.
 	void Render();
 
 private:
 	GameEngineImage* Image_;
-	RenderPivot PivotType_; // 센터 bot
+	RenderPivot PivotType_; // 센터 / bot
 	RenderScaleMode ScaleMode_;
+
+
 	float4 RenderPivot_;
+
+
 	float4 RenderScale_;
+
 	float4 RenderImageScale_;
 	float4 RenderImagePivot_;
+
 	unsigned int TransColor_;
 
 };
-
