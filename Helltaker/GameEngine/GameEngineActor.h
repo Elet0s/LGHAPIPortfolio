@@ -15,6 +15,7 @@ class GameEngineLevel;
 class GameEngineRenderer;
 class GameEngineCollision;
 class GameEngineActor : public GameEngineNameObject, public GameEngineUpdateObject
+
 {
 //// ActorBase
 public:
@@ -29,17 +30,10 @@ public:
 	GameEngineActor(GameEngineActor&& _Other) noexcept = delete;
 	GameEngineActor& operator=(const GameEngineActor& _Other) = delete;
 	GameEngineActor& operator=(GameEngineActor&& _Other) noexcept = delete;
-
-	inline GameEngineLevel* GetLevel() 
+	inline GameEngineLevel* GetLevel()
 	{
 		return Level_;
 	}
-
-	inline float4 GetCameraEffectPosition()
-	{
-		return Position_ - GetLevel()->GetCameraPos();
-	}
-
 	inline float4 GetPosition()
 	{
 		return Position_;
@@ -98,7 +92,9 @@ private:
 	/////////////////////////////////////////////////// Render
 public:
 	// 벡터의 값
-	GameEngineRenderer* CreateRenderer(int _Order = static_cast<int>(EngineMax::RENDERORDERMAX), RenderPivot _PivotType = RenderPivot::CENTER, const float4 & _PivotPos = {0,0});
+	// 가장 빠를겁니다.
+	// 디폴트 인자는 선언에서만 지정 가능합니다.
+	GameEngineRenderer* CreateRenderer(const std::string& _Image, RenderPivot _PivotType = RenderPivot::CENTER, const float4& _PivotPos = { 0,0 });
 
 	// 가장 빠를겁니다.
 	// 디폴트 인자는 선언에서만 지정 가능합니다.

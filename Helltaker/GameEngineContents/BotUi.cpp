@@ -11,8 +11,8 @@ BotUI::~BotUI()
 
 void BotUI::Start()
 {
-	SetPosition({ 960,1080 });
-	SetScale({ 1920, 200 });
+	SetPosition({ 640,600 });
+	SetScale({ 1280, 200 });
 }
 
 void BotUI::Render()

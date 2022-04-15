@@ -1,4 +1,4 @@
-#include "Chapter01.h"
+#include "PlayLevel.h"
 #include "Player.h"
 #include "BotUI.h"
 #include "ChapterBackGound.h"
@@ -11,25 +11,25 @@ enum class ORDER
 	UI
 };
 
-Chapter01::Chapter01()
+PlayLevel::PlayLevel()
 {
 }
 
-Chapter01::~Chapter01()
+PlayLevel::~PlayLevel()
 {
 }
 
-void Chapter01::Loading()
+void PlayLevel::Loading()
 {
 	CreateActor<Player>((int)ORDER::PLAYER);
 	CreateActor<ChapterBackGound>((int)ORDER::BACKGROUND);
 }
 
-void Chapter01::Update()
+void PlayLevel::Update()
 {
 
 }
-void Chapter01::LevelChangeStart()
+void PlayLevel::LevelChangeStart()
 {
 
 }
