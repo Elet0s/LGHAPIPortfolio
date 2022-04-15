@@ -16,7 +16,7 @@ public:
 	GameEngineNameObject& operator=(GameEngineNameObject&& _Other) noexcept = delete;
 
 	// 그냥 std::string으로 하면 값이 복사가 되면서 문제가 많아진다.
-	inline void SetName(const std::string& _Name)
+	inline void SetName(const std::string& _Name) 
 	{
 		Name_ = _Name;
 	}
