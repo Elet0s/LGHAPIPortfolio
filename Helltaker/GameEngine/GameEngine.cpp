@@ -1,13 +1,16 @@
 #include "GameEngine.h"
-#include <GameEngineBase/GameEngineWindow.h>
 #include "GameEngineLevel.h"
 #include "GameEngineImageManager.h"
+#include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineBase/GameEngineTime.h>
+#include <GameEngineBase/GameEngineSound.h>
 
 std::map<std::string, GameEngineLevel*> GameEngine::AllLevel_;
 GameEngineLevel* GameEngine::CurrentLevel_ = nullptr;
 GameEngineLevel* GameEngine::NextLevel_ = nullptr;
+GameEngineLevel* GameEngine::PrevLevel_ = nullptr;
+
 GameEngine* GameEngine::UserContents_ = nullptr;
 GameEngineImage* GameEngine::BackBufferImage_ = nullptr;
 GameEngineImage* GameEngine::WindowMainImage_ = nullptr; // 그려지면 화면에 진짜 나오게 되는 이미지
@@ -93,7 +96,8 @@ void GameEngine::EngineLoop()
         MsgBoxAssert("Level is nullptr => GameEngine Loop Error");
     }
 
-    GameEngineInput::GetInst()->Update();
+    GameEngineSound::Update();
+    GameEngineInput::GetInst()->Update(GameEngineTime::GetInst()->GetDeltaTime());
 
     // 레벨수준 시간제한이 있는 게임이라면
     // 매 프레임마다 시간을 체크해야하는데 그런일을 

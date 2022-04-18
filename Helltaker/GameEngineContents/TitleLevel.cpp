@@ -1,14 +1,15 @@
+#include <GameEngine/GameEngine.h>
+#include <GameEngine/GameEngineLevel.h>
+#include <GameEngineBase/GameEngineDebug.h>
+#include <GameEngineBase/GameEngineInput.h>
+
 #include "TitleLevel.h"
-#include "GameEngine/GameEngine.h"
 #include "TitleLogo.h"
 #include "TitleBackGround.h"
+#include "MenuLevel.h"
 
-enum class ORDER
-{
-	TitleBackGround,
-	TitleLogo,
-};
 TitleLevel::TitleLevel()
+	:count(0)
 {
 }
 
@@ -18,16 +19,24 @@ TitleLevel::~TitleLevel()
 
 void TitleLevel::Loading()
 {
-	// 회사마다 다를수있겠지만
-	// Actor를 만들어야죠?
-
 	CreateActor<TitleBackGround>(0);
-
 	CreateActor<TitleLogo>(1);
-
 }
 
 void TitleLevel::Update()
 {
-	// GameEngine::GlobalEngine().ChangeLevel("Play");
+	if (true == GameEngineInput::GetInst()->IsDown("Start"))
+	{
+		if (count == 1)
+		{
+			GameEngine::GetInst().ChangeLevel("MenuLevel");
+		}
+		count++;
+	}
+}
+
+void TitleLevel::LevelChangeStart()
+{
+//bgm넣어줄때
+
 }

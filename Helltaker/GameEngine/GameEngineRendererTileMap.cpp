@@ -13,7 +13,7 @@ float4 GameEngineRendererTileMap::GetWorldPostion(int _X, int _Y)
 
 TileIndex GameEngineRendererTileMap::GetTileIndex(const float4& _Pos)
 {
-	return { static_cast<int>(_Pos.x / TileSize_.x), static_cast<int>(_Pos.y / TileSize_.y)};
+	return { static_cast<int>(_Pos.x / TileSize_.x), static_cast<int>(_Pos.y / TileSize_.y) };
 }
 
 

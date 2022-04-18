@@ -169,7 +169,9 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameEngineCollision.h" />
     <ClInclude Include="GameEngineEnum.h" />
+    <ClInclude Include="GameEngineFolderImage.h" />
     <ClInclude Include="GameEngineImage.h">
       <SubType>
       </SubType>
@@ -186,7 +188,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GameEngineSound.h">
+    <ClInclude Include="GameEngineRendererTileMap.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -204,6 +206,8 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameEngineCollision.cpp" />
+    <ClCompile Include="GameEngineFolderImage.cpp" />
     <ClCompile Include="GameEngineImage.cpp">
       <SubType>
       </SubType>
@@ -220,7 +224,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="GameEngineSound.cpp">
+    <ClCompile Include="GameEngineRendererTileMap.cpp">
       <SubType>
       </SubType>
     </ClCompile>

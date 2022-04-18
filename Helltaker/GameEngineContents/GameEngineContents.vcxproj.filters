@@ -3,25 +3,19 @@
   <ItemGroup>
     <ClInclude Include="Helltaker.h" />
     <ClInclude Include="TitleBackGround.h">
-      <Filter>Title</Filter>
+      <Filter>Actor\Title</Filter>
     </ClInclude>
     <ClInclude Include="TitleLogo.h">
-      <Filter>Title</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleLevel.h">
-      <Filter>Level</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuLevel.h">
-      <Filter>Level</Filter>
+      <Filter>Actor\Title</Filter>
     </ClInclude>
     <ClInclude Include="BotUi.h">
-      <Filter>Chapter\Global</Filter>
+      <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
     <ClInclude Include="MenuBackGround.h">
-      <Filter>Menu\Global</Filter>
+      <Filter>Actor\Menu\Global</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Chapter\Global</Filter>
+      <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
     <ClInclude Include="Chapter01.h">
       <Filter>Level\Chapter</Filter>
@@ -33,67 +27,67 @@
       <Filter>Level\Chapter</Filter>
     </ClInclude>
     <ClInclude Include="KeyEx.h">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
     <ClInclude Include="Skel.h">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
     <ClInclude Include="Ston.h">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
     <ClInclude Include="Lock.h">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
     <ClInclude Include="Npc.h">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
     <ClInclude Include="Wall.h">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
     <ClInclude Include="LifeCounter.h">
-      <Filter>Chapter\Object\Ui</Filter>
+      <Filter>Actor\Chapter\Object\Ui</Filter>
     </ClInclude>
     <ClInclude Include="Event.h">
-      <Filter>Chapter\Global</Filter>
+      <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
     <ClInclude Include="MenuBotUI.h">
-      <Filter>Menu\Global</Filter>
+      <Filter>Actor\Menu\Global</Filter>
     </ClInclude>
     <ClInclude Include="ChapterSelect.h">
-      <Filter>Menu\UI</Filter>
+      <Filter>Actor\Menu\UI</Filter>
     </ClInclude>
     <ClInclude Include="StartEvent.h">
-      <Filter>Menu\Event</Filter>
+      <Filter>Actor\Menu\Event</Filter>
     </ClInclude>
     <ClInclude Include="EndEvent.h">
-      <Filter>Menu\Event</Filter>
+      <Filter>Actor\Menu\Event</Filter>
     </ClInclude>
     <ClInclude Include="ChapterBackGound.h">
-      <Filter>Chapter\BackGround</Filter>
+      <Filter>Actor\Chapter\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuLevel.h">
+      <Filter>Level\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLevel.h">
+      <Filter>Level\Title</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
     <ClCompile Include="TitleBackGround.cpp">
-      <Filter>Title</Filter>
+      <Filter>Actor\Title</Filter>
     </ClCompile>
     <ClCompile Include="TitleLogo.cpp">
-      <Filter>Title</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleLevel.cpp">
-      <Filter>Level</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuLevel.cpp">
-      <Filter>Level</Filter>
+      <Filter>Actor\Title</Filter>
     </ClCompile>
     <ClCompile Include="BotUi.cpp">
-      <Filter>Chapter\Global</Filter>
+      <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
     <ClCompile Include="MenuBackGround.cpp">
-      <Filter>Menu\Global</Filter>
+      <Filter>Actor\Menu\Global</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Chapter\Global</Filter>
+      <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
     <ClCompile Include="Chapter01.cpp">
       <Filter>Level\Chapter</Filter>
@@ -105,81 +99,96 @@
       <Filter>Level\Chapter</Filter>
     </ClCompile>
     <ClCompile Include="KeyEx.cpp">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
     <ClCompile Include="Skel.cpp">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
     <ClCompile Include="Ston.cpp">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
     <ClCompile Include="Lock.cpp">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
     <ClCompile Include="Npc.cpp">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
     <ClCompile Include="Wall.cpp">
-      <Filter>Chapter\Object</Filter>
+      <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
     <ClCompile Include="LifeCounter.cpp">
-      <Filter>Chapter\Object\Ui</Filter>
+      <Filter>Actor\Chapter\Object\Ui</Filter>
     </ClCompile>
     <ClCompile Include="Event.cpp">
-      <Filter>Chapter\Global</Filter>
+      <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
     <ClCompile Include="MenuBotUI.cpp">
-      <Filter>Menu\Global</Filter>
+      <Filter>Actor\Menu\Global</Filter>
     </ClCompile>
     <ClCompile Include="ChapterSelect.cpp">
-      <Filter>Menu\UI</Filter>
+      <Filter>Actor\Menu\UI</Filter>
     </ClCompile>
     <ClCompile Include="StartEvent.cpp">
-      <Filter>Menu\Event</Filter>
+      <Filter>Actor\Menu\Event</Filter>
     </ClCompile>
     <ClCompile Include="EndEvent.cpp">
-      <Filter>Menu\Event</Filter>
+      <Filter>Actor\Menu\Event</Filter>
     </ClCompile>
     <ClCompile Include="ChapterBackGound.cpp">
-      <Filter>Chapter\BackGround</Filter>
+      <Filter>Actor\Chapter\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuLevel.cpp">
+      <Filter>Level\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLevel.cpp">
+      <Filter>Level\Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Title">
-      <UniqueIdentifier>{82e96824-63cc-4475-915a-093fbdb62f61}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Level">
       <UniqueIdentifier>{f9380529-55b2-41a4-8293-6fd0fb450043}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Menu">
-      <UniqueIdentifier>{d10815ad-a270-4b52-a308-687ae7f95fec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Menu\Global">
-      <UniqueIdentifier>{0c2ab7f7-0066-4c13-b376-fc504d629c88}</UniqueIdentifier>
     </Filter>
     <Filter Include="Level\Chapter">
       <UniqueIdentifier>{223685c8-350a-49a2-95ca-fea07412aac7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chapter">
-      <UniqueIdentifier>{1ab4c140-9de4-4b37-9bf5-ff713b3712e3}</UniqueIdentifier>
+    <Filter Include="Actor">
+      <UniqueIdentifier>{f903deff-e947-42e2-b8ec-934ed57d271c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chapter\Global">
-      <UniqueIdentifier>{7dd13e20-a8bd-47a9-8755-d248a78cc7be}</UniqueIdentifier>
+    <Filter Include="Actor\Title">
+      <UniqueIdentifier>{82e96824-63cc-4475-915a-093fbdb62f61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chapter\Object">
-      <UniqueIdentifier>{863f60f5-d79e-481f-a700-23ada83a2190}</UniqueIdentifier>
+    <Filter Include="Actor\Menu">
+      <UniqueIdentifier>{d10815ad-a270-4b52-a308-687ae7f95fec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Menu\UI">
+    <Filter Include="Actor\Menu\Global">
+      <UniqueIdentifier>{0c2ab7f7-0066-4c13-b376-fc504d629c88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Menu\UI">
       <UniqueIdentifier>{59e90494-457d-4c4d-9047-09380ddfdaa1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Menu\Event">
+    <Filter Include="Actor\Menu\Event">
       <UniqueIdentifier>{4c5edd6c-88b2-4d0d-9978-bee3ec2318df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chapter\BackGround">
+    <Filter Include="Actor\Chapter">
+      <UniqueIdentifier>{1ab4c140-9de4-4b37-9bf5-ff713b3712e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Chapter\Global">
+      <UniqueIdentifier>{7dd13e20-a8bd-47a9-8755-d248a78cc7be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Chapter\Object">
+      <UniqueIdentifier>{863f60f5-d79e-481f-a700-23ada83a2190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Chapter\Object\Ui">
+      <UniqueIdentifier>{33b06d02-efad-4c99-b6e3-a2b4e0f3fa34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Chapter\BackGround">
       <UniqueIdentifier>{f7cb7e5a-3c4b-4ddb-b302-0163e3ad4f0b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chapter\Object\Ui">
-      <UniqueIdentifier>{33b06d02-efad-4c99-b6e3-a2b4e0f3fa34}</UniqueIdentifier>
+    <Filter Include="Level\Title">
+      <UniqueIdentifier>{34c1476d-dfa1-48d4-8cf1-439bd43a5bda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Menu">
+      <UniqueIdentifier>{b661ff9c-5e2c-49cc-8092-db387017ee9c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

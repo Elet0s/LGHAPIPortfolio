@@ -1,7 +1,7 @@
 #pragma once
 #include <GameEngine/GameEngineActor.h>
 
-class GameEngineActorSubObject
+class GameEngineActorSubObject : public GameEngineUpdateObject
 {
 	friend GameEngineActor;
 
@@ -21,11 +21,25 @@ public:
 		return Actor_;
 	}
 
+
+	inline bool IsUpdate() override
+	{
+		//     ³ªÀÇ IsUpdate_ && false == IsDeath_
+		return GameEngineUpdateObject::IsUpdate() && Actor_->IsUpdate();
+	}
+
+	inline bool IsDeath() override
+	{
+		return GameEngineUpdateObject::IsDeath() || Actor_->IsDeath();
+	}
+
+
 protected:
 	inline void SetActor(GameEngineActor* _Actor)
 	{
 		Actor_ = _Actor;
 	}
+
 
 
 private:

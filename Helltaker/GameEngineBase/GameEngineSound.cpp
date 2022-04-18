@@ -3,14 +3,15 @@
 #include "GameEngineDebug.h"
 #include "GameEngineString.h"
 
+
 #pragma comment(lib, "fmod_vc.lib")
 
 FMOD::System* SoundSystem_ = nullptr;
 
-class SoundSystemCreater 
+class SoundSystemCreater
 {
 public:
-	SoundSystemCreater() 
+	SoundSystemCreater()
 	{
 		FMOD::System_Create(&SoundSystem_);
 
@@ -32,20 +33,16 @@ public:
 
 SoundSystemCreater CreateInst = SoundSystemCreater();
 
-GameEngineSound::GameEngineSound() 
+GameEngineSound::GameEngineSound()
 {
-<<<<<<< HEAD
-	//FMOD::System_Create();
-=======
 	// FMOD::System_Create();
->>>>>>> ì´ê´€í˜• : ì§„ë„ ì—…ë°ì´íŠ¸
 }
 
-GameEngineSound::~GameEngineSound() 
+GameEngineSound::~GameEngineSound()
 {
 }
 
-bool GameEngineSound::Load(const std::string& _Path) 
+bool GameEngineSound::Load(const std::string& _Path)
 {
 	if (FMOD_OK != SoundSystem_->createSound(_Path.c_str(), FMOD_LOOP_NORMAL, nullptr, &Sound))
 	{
@@ -95,7 +92,7 @@ void GameEngineSound::SoundPlayOneShot(const std::string& _Name, int LoopCount /
 
 	PlayControl->setLoopCount(LoopCount);
 
-	
+
 
 }
 
@@ -113,7 +110,7 @@ void GameEngineSound::Update()
 std::map<std::string, GameEngineSound*> GameEngineSound::AllRes;
 
 
-GameEngineSound* GameEngineSound::FindRes(const std::string& _Name) 
+GameEngineSound* GameEngineSound::FindRes(const std::string& _Name)
 {
 	std::string UpperName = GameEngineString::ToUpperReturn(_Name);
 
@@ -167,7 +164,7 @@ void GameEngineSound::AllResourcesDestroy()
 
 ////////////////////////////////////////////////////////// »ç¿îµå ÇÃ·¹ÀÌ¾î
 
-void GameEngineSoundPlayer::Stop() 
+void GameEngineSoundPlayer::Stop()
 {
 	if (nullptr == ControlHandle_)
 	{
@@ -179,14 +176,14 @@ void GameEngineSoundPlayer::Stop()
 }
 
 
-GameEngineSoundPlayer::GameEngineSoundPlayer() 
+GameEngineSoundPlayer::GameEngineSoundPlayer()
 	: Sound_(nullptr)
 	, ControlHandle_(nullptr)
 {
 
 }
 
-GameEngineSoundPlayer::GameEngineSoundPlayer(const GameEngineSoundPlayer& _Other) 
+GameEngineSoundPlayer::GameEngineSoundPlayer(const GameEngineSoundPlayer& _Other)
 	: Sound_(_Other.Sound_)
 	, ControlHandle_(_Other.ControlHandle_)
 {
@@ -197,10 +194,10 @@ GameEngineSoundPlayer::GameEngineSoundPlayer(GameEngineSound* _Sound, FMOD::Chan
 	: Sound_(_Sound)
 	, ControlHandle_(_ControlHandle)
 {
-	
+
 }
 
-GameEngineSoundPlayer::~GameEngineSoundPlayer() 
+GameEngineSoundPlayer::~GameEngineSoundPlayer()
 {
 
 }

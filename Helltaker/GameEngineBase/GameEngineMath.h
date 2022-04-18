@@ -1,14 +1,14 @@
 #pragma once
+#include <math.h>
 
-// 설명 :
 class GameEngineMath
 {
 private:
-	// constrcuter destructer
+
 	GameEngineMath();
 	~GameEngineMath();
 
-	// delete Function
+
 	GameEngineMath(const GameEngineMath& _Other) = delete;
 	GameEngineMath(GameEngineMath&& _Other) noexcept = delete;
 	GameEngineMath& operator=(const GameEngineMath& _Other) = delete;
@@ -27,7 +27,7 @@ public:
 	static float4 RIGHT;
 	static float4 UP;
 	static float4 DOWN;
-
+	static float4 ZERO;
 
 public:
 	float x;
@@ -82,9 +82,47 @@ public:
 		return { x * 0.5f, y * 0.5f , z * 0.5f, 1.0f };
 	}
 
+	float Len2D() const
+	{
+		// sqrtf 제곱근 구해줍니다.
+		return sqrtf((x * x) + (y * y));
+	}
+
+	void Normal2D()
+	{
+		float Len = Len2D();
+		if (0 == Len)
+		{
+			return;
+		}
+
+		x /= Len;
+		y /= Len;
+
+		// sqrtf 제곱근 구해줍니다.
+		return;
+	}
+
+	void Range2D(float _Max)
+	{
+		Normal2D();
+
+		x *= _Max;
+		y *= _Max;
+		return;
+	}
+
+
+
+
 	float4 operator-(const float4& _Other) const
 	{
 		return { x - _Other.x, y - _Other.y, z - _Other.z, 1.0f };
+	}
+
+	float4 operator-() const
+	{
+		return { -x, -y, -z, 1.0f };
 	}
 
 	float4 operator+(const float4& _Other) const
@@ -105,6 +143,48 @@ public:
 
 		return *this;
 	}
+
+	float4& operator-=(const float4& _Other)
+	{
+		x -= _Other.x;
+		y -= _Other.y;
+		z -= _Other.z;
+
+		return *this;
+	}
+
+	float4& operator*=(const float _Other)
+	{
+		x *= _Other;
+		y *= _Other;
+		z *= _Other;
+
+		return *this;
+	}
+
+
+	float4& operator*=(const float4& _Other)
+	{
+		x *= _Other.x;
+		y *= _Other.y;
+		z *= _Other.z;
+
+		return *this;
+	}
+
+	bool CompareInt2D(const float4& _Value)
+	{
+		return ix() == _Value.ix() && iy() == _Value.iy();
+	}
+
+	bool CompareInt3D(const float4& _Value)
+	{
+		return ix() == _Value.ix() &&
+			iy() == _Value.iy() &&
+			iz() == _Value.iz();
+	}
+
+
 public:
 	float4()
 		: x(0.0f), y(0.0f), z(0.0f), w(1.0f)
@@ -137,24 +217,49 @@ public:
 	float4 Scale;
 
 public:
-	int CenterLeft()
+	int CenterLeft() const
 	{
 		return Pos.ix() - Scale.hix();
 	}
 
-	int CenterRight()
+	int CenterRight() const
 	{
 		return Pos.ix() + Scale.hix();
 	}
 
-	int CenterTop()
+	int CenterTop() const
 	{
 		return Pos.iy() - Scale.hiy();
 	}
 
-	int CenterBot()
+	int CenterBot() const
 	{
 		return Pos.iy() + Scale.hiy();
+	}
+
+	bool OverLap(const GameEngineRect& _Other)
+	{
+		if (CenterBot() < _Other.CenterTop())
+		{
+			return false;
+		}
+
+		if (CenterTop() > _Other.CenterBot())
+		{
+			return false;
+		}
+
+		if (CenterRight() < _Other.CenterLeft())
+		{
+			return false;
+		}
+
+		if (CenterLeft() > _Other.CenterRight())
+		{
+			return false;
+		}
+
+		return true;
 	}
 
 public:
