@@ -33,10 +33,17 @@ void TitleLevel::Update()
 		}
 		count++;
 	}
+
+	//TitleLogo 투명도 변하는 것 백그라운드랑 로고 크기 점점 커지는 것 구현해야함
 }
 
-void TitleLevel::LevelChangeStart()
+void TitleLevel::LevelChangeStart(GameEngineLevel* _NextLevel)
 {
 //bgm넣어줄때
+
+}
+
+void TitleLevel::LevelChangeEnd(GameEngineLevel* _NextLevel)
+{
 
 }

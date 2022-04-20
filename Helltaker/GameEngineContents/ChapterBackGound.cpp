@@ -12,8 +12,6 @@ ChapterBackGound::~ChapterBackGound()
 
 }
 
-
-
 void ChapterBackGound::Start()
 {
 	SetPosition(GameEngineWindow::GetScale().Half());

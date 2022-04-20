@@ -71,6 +71,9 @@
     <ClInclude Include="TitleLevel.h">
       <Filter>Level\Title</Filter>
     </ClInclude>
+    <ClInclude Include="ContentsEnums.h">
+      <Filter>Level\Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
@@ -189,6 +192,9 @@
     </Filter>
     <Filter Include="Level\Menu">
       <UniqueIdentifier>{b661ff9c-5e2c-49cc-8092-db387017ee9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Global">
+      <UniqueIdentifier>{00741c2e-e775-4c47-bdf0-9286af066f4f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

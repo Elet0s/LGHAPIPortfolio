@@ -181,6 +181,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="ContentsEnums.h" />
     <ClInclude Include="EndEvent.h">
       <SubType>
       </SubType>

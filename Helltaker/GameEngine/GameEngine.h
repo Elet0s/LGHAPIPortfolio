@@ -53,7 +53,7 @@ public:
 
 	void ChangeLevel(const std::string& _Name);
 
-	static inline GameEngineLevel* GetPreLevel()
+	static inline GameEngineLevel* GetPrevLevel()
 	{
 		return PrevLevel_;
 	}
@@ -84,7 +84,4 @@ private:
 	static void EngineInit();
 	static void EngineLoop();
 	static void EngineEnd();
-
-
 };
-

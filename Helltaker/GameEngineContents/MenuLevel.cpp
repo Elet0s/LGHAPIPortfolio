@@ -17,7 +17,12 @@ void MenuLevel::Update()
 {
 
 }
-void MenuLevel::LevelChangeStart()
+void MenuLevel::LevelChangeStart(GameEngineLevel* _NextLevel)
+{
+
+}
+
+void MenuLevel::LevelChangeEnd(GameEngineLevel* _NextLevel)
 {
 
 }

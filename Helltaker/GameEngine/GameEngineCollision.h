@@ -12,6 +12,7 @@ class GameEngineImage;
 class GameEngineCollision : public GameEngineActorSubObject
 {
 	friend GameEngineActor;
+	friend GameEngineLevel;
 
 public:
 	// constrcuter destructer
@@ -70,5 +71,6 @@ private:
 	float4 Pivot_;
 	float4 Scale_;
 
+	std::string CollisionName_;
 
 };
