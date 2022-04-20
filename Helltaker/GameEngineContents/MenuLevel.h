@@ -1,5 +1,6 @@
 #pragma once
 #include<GameEngine/GameEngineLevel.h>
+#include <GameEngineBase/GameEngineSound.h>
 
 class MenuLevel : public  GameEngineLevel
 {
@@ -7,7 +8,7 @@ public:
 	MenuLevel();
 	~MenuLevel();
 
-
+	GameEngineSoundPlayer BgmPlayer;
 	MenuLevel(const MenuLevel& _Other) = delete;
 	MenuLevel(MenuLevel&& _Other) noexcept = delete;
 	MenuLevel& operator=(const MenuLevel& _Other) = delete;

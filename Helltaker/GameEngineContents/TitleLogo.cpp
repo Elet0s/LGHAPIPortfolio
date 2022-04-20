@@ -14,8 +14,7 @@ TitleLogo::~TitleLogo()
 void TitleLogo::Start()
 {
 	SetPosition(GameEngineWindow::GetScale().Half());
-	SetScale({ 5,5 });
-	CreateRenderer("TitleLogo.bmp");
+	CreateRendererToScale("TitleLogo.bmp", { 380, 280 });
 }
 
 void TitleLogo::Render()

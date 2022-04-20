@@ -46,41 +46,55 @@ public:
 	void BitCopyBot(GameEngineImage* _Other, const float4& _CopyPos);
 	void BitCopyBotPivot(GameEngineImage* _Other, const float4& _CopyPos, const float4& _CopyPivot);
 
-	// Trans 이걸로 통일 
+
+
+	// Trans 이걸로 통일
 	void TransCopy(GameEngineImage* _Other, const float4& _CopyPos,
 		const float4& _CopyScale,
 		const float4& _OtherPivot, const float4& _OtherScale, unsigned int _TransColor);
+
+	void AlphaCopy(GameEngineImage* _Other, const float4& _CopyPos,
+		const float4& _CopyScale,
+		const float4& _OtherPivot, const float4& _OtherScale, unsigned int _TransColor);
+
+	void PlgCopy(GameEngineImage* _Other, GameEngineImage* _Filter);
+
 
 	void Cut(const float4& _CutSize);
 
 	void CutCount(int _x, int _y);
 
-	inline	bool IsCut()
+	inline bool IsCut()
 	{
 		return 0 != CutPivot_.size();
 	}
-	
+
 	inline size_t GetCutCount()
 	{
 		return CutPivot_.size();
 	}
+
 	inline float4 GetCutPivot(size_t _Index)
 	{
 		return CutPivot_[_Index];
 	}
+
 	inline float4 GetCutScale(size_t _Index)
 	{
 		return CutScale_[_Index];
 	}
+
 	void Cut(const float4& _CutScale, const float4& _CutPos)
 	{
 		CutPivot_.push_back(_CutPos);
 		CutScale_.push_back(_CutScale);
 	}
+
 	inline int GetImagePixel(const float4& _Pos)
 	{
 		return GetImagePixel(_Pos.ix(), _Pos.iy());
 	}
+
 	int GetImagePixel(int _x, int _y);
 
 protected:

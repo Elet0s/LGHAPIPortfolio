@@ -18,6 +18,7 @@ GameEngineRenderer::GameEngineRenderer()
 	, RenderImagePivot_({ 0,0 })
 	, IsCameraEffect_(true)
 	, Alpha_(255)
+	, RotZ_(0.0f)
 {
 }
 

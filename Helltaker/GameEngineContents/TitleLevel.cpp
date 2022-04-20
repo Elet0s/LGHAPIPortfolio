@@ -39,7 +39,7 @@ void TitleLevel::Update()
 
 void TitleLevel::LevelChangeStart(GameEngineLevel* _NextLevel)
 {
-//bgm넣어줄때
+//bgm넣어줄 곳
 
 }
 

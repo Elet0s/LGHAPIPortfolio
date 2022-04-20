@@ -86,7 +86,7 @@ GameEngineRenderer* GameEngineActor::CreateRenderer(
 }
 
 
-GameEngineRenderer* GameEngineActor::CreateRenderer(
+GameEngineRenderer* GameEngineActor::CreateRenderer( //이미지 크기를 원본크기대로 출력
 	const std::string& _Image,
 	int _Order, /*= static_cast<int>(EngineMax::RENDERORDERMAX)*/
 	RenderPivot _PivotType /*= RenderPivot::CENTER*/,
@@ -113,7 +113,7 @@ GameEngineRenderer* GameEngineActor::CreateRenderer(
 	return NewRenderer;
 }
 
-GameEngineRenderer* GameEngineActor::CreateRendererToScale(
+GameEngineRenderer* GameEngineActor::CreateRendererToScale( // 이미지 크기를 원본이 아니라 직접 바꿔서 출력
 	const std::string& _Image, const float4& _Scale,
 	int _Order, /*= static_cast<int>(EngineMax::RENDERORDERMAX)*/
 	RenderPivot _PivotType /*= RenderPivot::CENTER*/, const float4& _PivotPos /*= { 0,0 }*/

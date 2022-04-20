@@ -151,6 +151,19 @@ private:
 	bool IsCameraEffect_;		// 해당 렌더러가 카메라의 영향을 받는가 안받는가, EX) UI 는 카메라의 영향을 안받는다.
 	bool Pause_;
 
+	/// <summary>
+	/// ////////////////////////////////////////////// 회전용 트랜스 이미지
+	/// </summary>
+
+	float RotZ_;
+	GameEngineImage* RotationCuttingImage_;
+
+public:
+	void SetRotationZ(float _RotZ)
+	{
+		RotZ_ = _RotZ;
+		Alpha_ = 255;
+	}
 
 	//////////////////////////////////////////////////
 	//// Animation

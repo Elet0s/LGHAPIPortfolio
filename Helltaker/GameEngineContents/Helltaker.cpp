@@ -3,6 +3,7 @@
 #include <GameEngineBase/GameEngineFile.h>
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngine/GameEngineImageManager.h>
+#include <GameEngineBase/GameEngineSound.h>
 
 #include "Helltaker.h"
 #include "TitleLevel.h"
@@ -22,7 +23,7 @@ void Helltaker::GameInit()
 	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 0, 0 }, { 1920, 1080 });
 
 	{
-		//현재 디렉토리 설정
+		//현재 디렉토리
 		GameEngineDirectory ResourcesDir;
 		ResourcesDir.MoveParent("Helltaker");
 		ResourcesDir.Move("Resource");
@@ -36,16 +37,22 @@ void Helltaker::GameInit()
 			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
 		}
 	}
-
 	{
-		//Level
-	}
-	{
-		//UI
-	}
-//	GameEngineImage* Image = GameEngineImageManager::GetInst()->Find("Plyer01.bmp");
-//	Image->Cut({ 89, 92 });
 
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("AudioClip");
+
+		// 폴더안에 모든 파일을 찾는다.
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile();
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineSound::LoadRes(AllImageFileList[i].GetFullPath());
+		}
+
+	}
 
 	if (false == GameEngineInput::GetInst()->IsKey("Start"))
 	{

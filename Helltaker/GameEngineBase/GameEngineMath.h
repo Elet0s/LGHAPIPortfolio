@@ -1,27 +1,59 @@
 #pragma once
 #include <math.h>
 
+// Ό³Έν :
 class GameEngineMath
 {
-private:
+public:
+	static const float PIE;
+	static const float DEG;
+	static const float DegreeToRadian;
 
+
+private:
+	// constrcuter destructer
 	GameEngineMath();
 	~GameEngineMath();
 
-
+	// delete Function
 	GameEngineMath(const GameEngineMath& _Other) = delete;
 	GameEngineMath(GameEngineMath&& _Other) noexcept = delete;
 	GameEngineMath& operator=(const GameEngineMath& _Other) = delete;
 	GameEngineMath& operator=(GameEngineMath&& _Other) noexcept = delete;
-
-protected:
-
-private:
-
 };
 
 class float4
 {
+public:
+	static float4 DegreeToDirectionFloat4(float _Degree)
+	{
+		return RadianToDirectionFloat4(_Degree * GameEngineMath::DegreeToRadian);
+	}
+
+	static float4 RadianToDirectionFloat4(float _Radian)
+	{
+		return { cosf(_Radian), sinf(_Radian) };
+	}
+
+	static float4 VectorRotationToDegreeZ(const float4& _Value, float _Degree)
+	{
+		return VectorRotationToRadianZ(_Value, _Degree * GameEngineMath::DegreeToRadian);
+	}
+
+	static float4 VectorRotationToRadianZ(const float4& _Value, float _Radian)
+	{
+		float4 Rot;
+		Rot.x = _Value.x * cosf(_Radian) - _Value.y * sinf(_Radian);
+		Rot.y = _Value.x * sinf(_Radian) + _Value.y * cosf(_Radian);
+		return Rot;
+	}
+
+
+	//X = P1X * cosf(40) - P1Y * sinf(40)
+	//Y = P1X * sinf(40) + P1Y * cosf(40)
+
+
+
 public:
 	static float4 LEFT;
 	static float4 RIGHT;
