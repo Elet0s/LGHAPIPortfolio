@@ -53,6 +53,18 @@ void GameEngineRenderer::SetImage(const std::string& _Name)
 	SetImageScale();
 }
 
+void GameEngineRenderer::SetRotationFilter(const std::string& _Name)
+{
+	GameEngineImage* FindImage = GameEngineImageManager::GetInst()->Find(_Name);
+	if (nullptr == FindImage)
+	{
+		MsgBoxAssertString(_Name + "존재하지 않는 이미지를 랜더러에 세팅하려고 했습니다.");
+		return;
+	}
+
+	RotationFilterImage_ = FindImage;
+}
+
 
 void GameEngineRenderer::Render()
 {
@@ -79,7 +91,17 @@ void GameEngineRenderer::Render()
 	switch (PivotType_)
 	{
 	case RenderPivot::CENTER:
-		if (Alpha_ == 255)
+		if (Alpha_ != 255)
+		{
+			GameEngine::BackBufferImage()->AlphaCopy(Image_, RenderPos - RenderScale_.Half(), RenderScale_, RenderImagePivot_, RenderImageScale_, Alpha_);
+		}
+		else if (RotZ_ != 0.0f)
+		{
+
+			GameEngine::BackBufferImage()->PlgCopy(Image_, RenderPos - RenderScale_.Half(), RenderScale_, RenderImagePivot_, RenderImageScale_, RotZ_, RotationFilterImage_);
+			// GameEngine::BackBufferImage()->PlgCopy(Image_, RenderPos - RenderScale_.Half(), RenderScale_, RenderImagePivot_, RenderImageScale_, Alpha_);
+		}
+		else
 		{
 			GameEngine::BackBufferImage()->TransCopy(Image_, RenderPos - RenderScale_.Half(), RenderScale_, RenderImagePivot_, RenderImageScale_, TransColor_);
 		}
@@ -89,10 +111,19 @@ void GameEngineRenderer::Render()
 		float4 Scale = RenderScale_.Half();
 		Scale.y *= 2;
 
-		if (Alpha_ == 255)
+		if (Alpha_ = 255)
+		{
+			GameEngine::BackBufferImage()->AlphaCopy(Image_, RenderPos - Scale, RenderScale_, RenderImagePivot_, RenderImageScale_, Alpha_);
+		}
+		else if (RotZ_ != 0.0f)
+		{
+			GameEngine::BackBufferImage()->PlgCopy(Image_, RenderPos - Scale, RenderScale_, RenderImagePivot_, RenderImageScale_, RotZ_, RotationFilterImage_);
+		}
+		else
 		{
 			GameEngine::BackBufferImage()->TransCopy(Image_, RenderPos - Scale, RenderScale_, RenderImagePivot_, RenderImageScale_, TransColor_);
 		}
+
 
 		break;
 	}
@@ -269,6 +300,7 @@ void GameEngineRenderer::FrameAnimation::Update()
 			}
 		}
 	}
+
 
 	if (nullptr != Image_)
 	{

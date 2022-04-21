@@ -24,6 +24,6 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _NextLevel) override;
 	void LevelChangeEnd(GameEngineLevel* _PrevLevel) override;
 private:
-	float count_;
+	float LevelChangeTime_;
 };
 

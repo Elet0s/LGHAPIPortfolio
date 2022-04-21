@@ -216,15 +216,16 @@ public:
 			iy() == _Value.iy() &&
 			iz() == _Value.iz();
 	}
-	float4 RotationToRadianZ(float _Radian)
-	{
-		*this = VectorRotationToRadianZ(*this, _Radian);
-		return *this;
-	}
 
 	float4 RotationToDegreeZ(float _Degree)
 	{
 		return RotationToRadianZ(_Degree * GameEngineMath::DegreeToRadian);
+	}
+
+	float4 RotationToRadianZ(float _Radian)
+	{
+		*this = VectorRotationToRadianZ(*this, _Radian);
+		return *this;
 	}
 
 	POINT ToWinAPIPOINT() const
@@ -234,7 +235,6 @@ public:
 		NewPoint.y = iy();
 		return NewPoint;
 	}
-
 
 public:
 	float4()
@@ -257,6 +257,8 @@ public:
 	{
 
 	}
+
+
 };
 
 struct GameEngineRect

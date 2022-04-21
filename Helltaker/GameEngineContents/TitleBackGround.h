@@ -16,12 +16,12 @@ public:
 	TitleBackGround& operator=(TitleBackGround&& _Other) noexcept = delete;
 
 protected:
-	void Start() override;
-
-	void Render() override;
-
+	void Start();
+	void Render();
+	void Update();
 private:
-
-
+	float Width_;
+	float Hight_;
+	GameEngineRenderer* TitleBackGroundRender_;
 };
 

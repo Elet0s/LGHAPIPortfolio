@@ -18,9 +18,12 @@ public:
 protected:
 	void Start();
 	void Render();
-
+	void Update();
 private:
 	float Width_;
 	float Hight_;
+	float FadeCount_;
+	bool FadeReverce_;
+	GameEngineRenderer* TitleLogoRender_;
 };
 

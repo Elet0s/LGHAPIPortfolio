@@ -10,7 +10,7 @@
 #include "MenuLevel.h"
 
 TitleLevel::TitleLevel()
-	:count_(0)
+	:	 LevelChangeTime_(3.0f)
 {
 }
 
@@ -26,16 +26,13 @@ void TitleLevel::Loading()
 
 void TitleLevel::Update()
 {
-	if (true == GameEngineInput::GetInst()->IsDown("Start"))
+	LevelChangeTime_ -= GameEngineTime::GetDeltaTime();
+	if (LevelChangeTime_<=0)
 	{
-		if (count_ == 1)
-		{
-			GameEngine::GetInst().ChangeLevel("MenuLevel");
-		}
-		count_++;
+		GameEngine::GetInst().ChangeLevel("MenuLevel");
 	}
-
 	//TitleLogo 투명도 변하는 것 백그라운드랑 로고 크기 점점 커지는 것 구현해야함
+
 }
 
 void TitleLevel::LevelChangeStart(GameEngineLevel* _NextLevel)
