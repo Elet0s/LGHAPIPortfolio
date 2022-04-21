@@ -1,5 +1,6 @@
 #pragma once
 #include <math.h>
+#include <Windows.h>
 
 // Ό³Έν :
 class GameEngineMath
@@ -204,16 +205,34 @@ public:
 		return *this;
 	}
 
-	bool CompareInt2D(const float4& _Value)
+	bool CompareInt2D(const float4& _Value) const
 	{
 		return ix() == _Value.ix() && iy() == _Value.iy();
 	}
 
-	bool CompareInt3D(const float4& _Value)
+	bool CompareInt3D(const float4& _Value) const
 	{
 		return ix() == _Value.ix() &&
 			iy() == _Value.iy() &&
 			iz() == _Value.iz();
+	}
+	float4 RotationToRadianZ(float _Radian)
+	{
+		*this = VectorRotationToRadianZ(*this, _Radian);
+		return *this;
+	}
+
+	float4 RotationToDegreeZ(float _Degree)
+	{
+		return RotationToRadianZ(_Degree * GameEngineMath::DegreeToRadian);
+	}
+
+	POINT ToWinAPIPOINT() const
+	{
+		POINT NewPoint;
+		NewPoint.x = ix();
+		NewPoint.y = iy();
+		return NewPoint;
 	}
 
 
@@ -238,8 +257,6 @@ public:
 	{
 
 	}
-
-
 };
 
 struct GameEngineRect
@@ -249,6 +266,26 @@ public:
 	float4 Scale;
 
 public:
+	float4 CenterLeftTopPoint() const
+	{
+		return { static_cast<float>(CenterLeft()), static_cast<float>(CenterTop()) };
+	}
+
+	float4 CenterLeftBotPoint() const
+	{
+		return { static_cast<float>(CenterLeft()), static_cast<float>(CenterBot()) };
+	}
+
+	float4 CenterRightTopPoint() const
+	{
+		return { static_cast<float>(CenterRight()), static_cast<float>(CenterTop()) };
+	}
+
+	float4 CenterRightBotPoint() const
+	{
+		return { static_cast<float>(CenterRight()), static_cast<float>(CenterBot()) };
+	}
+
 	int CenterLeft() const
 	{
 		return Pos.ix() - Scale.hix();

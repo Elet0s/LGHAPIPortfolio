@@ -3,6 +3,10 @@
 
 class TitleLevel : public GameEngineLevel
 {
+
+private: 
+
+
 public:
 
 	TitleLevel();
@@ -20,6 +24,6 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _NextLevel) override;
 	void LevelChangeEnd(GameEngineLevel* _PrevLevel) override;
 private:
-	int count;
+	float count_;
 };
 

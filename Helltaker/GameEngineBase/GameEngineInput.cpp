@@ -51,6 +51,8 @@ void GameEngineInput::GameEngineKey::Update(float _DeltaTime)
 GameEngineInput* GameEngineInput::Inst_ = new GameEngineInput();
 
 GameEngineInput::GameEngineInput()
+	: WheelValue(0)
+	, CurWheelValue(0)
 {
 }
 
@@ -93,6 +95,10 @@ void GameEngineInput::CreateKey(const std::string& _Name, int _Key)
 
 void GameEngineInput::Update(float _DeltaTime)
 {
+	CurWheelValue = 0;
+	CurWheelValue = WheelValue;
+	WheelValue = 0;
+
 	std::map<std::string, GameEngineKey>::iterator KeyUpdateStart = AllInputKey_.begin();
 	std::map<std::string, GameEngineKey>::iterator KeyUpdateEnd = AllInputKey_.end();
 

@@ -10,5 +10,6 @@ int __stdcall WinMain(_In_ HINSTANCE hInstance,
     _In_ int       nCmdShow)
 {
     //윈도우 창 안에서 돌아갈 내용
+    //ShowCursor(false);
     GameEngine::Start<Helltaker>();
 }

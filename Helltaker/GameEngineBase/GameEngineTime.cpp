@@ -5,6 +5,11 @@ GameEngineTime* GameEngineTime::Inst_ = new GameEngineTime();
 
 
 GameEngineTime::GameEngineTime()
+: SecondCount_(0)
+ ,CurrentCount_(0)
+ ,PrevCount_(0)
+ ,DeltaTime_(0)
+ ,RealDeltaTime_(0)
 {
 }
 

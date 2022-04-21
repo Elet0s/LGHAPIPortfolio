@@ -20,6 +20,7 @@ protected:
 	void Render();
 
 private:
-
+	float Width_;
+	float Hight_;
 };
 

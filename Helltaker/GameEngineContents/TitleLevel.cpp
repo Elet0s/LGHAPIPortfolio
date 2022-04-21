@@ -3,13 +3,14 @@
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEngineBase/GameEngineInput.h>
 
+#include "ContentsEnums.h"
 #include "TitleLevel.h"
 #include "TitleLogo.h"
 #include "TitleBackGround.h"
 #include "MenuLevel.h"
 
 TitleLevel::TitleLevel()
-	:count(0)
+	:count_(0)
 {
 }
 
@@ -27,11 +28,11 @@ void TitleLevel::Update()
 {
 	if (true == GameEngineInput::GetInst()->IsDown("Start"))
 	{
-		if (count == 1)
+		if (count_ == 1)
 		{
 			GameEngine::GetInst().ChangeLevel("MenuLevel");
 		}
-		count++;
+		count_++;
 	}
 
 	//TitleLogo 투명도 변하는 것 백그라운드랑 로고 크기 점점 커지는 것 구현해야함

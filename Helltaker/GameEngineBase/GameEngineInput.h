@@ -45,6 +45,8 @@ private:
 		//}
 	};
 
+	friend class GameEngineWindow;
+
 private:
 	static GameEngineInput* Inst_;
 
@@ -74,9 +76,17 @@ public:
 	bool IsFree(const std::string& _Name);
 	bool IsKey(const std::string& _Name);
 
+	inline int GetMouseWheel()
+	{
+		return CurWheelValue;
+	}
+
 protected:
 
 private:
+	int WheelValue;
+	int CurWheelValue;
+
 	std::map<std::string, GameEngineKey> AllInputKey_;
 
 	// constrcuter destructer
