@@ -32,6 +32,6 @@ void MenuBackGround02::Update()
 	SetMove(float4::LEFT * GameEngineTime::GetDeltaTime() * Speed_);
 	if (GetPosition().x <= -260)
 	{
-		SetPosition({ 1760,540 });
+		SetPosition({ 1700,540 });
 	}
 }
