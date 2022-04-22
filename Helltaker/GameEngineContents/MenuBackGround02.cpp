@@ -18,7 +18,7 @@ MenuBackGround02::~MenuBackGround02()
 }
 void MenuBackGround02::Start()
 {
-	SetPosition({ 1780,540 });
+	SetPosition({ 1760,540 });
 	MenuBackGroundRender02_ = CreateRendererToScale("MainBG02.bmp", { Width_ ,Hight_ });
 	MenuBackGroundRender02_->SetScale({ Width_, Hight_ });
 
