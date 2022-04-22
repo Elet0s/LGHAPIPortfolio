@@ -11,7 +11,7 @@
     <ClInclude Include="BotUi.h">
       <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
-    <ClInclude Include="MenuBackGround.h">
+    <ClInclude Include="MenuBackGround01.h">
       <Filter>Actor\Menu\Global</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
@@ -74,6 +74,12 @@
     <ClInclude Include="ContentsEnums.h">
       <Filter>Level\Global</Filter>
     </ClInclude>
+    <ClInclude Include="MenuBackGround02.h">
+      <Filter>Actor\Menu\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuBackGround00.h">
+      <Filter>Actor\Menu\Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
@@ -86,7 +92,7 @@
     <ClCompile Include="BotUi.cpp">
       <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
-    <ClCompile Include="MenuBackGround.cpp">
+    <ClCompile Include="MenuBackGround01.cpp">
       <Filter>Actor\Menu\Global</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
@@ -145,6 +151,12 @@
     </ClCompile>
     <ClCompile Include="TitleLevel.cpp">
       <Filter>Level\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuBackGround02.cpp">
+      <Filter>Actor\Menu\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuBackGround00.cpp">
+      <Filter>Actor\Menu\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

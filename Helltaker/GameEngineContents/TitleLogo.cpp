@@ -41,9 +41,13 @@ void TitleLogo::Update()
 		}
 		else if (FadeReverce_ == true)
 		{
-			if (FadeCount_ >= 0)
+			if (FadeCount_ > 0)
 			{
 				FadeCount_ -= 180.0f * GameEngineTime::GetDeltaTime();
+			}
+			else if (FadeCount_ < 0)
+			{
+				FadeCount_ = 0;
 			}
 		}
 	}

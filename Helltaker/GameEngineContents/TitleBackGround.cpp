@@ -30,5 +30,4 @@ void TitleBackGround::Update()
 }
 void TitleBackGround::Render()
 {
-
 }

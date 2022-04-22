@@ -23,5 +23,6 @@ private:
 	float Width_;
 	float Hight_;
 	GameEngineRenderer* TitleBackGroundRender_;
+
 };
 

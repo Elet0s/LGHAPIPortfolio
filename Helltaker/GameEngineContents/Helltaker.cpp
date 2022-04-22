@@ -21,30 +21,14 @@ Helltaker::~Helltaker()
 void Helltaker::GameInit()
 {
 	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 0, 0 }, { 1920, 1080 });
-
 	{
-		//현재 디렉토리
-		GameEngineDirectory ResourcesDir;
-		ResourcesDir.MoveParent("Helltaker");
-		ResourcesDir.Move("Resource");
-		ResourcesDir.Move("Image");
-
-		// 폴더안에 모든 이미지 파일을 찾는다.
-		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
-
-		for (size_t i = 0; i < AllImageFileList.size(); i++)
-		{
-			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
-		}
-	}
-	{
-
+		//각종 사운드 디렉토리
 		GameEngineDirectory ResourcesDir;
 		ResourcesDir.MoveParent("Helltaker");
 		ResourcesDir.Move("Resource");
 		ResourcesDir.Move("AudioClip");
 
-		// 폴더안에 모든 파일을 찾는다.
+		// 폴더안에 모든 이미지 파일을 찾는다.
 		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile();
 
 		for (size_t i = 0; i < AllImageFileList.size(); i++)
@@ -53,6 +37,54 @@ void Helltaker::GameInit()
 		}
 
 	}
+
+	{
+		//타이틀레벨
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("TitleLevel");
+
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
+
+	{
+		//현재 디렉토리
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("MenuLevel");
+		ResourcesDir.Move("MenuBackGround");
+		
+
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
+
+	{
+		//현재 디렉토리
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("Chapter");
+
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
+
 
 	if (false == GameEngineInput::GetInst()->IsKey("Start"))
 	{

@@ -209,7 +209,15 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="MenuBackGround.h">
+    <ClInclude Include="MenuBackGround00.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="MenuBackGround01.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="MenuBackGround02.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -307,7 +315,15 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="MenuBackGround.cpp">
+    <ClCompile Include="MenuBackGround00.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MenuBackGround01.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MenuBackGround02.cpp">
       <SubType>
       </SubType>
     </ClCompile>
