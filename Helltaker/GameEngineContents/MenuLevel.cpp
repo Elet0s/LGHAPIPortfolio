@@ -4,6 +4,7 @@
 #include <GameEngineBase/GameEngineDebug.h>
 
 #include"MenuLevel.h"
+#include"MenuBackGround00.h"
 #include"MenuBackGround01.h"
 #include"MenuBackGround02.h"
 
@@ -18,8 +19,9 @@ MenuLevel::~MenuLevel()
 
 void MenuLevel::Loading()
 {
-	CreateActor<MenuBackGround01>(1);
-	CreateActor<MenuBackGround02>(0);
+	CreateActor<MenuBackGround00>(0);
+	CreateActor<MenuBackGround01>(2);
+	CreateActor<MenuBackGround02>(1);
 }
 void MenuLevel::Update()
 {

@@ -17,7 +17,7 @@ MenuBackGround00::~MenuBackGround00()
 }
 void MenuBackGround00::Start()
 {
-	SetPosition(GameEngineWindow::GetScale().Half());
+	SetPosition({ 960,540 });
 	MenuBackGroundRender00_ = CreateRendererToScale("MenuBG.bmp", { Width_ ,Hight_ });
 	MenuBackGroundRender00_->SetScale({ Width_, Hight_ });
 
