@@ -7,7 +7,6 @@
 #include"MenuBackGround00.h"
 #include"MenuBackGround01.h"
 #include"MenuBackGround02.h"
-#include"MenuBackGround03.h"
 
 MenuLevel::MenuLevel()
 {
@@ -22,8 +21,8 @@ void MenuLevel::Loading()
 {
 	CreateActor<MenuBackGround00>(0);
 	CreateActor<MenuBackGround01>(1);
-	CreateActor<MenuBackGround02>(2);
-	//CreateActor<MenuBackGround03>(1);
+	CreateActor<MenuBackGround02>(1);
+
 }
 void MenuLevel::Update()
 {

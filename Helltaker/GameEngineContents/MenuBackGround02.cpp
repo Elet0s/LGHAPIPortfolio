@@ -18,8 +18,8 @@ MenuBackGround02::~MenuBackGround02()
 }
 void MenuBackGround02::Start()
 {
-	SetPosition({ 1760,540 });
-	MenuBackGroundRender02_ = CreateRendererToScale("MainBG02.bmp", { Width_ ,Hight_ });
+	SetPosition({ -980,440 });
+	MenuBackGroundRender02_ = CreateRendererToScale("MenuBGAnimation.bmp", { Width_ ,Hight_ });
 	MenuBackGroundRender02_->SetScale({ Width_, Hight_ });
 
 }
@@ -29,9 +29,9 @@ void MenuBackGround02::Render()
 }
 void MenuBackGround02::Update()
 {
-	SetMove(float4::LEFT * GameEngineTime::GetDeltaTime() * Speed_);
-	if (GetPosition().x <= -260)
+	SetMove(float4::RIGHT * GameEngineTime::GetDeltaTime() * Speed_);
+	if (GetPosition().x >= 2940)
 	{
-		SetPosition({ 1700,540 });
+		SetPosition({ -980 ,440 });
 	}
 }

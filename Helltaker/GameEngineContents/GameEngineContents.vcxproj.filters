@@ -80,9 +80,6 @@
     <ClInclude Include="MenuBackGround00.h">
       <Filter>Actor\Menu\Global</Filter>
     </ClInclude>
-    <ClInclude Include="MenuBackGround03.h">
-      <Filter>Actor\Menu\Global</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
@@ -159,9 +156,6 @@
       <Filter>Actor\Menu\Global</Filter>
     </ClCompile>
     <ClCompile Include="MenuBackGround00.cpp">
-      <Filter>Actor\Menu\Global</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuBackGround03.cpp">
       <Filter>Actor\Menu\Global</Filter>
     </ClCompile>
   </ItemGroup>

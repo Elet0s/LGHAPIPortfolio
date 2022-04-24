@@ -221,10 +221,6 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="MenuBackGround03.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="MenuBotUI.h">
       <SubType>
       </SubType>
@@ -328,10 +324,6 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="MenuBackGround02.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="MenuBackGround03.cpp">
       <SubType>
       </SubType>
     </ClCompile>
