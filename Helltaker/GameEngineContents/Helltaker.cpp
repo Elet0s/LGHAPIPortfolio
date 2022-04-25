@@ -20,6 +20,8 @@ Helltaker::~Helltaker()
 
 void Helltaker::GameInit()
 {
+	//////////////////////이미지 로드하는 부분
+
 	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 0, 0 }, { 1920, 1080 });
 	{
 		//각종 사운드 디렉토리
@@ -39,7 +41,7 @@ void Helltaker::GameInit()
 	}
 
 	{
-		//타이틀레벨
+		//타이틀 이미지
 		GameEngineDirectory ResourcesDir;
 		ResourcesDir.MoveParent("Helltaker");
 		ResourcesDir.Move("Resource");
@@ -54,13 +56,47 @@ void Helltaker::GameInit()
 	}
 
 	{
-		//현재 디렉토리
+		//메인메뉴 백그라운드 이미지
 		GameEngineDirectory ResourcesDir;
 		ResourcesDir.MoveParent("Helltaker");
 		ResourcesDir.Move("Resource");
 		ResourcesDir.Move("MenuLevel");
 		ResourcesDir.Move("MenuBackGround");
 		
+
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
+
+	{
+		//메인메뉴 텍스트 메세지
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("MenuLevel");
+		ResourcesDir.Move("Text");
+
+
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
+
+	{
+		//공용 Booper
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("Global");
+		ResourcesDir.Move("Booper");
+
 
 		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
 
@@ -85,6 +121,12 @@ void Helltaker::GameInit()
 		}
 	}
 
+	//////////////////////이미지 자르는 부분
+
+	{
+		GameEngineImage* Booper = GameEngineImageManager::GetInst()->Find("Booper.bmp");
+		Booper->CutCount(17,1);
+	}
 
 	if (false == GameEngineInput::GetInst()->IsKey("Start"))
 	{

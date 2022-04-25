@@ -160,6 +160,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BeelFly.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Booper.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="BotUi.h">
       <SubType>
       </SubType>
@@ -229,6 +237,14 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="MenuText001.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="MenuTopUi.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Npc.h">
       <SubType>
       </SubType>
@@ -267,6 +283,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BeelFly.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Booper.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="BotUi.cpp">
       <SubType>
       </SubType>
@@ -332,6 +356,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="MenuLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MenuText001.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MenuTopUi.cpp">
       <SubType>
       </SubType>
     </ClCompile>

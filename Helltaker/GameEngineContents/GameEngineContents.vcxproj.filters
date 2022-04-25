@@ -80,6 +80,18 @@
     <ClInclude Include="MenuBackGround00.h">
       <Filter>Actor\Menu\Global</Filter>
     </ClInclude>
+    <ClInclude Include="BeelFly.h">
+      <Filter>Actor\Menu\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuTopUi.h">
+      <Filter>Actor\Menu\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Booper.h">
+      <Filter>Actor\Menu\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuText001.h">
+      <Filter>Actor\Menu\Text</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
@@ -158,6 +170,18 @@
     <ClCompile Include="MenuBackGround00.cpp">
       <Filter>Actor\Menu\Global</Filter>
     </ClCompile>
+    <ClCompile Include="BeelFly.cpp">
+      <Filter>Actor\Menu\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuTopUi.cpp">
+      <Filter>Actor\Menu\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Booper.cpp">
+      <Filter>Actor\Menu\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuText001.cpp">
+      <Filter>Actor\Menu\Text</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -207,6 +231,9 @@
     </Filter>
     <Filter Include="Level\Global">
       <UniqueIdentifier>{00741c2e-e775-4c47-bdf0-9286af066f4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Menu\Text">
+      <UniqueIdentifier>{27b3634a-3ee0-44da-82a3-7a3dd5d7113c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

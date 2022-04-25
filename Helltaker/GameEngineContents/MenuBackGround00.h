@@ -7,11 +7,11 @@ public:
 	MenuBackGround00();
 	~MenuBackGround00();
 
-
 	MenuBackGround00(const MenuBackGround00& _Other) = delete;
 	MenuBackGround00(MenuBackGround00&& _Other) noexcept = delete;
 	MenuBackGround00& operator=(const MenuBackGround00& _Other) = delete;
 	MenuBackGround00& operator=(MenuBackGround00&& _Other) noexcept = delete;
+
 protected:
 	void Start();
 	void Render();

@@ -1,14 +1,25 @@
 #pragma once
-class MenuBotUI
+#include <GameEngine/GameEngineActor.h>
+
+class MenuBotUI : public GameEngineActor
 {
-private:
-	// constrcuter destructer
+public:
 	MenuBotUI();
 	~MenuBotUI();
 
-	// delete Function
 	MenuBotUI(const MenuBotUI& _Other) = delete;
 	MenuBotUI(MenuBotUI&& _Other) noexcept = delete;
 	MenuBotUI& operator=(const MenuBotUI& _Other) = delete;
 	MenuBotUI& operator=(MenuBotUI&& _Other) noexcept = delete;
+
+protected:
+	void Start();
+	void Render();
+	void Update();
+private:
+	float Width_;
+	float Hight_;
+	float Speed_;
+	GameEngineRenderer* MenuBotUIRender_;
+
 };
