@@ -21,7 +21,6 @@ void MenuTopUi::Start()
 	SetPosition({ 960,220 });
 	MenuTopUiRender_ = CreateRendererToScale("MenuBG.bmp", { Width_ ,Hight_ });
 	MenuTopUiRender_->SetScale({ Width_, Hight_ });
-
 }
 void MenuTopUi::Render()
 {
@@ -33,5 +32,9 @@ void MenuTopUi::Update()
 	if (GetPosition().y >= -768)//-494
 	{
 		SetMove(float4::UP * GameEngineTime::GetDeltaTime() * Speed_);
+	}
+	else
+	{
+		Death();
 	}
 }

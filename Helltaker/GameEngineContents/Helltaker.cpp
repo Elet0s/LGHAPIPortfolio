@@ -130,7 +130,7 @@ void Helltaker::GameInit()
 
 	if (false == GameEngineInput::GetInst()->IsKey("Start"))
 	{
-		GameEngineInput::GetInst()->CreateKey("Start", VK_SPACE);
+		GameEngineInput::GetInst()->CreateKey("Start", 'p');
 	}
 
 	CreateLevel<TitleLevel>("TitleLevel");

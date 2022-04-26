@@ -18,4 +18,6 @@ protected:
 	void Update();
 private:
 	GameEngineRenderer* BooperRender_;
+public:
+
 };

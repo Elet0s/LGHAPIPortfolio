@@ -29,3 +29,7 @@ void BeelFly::Render()
 {
 
 }		
+void BeelFly::DeathActor()
+{
+	Death();
+}

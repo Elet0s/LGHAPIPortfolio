@@ -19,5 +19,7 @@ private:
 	float Width_;
 	float Hight_;
 	GameEngineRenderer* BeelFlyRender_;
+public:
+	void DeathActor();
 
 };

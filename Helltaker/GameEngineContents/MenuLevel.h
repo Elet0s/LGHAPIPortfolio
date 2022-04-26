@@ -1,9 +1,17 @@
 #pragma once
 #include<GameEngine/GameEngineLevel.h>
 #include <GameEngineBase/GameEngineSound.h>
-
+class MenuSelcet;
 class MenuLevel : public  GameEngineLevel
 {
+private:
+	float NextCount_;
+	MenuSelcet* MenuSelcet_;
+public:
+	inline float GetNextCount()
+	{
+		return NextCount_;
+	}
 public:
 	MenuLevel();
 	~MenuLevel();
@@ -18,6 +26,5 @@ protected:
 	void Update() override;
 	void LevelChangeStart(GameEngineLevel* _NextLevel) override;
 	void LevelChangeEnd(GameEngineLevel* _PrevLevel) override;
-private:
 
 };

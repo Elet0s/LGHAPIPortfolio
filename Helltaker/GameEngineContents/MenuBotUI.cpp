@@ -21,7 +21,6 @@ void MenuBotUI::Start()
 	SetPosition({ 960,740 });
 	MenuBotUIRender_ = CreateRendererToScale("MenuBG.bmp", { Width_ ,Hight_ });
 	MenuBotUIRender_->SetScale({ Width_, Hight_ });
-
 }
 void MenuBotUI::Render()
 {
@@ -30,8 +29,12 @@ void MenuBotUI::Render()
 }
 void MenuBotUI::Update()
 {
-	if (GetPosition().y <= 1308)//1034
+	if (GetPosition().y <= 1308)
 	{
 		SetMove(float4::DOWN * GameEngineTime::GetDeltaTime() * Speed_);
+	}
+	else
+	{
+		Death();
 	}
 }

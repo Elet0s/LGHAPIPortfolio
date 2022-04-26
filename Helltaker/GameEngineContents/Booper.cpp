@@ -20,5 +20,4 @@ void Booper::Start()
 }
 void Booper::Update()
 {
-
 }

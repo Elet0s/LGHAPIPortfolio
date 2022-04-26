@@ -89,8 +89,11 @@
     <ClInclude Include="Booper.h">
       <Filter>Actor\Menu\Global</Filter>
     </ClInclude>
-    <ClInclude Include="MenuText001.h">
+    <ClInclude Include="MenuText.h">
       <Filter>Actor\Menu\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuSelcet.h">
+      <Filter>Actor\Menu\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -179,8 +182,11 @@
     <ClCompile Include="Booper.cpp">
       <Filter>Actor\Menu\Global</Filter>
     </ClCompile>
-    <ClCompile Include="MenuText001.cpp">
+    <ClCompile Include="MenuText.cpp">
       <Filter>Actor\Menu\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuSelcet.cpp">
+      <Filter>Actor\Menu\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
