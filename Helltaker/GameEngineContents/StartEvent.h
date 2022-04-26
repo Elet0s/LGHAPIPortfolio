@@ -1,14 +1,21 @@
 #pragma once
-class StartEvent
+#include <GameEngine/GameEngineActor.h>
+
+class StartEvent : public GameEngineActor
 {
-private:
-	// constrcuter destructer
+public:
 	StartEvent();
 	~StartEvent();
 
-	// delete Function
 	StartEvent(const StartEvent& _Other) = delete;
 	StartEvent(StartEvent&& _Other) noexcept = delete;
 	StartEvent& operator=(const StartEvent& _Other) = delete;
 	StartEvent& operator=(StartEvent&& _Other) noexcept = delete;
+
+protected:
+	void Start();
+	void Update();
+private:
+	GameEngineRenderer* StartEvent_;
+	float BgCount_;
 };

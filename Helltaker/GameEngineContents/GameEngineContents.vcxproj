@@ -193,7 +193,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="ContentsEnums.h" />
-    <ClInclude Include="EndEvent.h">
+    <ClInclude Include="EndText.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -214,6 +214,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Lock.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Loding.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -261,7 +265,15 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="StartBackGround.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="StartEvent.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="StartText.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -319,7 +331,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="EndEvent.cpp">
+    <ClCompile Include="EndText.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -340,6 +352,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Lock.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Loding.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -387,7 +403,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="StartBackGround.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="StartEvent.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="StartText.cpp">
       <SubType>
       </SubType>
     </ClCompile>

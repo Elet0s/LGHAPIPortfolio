@@ -3,11 +3,6 @@
 
 class MenuText : public GameEngineActor
 {
-public:
-	inline void ActorDeath()
-	{
-		Death();
-	}
 protected:
 	void Start();
 	void Render();

@@ -26,8 +26,4 @@ public:
 	{
 		return MenuSelcetCount_;
 	}
-	inline void ActorDeath()
-	{
-		Death();
-	}
 };

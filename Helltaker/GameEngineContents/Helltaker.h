@@ -20,6 +20,6 @@ public:
 protected:
 
 private:
-
+	float Chapter_;
 };
 

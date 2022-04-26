@@ -11,6 +11,7 @@
 #include "Chapter01.h"
 
 Helltaker::Helltaker()
+	:Chapter_(0)
 {
 }
 

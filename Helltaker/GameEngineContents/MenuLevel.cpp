@@ -14,7 +14,10 @@
 #include"MenuText.h"
 #include"Booper.h"
 #include"MenuSelcet.h"
+#include"StartText.h"
+#include"StartBackGround.h"
 #include"StartEvent.h"
+#include"Loding.h"
 
 MenuLevel::MenuLevel()
 	:NextCount_(0)
@@ -29,8 +32,8 @@ MenuLevel::~MenuLevel()
 void MenuLevel::Loading()
 {
 	CreateActor<MenuBackGround00>(0);
-	CreateActor<MenuBackGround01>(1);
-	CreateActor<MenuBackGround02>(1);
+	MenuBackGround01_ = CreateActor<MenuBackGround01>(1);
+	MenuBackGround02_ = CreateActor<MenuBackGround02>(1);
 	CreateActor<MenuText>(3);
 	CreateActor<Booper>(3);
 	CreateActor<MenuTopUi>(4);
@@ -52,33 +55,63 @@ void MenuLevel::Loading()
 
 void MenuLevel::Update()
 {
-	if (true == GameEngineInput::GetInst()->IsDown("Start"))
-	{
-			GameEngine::GetInst().ChangeLevel("Chapter01");
-	}
-	if (true == GameEngineInput::GetInst()->IsDown("Next"))
+	if (true == GameEngineInput::GetInst()->IsDown("Next")) //타이틀 끝나고 대사
 	{
 		if (NextCount_ == 0)
 		{
-			CreateActor<BeelFly>(2);
+			BeelFly_ = CreateActor<BeelFly>(2);
 			NextCount_ += 1;
 		}
-		else if (NextCount_==1)
+		else if (NextCount_ == 1)
 		{
-			MenuSelcet_ =CreateActor<MenuSelcet>(4);
+			MenuSelcet_ = CreateActor<MenuSelcet>(4);
 			NextCount_ += 1;
 		}
-		else if (NextCount_ == 2)
+	}
+
+	if (true == GameEngineInput::GetInst()->IsDown("Next")) //메뉴 선택하는부분
+	{
+		if (NextCount_ == 2)
 		{
-			if (MenuSelcet_->GetMenuSelcetCount() == 1)
+			if (MenuSelcet_->GetMenuSelcetCount() == 1)//1.게임시작
 			{
 				MenuSelcet_->Death();
+				StartText_ = CreateActor<StartText>(4);
+				NextCount_ += 1;
+			}
+			if (MenuSelcet_->GetMenuSelcetCount() == 2)//2.챕터선택
+			{
+				MenuSelcet_->Death();
+				NextCount_ += 1;
+			}
+			if (MenuSelcet_->GetMenuSelcetCount() == 3)//3.게임종료
+			{
+				MenuSelcet_->Death();
+				NextCount_ += 1;
+			}
+		}
+		if (NextCount_ == 3)//Start누르고 대사
+		{
+			if (StartText_->GetStartTextCount() == 2)
+			{
+				BeelFly_->Death();
+				MenuBackGround01_->Death();
+				MenuBackGround02_->Death();
+				StartBackGround_ = CreateActor<StartBackGround>(3);
+				StartEvent_ = CreateActor<StartEvent>(2);
+				NextCount_ += 1;
+			}
+		}
+		if (NextCount_ == 4)
+		{
+			if (StartText_->GetStartTextCount() == 6)
+			{
+				GameEngine::GetInst().ChangeLevel("Chapter01");
 			}
 		}
 	}
 
 
-	
 }
 void MenuLevel::LevelChangeStart(GameEngineLevel* _NextLevel)
 {
