@@ -102,7 +102,10 @@
       <Filter>Actor\Menu\UI</Filter>
     </ClInclude>
     <ClInclude Include="Loding.h">
-      <Filter>Level\Global</Filter>
+      <Filter>Actor\Menu\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="LodingNext.h">
+      <Filter>Actor\Menu\Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -204,7 +207,10 @@
       <Filter>Actor\Menu\UI</Filter>
     </ClCompile>
     <ClCompile Include="Loding.cpp">
-      <Filter>Level\Global</Filter>
+      <Filter>Actor\Menu\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="LodingNext.cpp">
+      <Filter>Actor\Menu\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

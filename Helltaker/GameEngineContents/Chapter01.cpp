@@ -33,8 +33,6 @@ void Chapter01::Update()
 }
 void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
-	CreateActor<Player>((int)ORDER::PLAYER);
-	CreateActor<BotUI>((int)ORDER::UI);
 }
 
 void Chapter01::LevelChangeEnd(GameEngineLevel* _NextLevel)

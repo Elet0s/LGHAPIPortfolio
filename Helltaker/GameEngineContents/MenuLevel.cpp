@@ -67,42 +67,39 @@ void MenuLevel::Update()
 			MenuSelcet_ = CreateActor<MenuSelcet>(4);
 			NextCount_ += 1;
 		}
-	}
-
-	if (true == GameEngineInput::GetInst()->IsDown("Next")) //메뉴 선택하는부분
-	{
-		if (NextCount_ == 2)
+		else if (NextCount_ == 2)
 		{
 			if (MenuSelcet_->GetMenuSelcetCount() == 1)//1.게임시작
 			{
-				MenuSelcet_->Death();
 				StartText_ = CreateActor<StartText>(4);
+				MenuSelcet_->Death();
 				NextCount_ += 1;
 			}
 			if (MenuSelcet_->GetMenuSelcetCount() == 2)//2.챕터선택
-			{
-				MenuSelcet_->Death();
+			{		
 				NextCount_ += 1;
 			}
 			if (MenuSelcet_->GetMenuSelcetCount() == 3)//3.게임종료
 			{
-				MenuSelcet_->Death();
 				NextCount_ += 1;
 			}
 		}
-		if (NextCount_ == 3)//Start누르고 대사
+		else if (NextCount_ == 3)//Start누르고 대사
 		{
 			if (StartText_->GetStartTextCount() == 2)
 			{
 				BeelFly_->Death();
 				MenuBackGround01_->Death();
 				MenuBackGround02_->Death();
+			}
+			else if (StartText_->GetStartTextCount() == 3)
+			{
 				StartBackGround_ = CreateActor<StartBackGround>(3);
 				StartEvent_ = CreateActor<StartEvent>(2);
 				NextCount_ += 1;
 			}
 		}
-		if (NextCount_ == 4)
+		else if (NextCount_ == 4)
 		{
 			if (StartText_->GetStartTextCount() == 6)
 			{
