@@ -13,8 +13,9 @@ public:
 	ChapterBackGound& operator=(const ChapterBackGound& _Other) = delete;
 	ChapterBackGound& operator=(ChapterBackGound&& _Other) noexcept = delete;
 protected:
-
-private:
 	void Start() override;
 	void Render() override;
+
+private: 
+	GameEngineRenderer* ChapterBackGoundRender_;
 };

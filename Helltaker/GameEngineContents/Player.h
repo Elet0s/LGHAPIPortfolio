@@ -18,6 +18,7 @@ public:
 protected:
 
 private:
+	GameEngineRenderer* PlayerIdleRender_;
 	float Speed_;
 	void Start() override;
 	void Update() override;
@@ -28,7 +29,6 @@ private:
 	void IdleUpdate();
 	void MoveUpdate();
 	void AttackUpdate();
-
 	void IdleStart();
 	void MoveStart();
 };

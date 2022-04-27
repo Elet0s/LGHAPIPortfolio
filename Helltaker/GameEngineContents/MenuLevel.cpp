@@ -18,7 +18,7 @@
 #include"StartBackGround.h"
 #include"StartEvent.h"
 #include"Loding.h"
-
+class GameEngine;
 MenuLevel::MenuLevel()
 	:NextCount_(0)
 {
@@ -52,18 +52,20 @@ void MenuLevel::Loading()
 		GameEngineInput::GetInst()->CreateKey("SelectDown", 's');
 	}
 }
-
 void MenuLevel::Update()
 {
 	if (true == GameEngineInput::GetInst()->IsDown("Next")) //타이틀 끝나고 대사
 	{
+		
 		if (NextCount_ == 0)
 		{
+			GameEngineSound::SoundPlayOneShot("TextNext.wav", 0);
 			BeelFly_ = CreateActor<BeelFly>(2);
 			NextCount_ += 1;
 		}
 		else if (NextCount_ == 1)
 		{
+			GameEngineSound::SoundPlayOneShot("TextNext.wav", 0);
 			MenuSelcet_ = CreateActor<MenuSelcet>(4);
 			NextCount_ += 1;
 		}
@@ -71,21 +73,25 @@ void MenuLevel::Update()
 		{
 			if (MenuSelcet_->GetMenuSelcetCount() == 1)//1.게임시작
 			{
+				GameEngineSound::SoundPlayOneShot("MenuSelect.wav", 0);
 				StartText_ = CreateActor<StartText>(4);
 				MenuSelcet_->Death();
 				NextCount_ += 1;
 			}
 			if (MenuSelcet_->GetMenuSelcetCount() == 2)//2.챕터선택
 			{		
+			 GameEngineSound::SoundPlayOneShot("MenuSelect.wav", 0);
 				NextCount_ += 1;
 			}
 			if (MenuSelcet_->GetMenuSelcetCount() == 3)//3.게임종료
 			{
+				GameEngineSound::SoundPlayOneShot("MenuSelect.wav", 0);
 				NextCount_ += 1;
 			}
 		}
 		else if (NextCount_ == 3)//Start누르고 대사
 		{
+			GameEngineSound::SoundPlayOneShot("TextNext.wav", 0);
 			if (StartText_->GetStartTextCount() == 2)
 			{
 				BeelFly_->Death();
@@ -101,6 +107,7 @@ void MenuLevel::Update()
 		}
 		else if (NextCount_ == 4)
 		{
+			GameEngineSound::SoundPlayOneShot("TextNext.wav", 0);
 			if (StartText_->GetStartTextCount() == 6)
 			{
 				GameEngine::GetInst().ChangeLevel("Chapter01");
@@ -112,10 +119,11 @@ void MenuLevel::Update()
 }
 void MenuLevel::LevelChangeStart(GameEngineLevel* _NextLevel)
 {
-	BgmPlayer = GameEngineSound::SoundPlayControl("Menu.wav");
+	BgmPlayer_ = GameEngineSound::SoundPlayControl("Menu.wav");
+
 }
 
 void MenuLevel::LevelChangeEnd(GameEngineLevel* _NextLevel)
 {
-	BgmPlayer.Stop();
+	BgmPlayer_.Stop();
 }

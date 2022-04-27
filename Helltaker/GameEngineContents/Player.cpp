@@ -18,14 +18,11 @@ Player::~Player()
 
 void Player::Start()
 {
-	SetPosition(GameEngineWindow::GetScale().Half());
-	SetScale(GameEngineWindow::GetScale());
-	CreateRenderer("Plyer01.bmp");
+	SetPosition({ 960,930 });
+	PlayerIdleRender_ = CreateRendererToScale("PlayerIdle.bmp", { 100 ,100 });
+	PlayerIdleRender_->CreateAnimation("PlayerIdle.bmp", "Player", 0, 11, 0.069f, true);
+	PlayerIdleRender_->ChangeAnimation("Player");
 
-	//GameEngineRenderer* Render = CreateRenderer("Plyer01.bmp");
-	//Render->SetIndex(10);
-
-	//CreateRendererToScale("lovesign.bmp", float4(30.0f, 30.0f), RenderPivot::CENTER, float4(-30.0f, -30.0f));
 
 	if (false == GameEngineInput::GetInst()->IsKey("MoveLeft"))
 	{
@@ -33,8 +30,6 @@ void Player::Start()
 		GameEngineInput::GetInst()->CreateKey("MoveRight", 'D');
 		GameEngineInput::GetInst()->CreateKey("MoveUp", 'W');
 		GameEngineInput::GetInst()->CreateKey("MoveDown", 'S');
-		GameEngineInput::GetInst()->CreateKey("Jump", VK_LSHIFT);
-		GameEngineInput::GetInst()->CreateKey("Fire", VK_SPACE);
 	}
 }
 

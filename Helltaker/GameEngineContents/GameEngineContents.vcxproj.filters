@@ -60,7 +60,7 @@
       <Filter>Level\Global</Filter>
     </ClInclude>
     <ClInclude Include="Booper.h">
-      <Filter>Actor\Menu\Global</Filter>
+      <Filter>Actor\Global</Filter>
     </ClInclude>
     <ClInclude Include="MenuText.h">
       <Filter>Actor\Menu\Text</Filter>
@@ -102,10 +102,10 @@
       <Filter>Actor\Menu\UI</Filter>
     </ClInclude>
     <ClInclude Include="Loding.h">
-      <Filter>Actor\Menu\Global</Filter>
+      <Filter>Actor\Global</Filter>
     </ClInclude>
     <ClInclude Include="LodingNext.h">
-      <Filter>Actor\Menu\Global</Filter>
+      <Filter>Actor\Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -165,7 +165,7 @@
       <Filter>Level\Title</Filter>
     </ClCompile>
     <ClCompile Include="Booper.cpp">
-      <Filter>Actor\Menu\Global</Filter>
+      <Filter>Actor\Global</Filter>
     </ClCompile>
     <ClCompile Include="MenuText.cpp">
       <Filter>Actor\Menu\Text</Filter>
@@ -207,10 +207,13 @@
       <Filter>Actor\Menu\UI</Filter>
     </ClCompile>
     <ClCompile Include="Loding.cpp">
-      <Filter>Actor\Menu\Global</Filter>
+      <Filter>Actor\Global</Filter>
     </ClCompile>
     <ClCompile Include="LodingNext.cpp">
-      <Filter>Actor\Menu\Global</Filter>
+      <Filter>Actor\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -228,9 +231,6 @@
     </Filter>
     <Filter Include="Actor\Menu">
       <UniqueIdentifier>{d10815ad-a270-4b52-a308-687ae7f95fec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Actor\Menu\Global">
-      <UniqueIdentifier>{0c2ab7f7-0066-4c13-b376-fc504d629c88}</UniqueIdentifier>
     </Filter>
     <Filter Include="Actor\Menu\UI">
       <UniqueIdentifier>{59e90494-457d-4c4d-9047-09380ddfdaa1}</UniqueIdentifier>
@@ -267,6 +267,9 @@
     </Filter>
     <Filter Include="Actor\Menu\MenuBase">
       <UniqueIdentifier>{cf946c48-96f5-411b-b230-5c028e906d7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Global">
+      <UniqueIdentifier>{0c2ab7f7-0066-4c13-b376-fc504d629c88}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

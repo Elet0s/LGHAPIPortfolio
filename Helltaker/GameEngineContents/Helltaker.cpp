@@ -108,11 +108,28 @@ void Helltaker::GameInit()
 	}
 
 	{
-		//현재 디렉토리
+		//챕터 백그라운드
 		GameEngineDirectory ResourcesDir;
 		ResourcesDir.MoveParent("Helltaker");
 		ResourcesDir.Move("Resource");
 		ResourcesDir.Move("Chapter");
+		ResourcesDir.Move("ChapterBG");
+
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
+	{
+		//챕터 글로벌 플레이어
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("Chapter");
+		ResourcesDir.Move("Global");
+		ResourcesDir.Move("Player");
 
 		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
 
@@ -127,7 +144,10 @@ void Helltaker::GameInit()
 	{
 		GameEngineImage* Booper = GameEngineImageManager::GetInst()->Find("Booper.bmp");
 		Booper->CutCount(17,1);
+		GameEngineImage* PlayerIdle = GameEngineImageManager::GetInst()->Find("PlayerIdle.bmp");
+		PlayerIdle->CutCount(12,1);
 	}
+
 
 	if (false == GameEngineInput::GetInst()->IsKey("Start"))
 	{
@@ -137,7 +157,7 @@ void Helltaker::GameInit()
 	CreateLevel<TitleLevel>("TitleLevel");
 	CreateLevel<MenuLevel>("MenuLevel");
 	CreateLevel<Chapter01>("Chapter01");
-	ChangeLevel("TitleLevel");
+	ChangeLevel("Chapter01");
 }
 
 void Helltaker::GameLoop()

@@ -24,7 +24,8 @@ Chapter01::~Chapter01()
 
 void Chapter01::Loading()
 {
-
+	CreateActor<ChapterBackGound>(0);
+	CreateActor<Player>(1);
 }
 
 void Chapter01::Update()

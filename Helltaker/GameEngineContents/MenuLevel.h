@@ -28,7 +28,10 @@ public:
 	MenuLevel();
 	~MenuLevel();
 
-	GameEngineSoundPlayer BgmPlayer;
+	GameEngineSoundPlayer BgmPlayer_;
+	GameEngineSoundPlayer TextSound_;
+	GameEngineSoundPlayer SelectSound_;
+
 	MenuLevel(const MenuLevel& _Other) = delete;
 	MenuLevel(MenuLevel&& _Other) noexcept = delete;
 	MenuLevel& operator=(const MenuLevel& _Other) = delete;

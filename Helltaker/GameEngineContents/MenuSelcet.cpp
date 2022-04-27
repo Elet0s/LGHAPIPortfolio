@@ -29,6 +29,7 @@ void MenuSelcet::Update()
 {
 	if (true == GameEngineInput::GetInst()->IsDown("SelectUp"))
 	{
+		GameEngineSound::SoundPlayOneShot("MenuMove.wav", 0);
 		if(MenuSelcetCount_ > 1)
 		{
 			MenuSelcetCount_ -= 1;
@@ -55,6 +56,7 @@ void MenuSelcet::Update()
 	}
 	if (true == GameEngineInput::GetInst()->IsDown("SelectDown"))
 	{
+		GameEngineSound::SoundPlayOneShot("MenuMove.wav", 0);
 		if (MenuSelcetCount_ < 3)
 		{
 			MenuSelcetCount_ += 1;

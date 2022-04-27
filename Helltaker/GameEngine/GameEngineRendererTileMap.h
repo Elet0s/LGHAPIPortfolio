@@ -126,18 +126,15 @@ public:
 		return reinterpret_cast<TileType*>(FindTile);
 	}
 
-
 	// 타일이미지가 여러장 모여있는데 컷했을때
-
 	template<typename TileType>
 	TileType* CreateTile(int _X, int _Y, const std::string& _Image, int Index, int _Order)
 	{
-		TileType* Tile = CreateTile<TileType>(_X, _Y, _Image);
+		TileType* Tile = CreateTile(_X, _Y, _Image);
 		Tile->Renderer->SetIndex(Index);
 		Tile->Renderer->SetPivot(GetWorldPostion(_X, _Y));
 		return reinterpret_cast<TileType*>(Tile);
 	}
-
 
 	void DeleteTile(int _X, int _Y);
 
@@ -154,6 +151,18 @@ public:
 
 	virtual ~GameEngineRendererTileMap()
 	{
+		for (size_t y = 0; y < Tiles_.size(); y++)
+		{
+			for (size_t x = 0; x < Tiles_[y].size(); x++)
+			{
+				if (nullptr == Tiles_[y][x])
+				{
+					continue;
+				}
+				delete Tiles_[y][x];
+				Tiles_[y][x] = nullptr;
+			}
+		}
 	}
 };
 
