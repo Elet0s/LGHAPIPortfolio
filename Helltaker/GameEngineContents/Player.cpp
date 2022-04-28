@@ -18,9 +18,9 @@ Player::~Player()
 
 void Player::Start()
 {
-	SetPosition({ 960,930 });
-	PlayerIdleRender_ = CreateRendererToScale("PlayerIdle.bmp", { 100 ,100 });
-	PlayerIdleRender_->CreateAnimation("PlayerIdle.bmp", "Player", 0, 11, 0.069f, true);
+	SetPosition({ 1160,290 });
+	PlayerIdleRender_ = CreateRendererToScale("PlayerRight.bmp", { 100 ,100 });
+	PlayerIdleRender_->CreateAnimation("PlayerRight.bmp", "Player", 0, 11, 0.069f, true);
 	PlayerIdleRender_->ChangeAnimation("Player");
 
 

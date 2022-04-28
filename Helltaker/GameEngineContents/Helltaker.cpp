@@ -144,8 +144,10 @@ void Helltaker::GameInit()
 	{
 		GameEngineImage* Booper = GameEngineImageManager::GetInst()->Find("Booper.bmp");
 		Booper->CutCount(17,1);
-		GameEngineImage* PlayerIdle = GameEngineImageManager::GetInst()->Find("PlayerIdle.bmp");
-		PlayerIdle->CutCount(12,1);
+		GameEngineImage* PlayerRight = GameEngineImageManager::GetInst()->Find("PlayerRight.bmp");
+		PlayerRight->CutCount(12,1);
+		GameEngineImage* PlayerLeft = GameEngineImageManager::GetInst()->Find("PlayerLeft.bmp");
+		PlayerLeft->CutCount(12, 1);
 	}
 
 
@@ -157,7 +159,7 @@ void Helltaker::GameInit()
 	CreateLevel<TitleLevel>("TitleLevel");
 	CreateLevel<MenuLevel>("MenuLevel");
 	CreateLevel<Chapter01>("Chapter01");
-	ChangeLevel("Chapter01");
+	ChangeLevel("MenuLevel");
 }
 
 void Helltaker::GameLoop()
