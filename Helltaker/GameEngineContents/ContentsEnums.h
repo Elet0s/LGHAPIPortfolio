@@ -5,6 +5,12 @@ enum class ORDER
 	BACKGROUND,
 	PLAYER,
 	MONSTER,
-	UI
+	UI,
+	Ston,
+	Trap,
+	Lock,
+	Key,
+	Helper,
+
 
 };
