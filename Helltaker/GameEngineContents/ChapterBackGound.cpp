@@ -3,6 +3,7 @@
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngine/GameEngineImageManager.h>
 
+
 ChapterBackGound::ChapterBackGound()
 	:ChapterBackGoundRender_(nullptr)
 {
@@ -17,6 +18,8 @@ void ChapterBackGound::Start()
 {
 	SetPosition(GameEngineWindow::GetScale().Half());
 	ChapterBackGoundRender_ = CreateRendererToScale("chapterBG01.bmp", { 1920 ,1080 });
+
+	//ChapterBackGoundTileMap_->TileRangeSetting(19, 11, { 100,95 });
 }
 
 void ChapterBackGound::Render()

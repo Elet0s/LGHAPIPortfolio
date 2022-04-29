@@ -190,7 +190,13 @@ void GameEngineRenderer::CreateAnimation(
 
 }
 
-void GameEngineRenderer::CreateFolderAnimation(const std::string& _Image, const std::string& _Name, int _StartIndex, int _EndIndex, float _InterTime, bool _Loop /*= true*/)
+void GameEngineRenderer::CreateFolderAnimation(
+	const std::string& _Image, 
+	const std::string& _Name, 
+	int _StartIndex, 
+	int _EndIndex, 
+	float _InterTime, 
+	bool _Loop /*= true*/)
 {
 	GameEngineFolderImage* FindImage = GameEngineImageManager::GetInst()->FolderImageFind(_Image);
 	if (nullptr == FindImage)

@@ -1,8 +1,19 @@
 #pragma once
 #include <GameEngine/GameEngineLevel.h>
-
+class Player;
+class ChapterBackGound;
+class BotUI;
+class Loding;
+class LodingNext;
 class Chapter01 : public GameEngineLevel
 {
+private:
+	Player* Player_;
+	ChapterBackGound* ChapterBackGound_;
+	BotUI* BotUI_;
+	Loding* Loding_;
+	LodingNext* LodingNext_;
+	
 public:
 
 	Chapter01();
@@ -18,6 +29,6 @@ protected:
 	void Update() override;
 	void LevelChangeStart(GameEngineLevel* _NextLevel) override;
 	void LevelChangeEnd(GameEngineLevel* _PrevLevel) override;
-private:
+
 
 };

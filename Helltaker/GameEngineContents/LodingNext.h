@@ -3,7 +3,12 @@
 
 class LodingNext : public GameEngineActor
 {
+protected:
+	void Start();
+	void Update();
 private:
+	GameEngineRenderer* LodingNextRender_;
+public:
 	LodingNext();
 	~LodingNext();
 
@@ -12,9 +17,5 @@ private:
 	LodingNext(LodingNext&& _Other) noexcept = delete;
 	LodingNext& operator=(const LodingNext& _Other) = delete;
 	LodingNext& operator=(LodingNext&& _Other) noexcept = delete;
-protected:
-	void Start();
-	void Update();
-private:
-	GameEngineRenderer* LodingNext_;
+
 };

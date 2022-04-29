@@ -8,8 +8,6 @@
 EndText::EndText()
 	:TextCount_(0)
 	, EndTextRender01(nullptr)
-	, EndTextRender02(nullptr)
-
 {
 
 }
@@ -19,8 +17,8 @@ EndText::~EndText()
 }
 void EndText::Start()
 {
-	SetPosition({ 960,830 });
-	EndTextRender01 = CreateRendererToScale("StartText01.bmp", { 834 ,135 });
+	SetPosition({ 960,818 });
+	EndTextRender01 = CreateRendererToScale("EndText.bmp", { 972 ,127 });
 
 }
 void EndText::Render()

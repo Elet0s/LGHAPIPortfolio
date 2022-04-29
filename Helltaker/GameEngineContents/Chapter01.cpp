@@ -10,6 +10,8 @@
 #include "Player.h"
 #include "BotUI.h"
 #include "ChapterBackGound.h"
+#include "Loding.h"
+#include "LodingNext.h"
 
 
 Chapter01::Chapter01()
@@ -24,8 +26,9 @@ Chapter01::~Chapter01()
 
 void Chapter01::Loading()
 {
-	CreateActor<ChapterBackGound>(0);
-	CreateActor<Player>(1);
+	ChapterBackGound_ = CreateActor<ChapterBackGound>(0);
+	Player_ = CreateActor<Player>(1);
+	LodingNext_ = CreateActor<LodingNext>(4);
 }
 
 void Chapter01::Update()

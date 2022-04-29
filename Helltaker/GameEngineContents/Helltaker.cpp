@@ -96,8 +96,6 @@ void Helltaker::GameInit()
 		ResourcesDir.MoveParent("Helltaker");
 		ResourcesDir.Move("Resource");
 		ResourcesDir.Move("Global");
-		ResourcesDir.Move("Booper");
-
 
 		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
 
@@ -105,6 +103,15 @@ void Helltaker::GameInit()
 		{
 			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
 		}
+	}
+	{
+		//공용 Loding
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("Global");
+		ResourcesDir.Move("Loding");
+		GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
 	}
 
 	{
@@ -139,6 +146,7 @@ void Helltaker::GameInit()
 		}
 	}
 
+
 	//////////////////////이미지 자르는 부분
 
 	{
@@ -159,7 +167,7 @@ void Helltaker::GameInit()
 	CreateLevel<TitleLevel>("TitleLevel");
 	CreateLevel<MenuLevel>("MenuLevel");
 	CreateLevel<Chapter01>("Chapter01");
-	ChangeLevel("MenuLevel");
+	ChangeLevel("TitleLevel");
 }
 
 void Helltaker::GameLoop()

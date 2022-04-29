@@ -8,6 +8,9 @@ class MenuBackGround01;
 class MenuBackGround02;
 class StartBackGround;
 class StartEvent;
+class EndText;
+class Loding;
+
 class MenuLevel : public  GameEngineLevel
 {
 private:
@@ -19,6 +22,9 @@ private:
 	MenuBackGround02* MenuBackGround02_;
 	StartBackGround* StartBackGround_;
 	StartEvent* StartEvent_;
+	EndText* EndText_;
+	Loding* Loding_;
+
 public:
 	inline float GetNextCount()
 	{

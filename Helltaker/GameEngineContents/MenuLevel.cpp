@@ -2,6 +2,7 @@
 #include <GameEngine/GameEngine.h>
 #include <GameEngine/GameEngineLevel.h>
 #include <GameEngineBase/GameEngineDebug.h>
+#include <GameEngineBase/GameEngineWindow.h>
 
 #include"MenuLevel.h"
 #include"Chapter01.h"
@@ -17,8 +18,8 @@
 #include"StartText.h"
 #include"StartBackGround.h"
 #include"StartEvent.h"
+#include"EndText.h"
 #include"Loding.h"
-class GameEngine;
 MenuLevel::MenuLevel()
 	:NextCount_(0)
 {
@@ -86,7 +87,9 @@ void MenuLevel::Update()
 			if (MenuSelcet_->GetMenuSelcetCount() == 3)//3.게임종료
 			{
 				GameEngineSound::SoundPlayOneShot("MenuSelect.wav", 0);
-				NextCount_ += 1;
+				EndText_ = CreateActor<EndText>(4);
+				MenuSelcet_->Death();
+				NextCount_ += 3;
 			}
 		}
 		else if (NextCount_ == 3)//Start누르고 대사
@@ -108,10 +111,16 @@ void MenuLevel::Update()
 		else if (NextCount_ == 4)
 		{
 			GameEngineSound::SoundPlayOneShot("TextNext.wav", 0);
-			if (StartText_->GetStartTextCount() == 6)
+			if (StartText_->GetStartTextCount() == 6)//게임체인지
 			{
-				GameEngine::GetInst().ChangeLevel("Chapter01");
+				Loding_ = CreateActor<Loding>(5);		
+				NextCount_ += 2;
 			}
+		}
+		else if (NextCount_ == 5)//게임종료
+		{
+			GameEngineSound::SoundPlayOneShot("TextNext.wav", 0);
+			GameEngineWindow::GetInst().Off();
 		}
 	}
 

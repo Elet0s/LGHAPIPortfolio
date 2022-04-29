@@ -10,7 +10,6 @@ protected:
 private:
 	float TextCount_;
 	GameEngineRenderer* EndTextRender01;
-	GameEngineRenderer* EndTextRender02;
 public:
 	EndText();
 	~EndText();
