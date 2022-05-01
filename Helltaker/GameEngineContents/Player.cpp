@@ -22,46 +22,54 @@ void Player::Start()
 	PlayerRender_ = CreateRendererToScale("PlayerRight.bmp", { 100 ,100 });
 	PlayerRender_->CreateAnimation("PlayerRight.bmp", "Player", 0, 11, 0.069f, true);
 	PlayerRender_->ChangeAnimation("Player");
-
-
-	if (false == GameEngineInput::GetInst()->IsKey("MoveLeft"))
-	{
-		GameEngineInput::GetInst()->CreateKey("LeftMove", 'A');
-		GameEngineInput::GetInst()->CreateKey("RightMove", 'D');
-		GameEngineInput::GetInst()->CreateKey("UpMove", 'W');
-		GameEngineInput::GetInst()->CreateKey("DownMove", 'S');
-	}
+	KeySet();
+	ColSet();
+;
 }
 
 void Player::Update()
 {
-	if (true == GameEngineInput::GetInst()->IsPress("LeftMove"))
+	float4 MyPosition_ = GetPosition();
+	int Color = ChapterCol_->GetImagePixel(MyPosition_);
+	if (RGB(0, 0, 0) != Color)
 	{
-		SetMove(float4::LEFT * GameEngineTime::GetDeltaTime() * Speed_);
-	}
-	if (true == GameEngineInput::GetInst()->IsPress("RightMove"))
-	{
-		SetMove(float4::RIGHT * GameEngineTime::GetDeltaTime() * Speed_);
-	}
-	if (true == GameEngineInput::GetInst()->IsPress("UpMove"))
-	{
-		SetMove(float4::UP * GameEngineTime::GetDeltaTime() * Speed_);
-	}
+		if (true == GameEngineInput::GetInst()->IsPress("LeftMove"))
+		{
+			MyPosition_ += (float4::LEFT * GameEngineTime::GetDeltaTime() * Speed_);
+		}
+		if (true == GameEngineInput::GetInst()->IsPress("RightMove"))
+		{
+			MyPosition_ += (float4::RIGHT * GameEngineTime::GetDeltaTime() * Speed_);
+		}
+		if (true == GameEngineInput::GetInst()->IsPress("UpMove"))
+		{
+			MyPosition_ += (float4::UP * GameEngineTime::GetDeltaTime() * Speed_);
+		}
 
-	if (true == GameEngineInput::GetInst()->IsPress("DownMove"))
-	{
-		SetMove(float4::DOWN * GameEngineTime::GetDeltaTime() * Speed_);
+		if (true == GameEngineInput::GetInst()->IsPress("DownMove"))
+		{
+			MyPosition_ += (float4::DOWN * GameEngineTime::GetDeltaTime() * Speed_);
+		}
+		SetPosition(MyPosition_);
 	}
+	
 }
 void Player::Render()
 {
 
 }
-void Player::LevelChangeStart(GameEngineLevel* _PrevLevel)
-{
 
+void Player::ColSet()
+{
+	ChapterCol_ = GameEngineImageManager::GetInst()->Find("ChapterBG01C.bmp");
 }
-void Player::LevelChangeEnd(GameEngineLevel* _NextLevel)
+void Player::KeySet()
 {
-
+	if (false == GameEngineInput::GetInst()->IsKey("MoveLeft"))
+	{
+		GameEngineInput::GetInst()->CreateKey("LeftMove", VK_LEFT);
+		GameEngineInput::GetInst()->CreateKey("RightMove", VK_RIGHT);
+		GameEngineInput::GetInst()->CreateKey("UpMove", VK_UP);
+		GameEngineInput::GetInst()->CreateKey("DownMove", VK_DOWN);
+	}
 }

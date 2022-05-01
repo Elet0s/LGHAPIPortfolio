@@ -30,13 +30,14 @@ protected:
 private:
 	GameEngineRendererTileMap* TileMap_;
 	GameEngineRenderer* PlayerRender_;
+	GameEngineImage* ChapterCol_;
 	float Speed_;
 
 	void Start() override;
 	void Update() override;
 	void Render() override;
-	void LevelChangeStart(GameEngineLevel* _PrevLevel) override;
-	void LevelChangeEnd(GameEngineLevel* _NextLevel)override;
+	void ColSet();
+	void KeySet();
 
 	std::string NextLevel_;
 	std::string PreLevel_;
