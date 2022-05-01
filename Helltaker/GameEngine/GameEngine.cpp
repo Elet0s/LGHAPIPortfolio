@@ -73,14 +73,11 @@ void GameEngine::EngineLoop()
     if (nullptr != NextLevel_)
     {
         PrevLevel_ = CurrentLevel_;
-
         if (nullptr != CurrentLevel_)
         {
             CurrentLevel_->ActorLevelChangeEnd(NextLevel_);
             CurrentLevel_->LevelChangeEnd(NextLevel_);
-
             CurrentLevel_->ObjectLevelMoveCheck(NextLevel_);
-
         }
 
         GameEngineLevel* PrevLevel = CurrentLevel_;
