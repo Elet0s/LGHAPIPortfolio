@@ -265,6 +265,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="PlayerEnums.h" />
     <ClInclude Include="Skel.h">
       <SubType>
       </SubType>

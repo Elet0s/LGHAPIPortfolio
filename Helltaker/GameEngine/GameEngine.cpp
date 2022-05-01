@@ -1,7 +1,7 @@
 #include "GameEngine.h"
+#include <GameEngineBase/GameEngineWindow.h>
 #include "GameEngineLevel.h"
 #include "GameEngineImageManager.h"
-#include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineBase/GameEngineTime.h>
 #include <GameEngineBase/GameEngineSound.h>
@@ -82,6 +82,7 @@ void GameEngine::EngineLoop()
             CurrentLevel_->ObjectLevelMoveCheck(NextLevel_);
 
         }
+
         GameEngineLevel* PrevLevel = CurrentLevel_;
         CurrentLevel_ = NextLevel_;
 
@@ -111,9 +112,17 @@ void GameEngine::EngineLoop()
     CurrentLevel_->Update();
     CurrentLevel_->ActorUpdate();
     CurrentLevel_->ActorRender();
+    CurrentLevel_->CollisionDebugRender();
     WindowMainImage_->BitCopy(BackBufferImage_);
 
     CurrentLevel_->ActorRelease();
+
+    if (true == CurrentLevel_->IsReset)
+    {
+        CurrentLevel_->Reset();
+        // 리셋되고 나서 로딩을 다시 호출하건 자신만의 뭐가 있건 알아서 해라.
+        CurrentLevel_->UserResetEnd();
+    }
 
 }
 
@@ -132,6 +141,7 @@ void GameEngine::EngineEnd()
         }
         delete StartIter->second;
     }
+
 
     GameEngineSound::AllResourcesDestroy();
     GameEngineImageManager::Destroy();

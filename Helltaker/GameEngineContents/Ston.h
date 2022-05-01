@@ -1,12 +1,16 @@
 #pragma once
-class Ston
+#include "PlayerEnums.h"
+#include <GameEngine/GameEngineActor.h>
+#include <GameEngine/GameEngineRendererTileMap.h>
+
+class Ston : public Tile
 {
-private:
-	// constrcuter destructer
+public:
+
 	Ston();
 	~Ston();
 
-	// delete Function
+
 	Ston(const Ston& _Other) = delete;
 	Ston(Ston&& _Other) noexcept = delete;
 	Ston& operator=(const Ston& _Other) = delete;

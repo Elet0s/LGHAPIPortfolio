@@ -1,4 +1,3 @@
-#include "Player.h"
 #include <GameEngine/GameEngine.h>
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngine/GameEngineImageManager.h>
@@ -7,10 +6,18 @@
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngine/GameEngineLevel.h> // 레벨을 통해서
 
+#include "Player.h"
+#include "ChapterBackGound.h"
+#include "ContentsEnums.h"
 
 void Player::IdleUpdate()
 {
 	
+}
+
+void Player::MoveUpdate()
+{
+
 }
 
 void Player::AttackUpdate()
@@ -19,14 +26,18 @@ void Player::AttackUpdate()
 
 
 }
-
-void Player::MoveUpdate()
+void Player::HitUpdate()
 {
 
-
+}
+void Player::DieUpdate()
+{
 
 }
+void Player::WinUpdate()
+{
 
+}
 
 //////////////////////////////////////// State
 

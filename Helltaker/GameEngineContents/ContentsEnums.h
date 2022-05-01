@@ -6,11 +6,11 @@ enum class ORDER
 	PLAYER,
 	MONSTER,
 	UI,
-	Ston,
-	Trap,
-	Lock,
-	Key,
-	Helper,
+	STON,
+	TRAP,
+	LOCK,
+	KEY,
+	HELPER,
 
 
 };

@@ -7,6 +7,7 @@
 
 GameEngineActor::GameEngineActor()
 	: Level_(nullptr)
+	, IsResetIgnore(false)
 {
 	// delete this;
 }
@@ -86,7 +87,7 @@ GameEngineRenderer* GameEngineActor::CreateRenderer(
 }
 
 
-GameEngineRenderer* GameEngineActor::CreateRenderer( //이미지 크기를 원본크기대로 출력
+GameEngineRenderer* GameEngineActor::CreateRenderer(
 	const std::string& _Image,
 	int _Order, /*= static_cast<int>(EngineMax::RENDERORDERMAX)*/
 	RenderPivot _PivotType /*= RenderPivot::CENTER*/,
@@ -113,7 +114,7 @@ GameEngineRenderer* GameEngineActor::CreateRenderer( //이미지 크기를 원본크기대�
 	return NewRenderer;
 }
 
-GameEngineRenderer* GameEngineActor::CreateRendererToScale( // 이미지 크기를 원본이 아니라 직접 바꿔서 출력
+GameEngineRenderer* GameEngineActor::CreateRendererToScale(
 	const std::string& _Image, const float4& _Scale,
 	int _Order, /*= static_cast<int>(EngineMax::RENDERORDERMAX)*/
 	RenderPivot _PivotType /*= RenderPivot::CENTER*/, const float4& _PivotPos /*= { 0,0 }*/
@@ -208,4 +209,16 @@ void GameEngineActor::SetOrder(int _Order)
 	}
 
 	GetLevel()->ChangeUpdateOrder(this, _Order);
+}
+
+
+void GameEngineActor::LevelRegist(std::string _RegistName/* = ""*/)
+{
+	if (_RegistName == "")
+	{
+		GetLevel()->RegistActor(GetNameConstPtr(), this);
+		return;
+	}
+
+	GetLevel()->RegistActor(_RegistName, this);
 }

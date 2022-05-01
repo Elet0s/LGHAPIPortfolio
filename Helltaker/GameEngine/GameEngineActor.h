@@ -35,6 +35,12 @@ public:
 		return Level_;
 	}
 
+	inline void ResetIgnoreOn()
+	{
+		IsResetIgnore = true;
+	}
+
+
 	inline float4 GetCameraEffectPosition()
 	{
 		return Position_ - GetLevel()->GetCameraPos();
@@ -63,6 +69,7 @@ public:
 	{
 		Scale_ = _Value;
 	}
+
 	inline void NextLevelOn()
 	{
 		NextLevelOn_ = true;
@@ -85,12 +92,15 @@ protected:
 
 	void DebugRectRender();
 
+	void LevelRegist(std::string _RegistName = "");
+
 private:
 	GameEngineLevel* Level_;
 	float4 Position_;
 	float4 Scale_;
 
 	bool NextLevelOn_;
+	bool IsResetIgnore;
 
 	inline void NextLevelOff()
 	{
@@ -131,5 +141,7 @@ public:
 private:
 	// 이터레이터
 	std::list<GameEngineCollision*> CollisionList_;
+
+
 };
 

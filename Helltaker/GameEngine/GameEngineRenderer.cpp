@@ -19,6 +19,7 @@ GameEngineRenderer::GameEngineRenderer()
 	, IsCameraEffect_(true)
 	, Alpha_(255)
 	, RotZ_(0.0f)
+	, SortingPivot(float4::ZERO)
 {
 }
 
@@ -51,6 +52,12 @@ void GameEngineRenderer::SetImage(const std::string& _Name)
 
 	Image_ = FindImage;
 	SetImageScale();
+}
+
+void GameEngineRenderer::SetImageAnimationReset(const std::string& _Name)
+{
+	SetImage(_Name);
+	CurrentAnimation_ = nullptr;
 }
 
 void GameEngineRenderer::SetRotationFilter(const std::string& _Name)
@@ -111,7 +118,7 @@ void GameEngineRenderer::Render()
 		float4 Scale = RenderScale_.Half();
 		Scale.y *= 2;
 
-		if (Alpha_ = 255)
+		if (Alpha_ != 255)
 		{
 			GameEngine::BackBufferImage()->AlphaCopy(Image_, RenderPos - Scale, RenderScale_, RenderImagePivot_, RenderImageScale_, Alpha_);
 		}
@@ -190,13 +197,7 @@ void GameEngineRenderer::CreateAnimation(
 
 }
 
-void GameEngineRenderer::CreateFolderAnimation(
-	const std::string& _Image, 
-	const std::string& _Name, 
-	int _StartIndex, 
-	int _EndIndex, 
-	float _InterTime, 
-	bool _Loop /*= true*/)
+void GameEngineRenderer::CreateFolderAnimation(const std::string& _Image, const std::string& _Name, int _StartIndex, int _EndIndex, float _InterTime, bool _Loop /*= true*/)
 {
 	GameEngineFolderImage* FindImage = GameEngineImageManager::GetInst()->FolderImageFind(_Image);
 	if (nullptr == FindImage)

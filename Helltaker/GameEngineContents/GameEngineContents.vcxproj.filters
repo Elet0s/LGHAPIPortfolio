@@ -29,9 +29,6 @@
     <ClInclude Include="Skel.h">
       <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Ston.h">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClInclude>
     <ClInclude Include="Lock.h">
       <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
@@ -46,9 +43,6 @@
     </ClInclude>
     <ClInclude Include="Event.h">
       <Filter>Actor\Chapter\Global</Filter>
-    </ClInclude>
-    <ClInclude Include="ChapterBackGound.h">
-      <Filter>Actor\Chapter\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="MenuLevel.h">
       <Filter>Level\Menu</Filter>
@@ -107,6 +101,15 @@
     <ClInclude Include="LodingNext.h">
       <Filter>Actor\Global</Filter>
     </ClInclude>
+    <ClInclude Include="ChapterBackGound.h">
+      <Filter>Actor\Chapter\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerEnums.h">
+      <Filter>Actor\Chapter\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Ston.h">
+      <Filter>Actor\Chapter\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
@@ -137,9 +140,6 @@
     <ClCompile Include="Skel.cpp">
       <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Ston.cpp">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClCompile>
     <ClCompile Include="Lock.cpp">
       <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
@@ -154,9 +154,6 @@
     </ClCompile>
     <ClCompile Include="Event.cpp">
       <Filter>Actor\Chapter\Global</Filter>
-    </ClCompile>
-    <ClCompile Include="ChapterBackGound.cpp">
-      <Filter>Actor\Chapter\BackGround</Filter>
     </ClCompile>
     <ClCompile Include="MenuLevel.cpp">
       <Filter>Level\Menu</Filter>
@@ -215,6 +212,12 @@
     <ClCompile Include="PlayerState.cpp">
       <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
+    <ClCompile Include="ChapterBackGound.cpp">
+      <Filter>Actor\Chapter\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Ston.cpp">
+      <Filter>Actor\Chapter\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -246,9 +249,6 @@
     </Filter>
     <Filter Include="Actor\Chapter\Object\Ui">
       <UniqueIdentifier>{33b06d02-efad-4c99-b6e3-a2b4e0f3fa34}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Actor\Chapter\BackGround">
-      <UniqueIdentifier>{f7cb7e5a-3c4b-4ddb-b302-0163e3ad4f0b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Level\Title">
       <UniqueIdentifier>{34c1476d-dfa1-48d4-8cf1-439bd43a5bda}</UniqueIdentifier>

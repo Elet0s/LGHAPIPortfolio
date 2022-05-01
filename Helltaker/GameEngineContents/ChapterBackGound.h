@@ -1,6 +1,8 @@
 #pragma once
 #include <GameEngine/GameEngineActor.h>
 #include <GameEngine/GameEngineRendererTileMap.h>
+
+class GameEngineRenderer;
 class ChapterBackGound : public GameEngineActor
 {
 public:
@@ -12,12 +14,19 @@ public:
 	ChapterBackGound(ChapterBackGound&& _Other) noexcept = delete;
 	ChapterBackGound& operator=(const ChapterBackGound& _Other) = delete;
 	ChapterBackGound& operator=(ChapterBackGound&& _Other) noexcept = delete;
+
 protected:
 	void Start() override;
 	void Render() override;
 
 private: 
-	GameEngineRendererTileMap ChapterBackGoundTileMap_;
-public:
 	GameEngineRenderer* ChapterBackGoundRender_;
+	
+public:
+	GameEngineRendererTileMap ChapterBackGoundTileMap_;
+
+	GameEngineRenderer* GetRenderer()
+	{
+		return	ChapterBackGoundRender_;
+	}
 };

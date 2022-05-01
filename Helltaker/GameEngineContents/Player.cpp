@@ -19,41 +19,49 @@ Player::~Player()
 void Player::Start()
 {
 	SetPosition({ 1160,290 });
-	PlayerIdleRender_ = CreateRendererToScale("PlayerRight.bmp", { 100 ,100 });
-	PlayerIdleRender_->CreateAnimation("PlayerRight.bmp", "Player", 0, 11, 0.069f, true);
-	PlayerIdleRender_->ChangeAnimation("Player");
+	PlayerRender_ = CreateRendererToScale("PlayerRight.bmp", { 100 ,100 });
+	PlayerRender_->CreateAnimation("PlayerRight.bmp", "Player", 0, 11, 0.069f, true);
+	PlayerRender_->ChangeAnimation("Player");
 
 
 	if (false == GameEngineInput::GetInst()->IsKey("MoveLeft"))
 	{
-		GameEngineInput::GetInst()->CreateKey("MoveLeft", 'A');
-		GameEngineInput::GetInst()->CreateKey("MoveRight", 'D');
-		GameEngineInput::GetInst()->CreateKey("MoveUp", 'W');
-		GameEngineInput::GetInst()->CreateKey("MoveDown", 'S');
+		GameEngineInput::GetInst()->CreateKey("LeftMove", 'A');
+		GameEngineInput::GetInst()->CreateKey("RightMove", 'D');
+		GameEngineInput::GetInst()->CreateKey("UpMove", 'W');
+		GameEngineInput::GetInst()->CreateKey("DownMove", 'S');
 	}
 }
 
 void Player::Update()
 {
-	if (true == GameEngineInput::GetInst()->IsPress("MoveRight"))
-	{
-		SetMove(float4::RIGHT * GameEngineTime::GetDeltaTime() * Speed_);
-	}
-	if (true == GameEngineInput::GetInst()->IsPress("MoveLeft"))
+	if (true == GameEngineInput::GetInst()->IsPress("LeftMove"))
 	{
 		SetMove(float4::LEFT * GameEngineTime::GetDeltaTime() * Speed_);
 	}
-	if (true == GameEngineInput::GetInst()->IsPress("MoveUp"))
+	if (true == GameEngineInput::GetInst()->IsPress("RightMove"))
+	{
+		SetMove(float4::RIGHT * GameEngineTime::GetDeltaTime() * Speed_);
+	}
+	if (true == GameEngineInput::GetInst()->IsPress("UpMove"))
 	{
 		SetMove(float4::UP * GameEngineTime::GetDeltaTime() * Speed_);
 	}
 
-	if (true == GameEngineInput::GetInst()->IsPress("MoveDown"))
+	if (true == GameEngineInput::GetInst()->IsPress("DownMove"))
 	{
 		SetMove(float4::DOWN * GameEngineTime::GetDeltaTime() * Speed_);
 	}
 }
-	void Player::Render()
-	{
+void Player::Render()
+{
 
-	}
+}
+void Player::LevelChangeStart(GameEngineLevel* _PrevLevel)
+{
+
+}
+void Player::LevelChangeEnd(GameEngineLevel* _NextLevel)
+{
+
+}

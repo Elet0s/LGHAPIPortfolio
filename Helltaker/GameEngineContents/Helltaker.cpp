@@ -145,6 +145,21 @@ void Helltaker::GameInit()
 			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
 		}
 	}
+	{
+		//챕터 오브젝트
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("Chapter");
+		ResourcesDir.Move("Object");
+
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
 
 
 	//////////////////////이미지 자르는 부분
@@ -156,6 +171,8 @@ void Helltaker::GameInit()
 		PlayerRight->CutCount(12,1);
 		GameEngineImage* PlayerLeft = GameEngineImageManager::GetInst()->Find("PlayerLeft.bmp");
 		PlayerLeft->CutCount(12, 1);
+		GameEngineImage* Ston = GameEngineImageManager::GetInst()->Find("Ston.bmp");
+		Ston->CutCount(11, 1);
 	}
 
 
@@ -167,7 +184,7 @@ void Helltaker::GameInit()
 	CreateLevel<TitleLevel>("TitleLevel");
 	CreateLevel<MenuLevel>("MenuLevel");
 	CreateLevel<Chapter01>("Chapter01");
-	ChangeLevel("TitleLevel");
+	ChangeLevel("Chapter01");
 }
 
 void Helltaker::GameLoop()
