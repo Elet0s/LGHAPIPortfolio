@@ -6,6 +6,7 @@ class BotUi;
 class TopUi;
 class Loding;
 class LodingNext;
+class Monster;
 class Chapter01 : public GameEngineLevel
 {
 private:
@@ -16,6 +17,7 @@ private:
 	TopUi* TopUi_;
 	Loding* Loding_;
 	LodingNext* LodingNext_;
+	Monster* Monster_;
 	
 public:
 

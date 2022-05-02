@@ -266,7 +266,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="PlayerEnums.h" />
-    <ClInclude Include="Skel.h">
+    <ClInclude Include="Monster.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -410,7 +410,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="PlayerState.cpp" />
-    <ClCompile Include="Skel.cpp">
+    <ClCompile Include="Monster.cpp">
       <SubType>
       </SubType>
     </ClCompile>

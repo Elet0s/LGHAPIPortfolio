@@ -26,7 +26,7 @@
     <ClInclude Include="KeyEx.h">
       <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Skel.h">
+    <ClInclude Include="Monster.h">
       <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
     <ClInclude Include="Lock.h">
@@ -140,7 +140,7 @@
     <ClCompile Include="KeyEx.cpp">
       <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Skel.cpp">
+    <ClCompile Include="Monster.cpp">
       <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
     <ClCompile Include="Lock.cpp">

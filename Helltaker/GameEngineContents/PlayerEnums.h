@@ -2,7 +2,7 @@
 enum class MapObject
 {
 	Trap,
-	Stone,
+	Ston,
 	Helper,
 	Monster,
 	Lock,
