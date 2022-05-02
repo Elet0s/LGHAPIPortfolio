@@ -110,6 +110,9 @@
     <ClInclude Include="Ston.h">
       <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
+    <ClInclude Include="TopUi.h">
+      <Filter>Actor\Chapter\Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
@@ -217,6 +220,9 @@
     </ClCompile>
     <ClCompile Include="Ston.cpp">
       <Filter>Actor\Chapter\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="TopUi.cpp">
+      <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

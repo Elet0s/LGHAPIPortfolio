@@ -2,7 +2,8 @@
 #include <GameEngine/GameEngineLevel.h>
 class Player;
 class ChapterBackGound;
-class BotUI;
+class BotUi;
+class TopUi;
 class Loding;
 class LodingNext;
 class Chapter01 : public GameEngineLevel
@@ -11,7 +12,8 @@ private:
 	 int  ChapterCount_;
 	Player* Player_;
 	ChapterBackGound* ChapterBackGound_;
-	BotUI* BotUI_;
+	BotUi* BotUi_;
+	TopUi* TopUi_;
 	Loding* Loding_;
 	LodingNext* LodingNext_;
 	

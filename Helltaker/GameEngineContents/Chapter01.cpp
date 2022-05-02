@@ -9,6 +9,7 @@
 #include "Chapter01.h"
 #include "Player.h"
 #include "BotUI.h"
+#include "TopUi.h"
 #include "ChapterBackGound.h"
 #include "Loding.h"
 #include "LodingNext.h"
@@ -42,6 +43,10 @@ void Chapter01::Loading()
 
 	Player_ = CreateActor<Player>(1);
 	Player_->ColSet(ChapterCount_);
+
+
+	BotUi_ = CreateActor<BotUi>(3);
+	TopUi_ = CreateActor<TopUi>(2);
 	LodingNext_ = CreateActor<LodingNext>(4);
 }
 

@@ -298,6 +298,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="TopUi.h" />
     <ClInclude Include="Wall.h">
       <SubType>
       </SubType>
@@ -441,6 +442,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="TopUi.cpp" />
     <ClCompile Include="Wall.cpp">
       <SubType>
       </SubType>

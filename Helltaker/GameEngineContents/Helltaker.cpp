@@ -104,15 +104,7 @@ void Helltaker::GameInit()
 			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
 		}
 	}
-	{
-		//공용 Loding
-		GameEngineDirectory ResourcesDir;
-		ResourcesDir.MoveParent("Helltaker");
-		ResourcesDir.Move("Resource");
-		ResourcesDir.Move("Global");
-		ResourcesDir.Move("Loding");
-		GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
-	}
+
 
 	{
 		//챕터 백그라운드
@@ -160,7 +152,71 @@ void Helltaker::GameInit()
 			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
 		}
 	}
+	{
+		//챕터 Helper
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("Chapter");
+		ResourcesDir.Move("Global");
+		ResourcesDir.Move("Helper");
 
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
+		{
+		//챕터 오브젝트
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("Helltaker");
+		ResourcesDir.Move("Resource");
+		ResourcesDir.Move("Chapter");
+		ResourcesDir.Move("Global");
+		ResourcesDir.Move("Ui");
+
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
+
+		//////////////////////폴더채로 불러온 이미지
+		{
+			//공용 Loding
+			GameEngineDirectory ResourcesDir;
+			ResourcesDir.MoveParent("Helltaker");
+			ResourcesDir.Move("Resource");
+			ResourcesDir.Move("Global");
+			ResourcesDir.Move("Loding");
+			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
+		}
+		{
+			//챕터 공용 DieEfect
+			GameEngineDirectory ResourcesDir;
+			ResourcesDir.MoveParent("Helltaker");
+			ResourcesDir.Move("Resource");
+			ResourcesDir.Move("Chapter");
+			ResourcesDir.Move("Global");
+			ResourcesDir.Move("Ui");
+			ResourcesDir.Move("DieEfect");
+			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
+		}
+		{
+			//챕터 공용 DieEvent
+			GameEngineDirectory ResourcesDir;
+			ResourcesDir.MoveParent("Helltaker");
+			ResourcesDir.Move("Resource");
+			ResourcesDir.Move("Chapter");
+			ResourcesDir.Move("Global");
+			ResourcesDir.Move("Ui");
+			ResourcesDir.Move("DieEvent");
+			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
+		}
 
 	//////////////////////이미지 자르는 부분
 
@@ -179,6 +235,10 @@ void Helltaker::GameInit()
 		PlayerKick->CutCount(13, 1);
 		GameEngineImage* Ston = GameEngineImageManager::GetInst()->Find("Ston.bmp");
 		Ston->CutCount(11, 1);
+		GameEngineImage* Monster = GameEngineImageManager::GetInst()->Find("Monster.bmp");
+		Monster->CutCount(12, 1);
+		GameEngineImage* Pandemonica = GameEngineImageManager::GetInst()->Find("Pandemonica.bmp");
+		Pandemonica->CutCount(12, 1);
 	}
 
 

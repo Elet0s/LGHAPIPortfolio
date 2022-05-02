@@ -1,24 +1,24 @@
 #pragma once
 #include <GameEngine/GameEngineActor.h>
-
-// Ό³Έν :
-class BotUI : public GameEngineActor
+#include<GameEngine/GameEngineRenderer.h>
+class GameEngineRenderer;
+class BotUi : public GameEngineActor
 {
 public:
-	// constrcuter destructer
-	BotUI();
-	~BotUI();
-
-	// delete Function
-	BotUI(const BotUI& _Other) = delete;
-	BotUI(BotUI&& _Other) noexcept = delete;
-	BotUI& operator=(const BotUI& _Other) = delete;
-	BotUI& operator=(BotUI&& _Other) noexcept = delete;
+	BotUi();
+	~BotUi();
+	BotUi(const BotUi& _Other) = delete;
+	BotUi(BotUi&& _Other) noexcept = delete;
+	BotUi& operator=(const BotUi& _Other) = delete;
+	BotUi& operator=(BotUi&& _Other) noexcept = delete;
 
 protected:
-
-private:
 	void Start() override;
 	void Render() override;
+private:
+	GameEngineRenderer* BotUiRender01_;
+	GameEngineRenderer* BotUiRender02_;
+
+
 };
 
