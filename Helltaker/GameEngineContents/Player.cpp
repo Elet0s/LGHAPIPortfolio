@@ -7,8 +7,11 @@
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngine/GameEngineLevel.h> 
 
+
+
 Player::Player()
 	: Speed_(150.0f)
+	, LifePoint_(0)
 {
 }
 
@@ -18,50 +21,45 @@ Player::~Player()
 
 void Player::Start()
 {
-	SetPosition({ 1160,290 });
-	PlayerRender_ = CreateRendererToScale("PlayerRight.bmp", { 100 ,100 });
-	PlayerRender_->CreateAnimation("PlayerRight.bmp", "Player", 0, 11, 0.069f, true);
-	PlayerRender_->ChangeAnimation("Player");
+
+	PlayerRender_ = CreateRendererToScale("PlayerLeft.bmp", { 100 ,100 });
+	PlayerRender_->CreateAnimation("PlayerLeft.bmp", "PlayerLeft", 0, 11, 0.069f, true);
+	PlayerRender_->CreateAnimation("PlayerRight.bmp", "PlayerRight", 0, 11, 0.069f, true);
+	PlayerRender_->ChangeAnimation("PlayerLeft");
 	KeySet();
-	ColSet();
 ;
 }
-
 void Player::Update()
 {
-	float4 MyPosition_ = GetPosition();
-	int Color = ChapterCol_->GetImagePixel(MyPosition_);
-	if (RGB(0, 0, 0) != Color)
-	{
-		if (true == GameEngineInput::GetInst()->IsPress("LeftMove"))
-		{
-			MyPosition_ += (float4::LEFT * GameEngineTime::GetDeltaTime() * Speed_);
-		}
-		if (true == GameEngineInput::GetInst()->IsPress("RightMove"))
-		{
-			MyPosition_ += (float4::RIGHT * GameEngineTime::GetDeltaTime() * Speed_);
-		}
-		if (true == GameEngineInput::GetInst()->IsPress("UpMove"))
-		{
-			MyPosition_ += (float4::UP * GameEngineTime::GetDeltaTime() * Speed_);
-		}
-
-		if (true == GameEngineInput::GetInst()->IsPress("DownMove"))
-		{
-			MyPosition_ += (float4::DOWN * GameEngineTime::GetDeltaTime() * Speed_);
-		}
-		SetPosition(MyPosition_);
-	}
 	
 }
 void Player::Render()
 {
 
 }
-
-void Player::ColSet()
+void Player::ChangeState(PlayerState _State)
 {
-	ChapterCol_ = GameEngineImageManager::GetInst()->Find("ChapterBG01C.bmp");
+	if (NextState_ == _State)
+	{
+	}
+	else if (NextState_ != _State)
+	{
+
+	}
+}
+void Player::StateUpdate()
+{
+
+}
+void Player::ColSet(int _ChapterCount)
+{	
+	if(_ChapterCount==1)
+	{
+		SetPosition({ 1160,290 });
+		ChapterCol_ = GameEngineImageManager::GetInst()->Find("ChapterBG01C.bmp");
+		LifePoint_ = 23;
+	}
+
 }
 void Player::KeySet()
 {
@@ -71,5 +69,8 @@ void Player::KeySet()
 		GameEngineInput::GetInst()->CreateKey("RightMove", VK_RIGHT);
 		GameEngineInput::GetInst()->CreateKey("UpMove", VK_UP);
 		GameEngineInput::GetInst()->CreateKey("DownMove", VK_DOWN);
+		GameEngineInput::GetInst()->CreateKey("Esc", VK_ESCAPE);
+		GameEngineInput::GetInst()->CreateKey("Reload", 'R');
+		GameEngineInput::GetInst()->CreateKey("Helper", 'L');
 	}
 }

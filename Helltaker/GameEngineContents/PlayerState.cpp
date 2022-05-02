@@ -9,24 +9,37 @@
 #include "Player.h"
 #include "ChapterBackGound.h"
 #include "ContentsEnums.h"
+void Player::IdleStart()
+{
+	// 애니메이션이 바뀐다.
 
+	// AnimationName = "Idle_"
+}
 void Player::IdleUpdate()
 {
 	
+}
+
+void Player::MoveStart()
+{
+
 }
 
 void Player::MoveUpdate()
 {
 
 }
+void Player::AttackStart()
+{
 
+}
 void Player::AttackUpdate()
 {
 
 
 
 }
-void Player::HitUpdate()
+void Player::DieStart()
 {
 
 }
@@ -34,23 +47,11 @@ void Player::DieUpdate()
 {
 
 }
+void Player::WinStart()
+{
+
+}
 void Player::WinUpdate()
 {
 
 }
-
-//////////////////////////////////////// State
-
-void Player::IdleStart()
-{
-	// 애니메이션이 바뀐다.
-
-	// AnimationName = "Idle_"
-}
-
-
-void Player::MoveStart()
-{
-
-}
-

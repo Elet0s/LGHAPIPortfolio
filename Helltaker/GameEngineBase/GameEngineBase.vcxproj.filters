@@ -4,9 +4,6 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{145decad-c276-4fdd-a319-89a3d3c3fdcd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sound">
-      <UniqueIdentifier>{236bc764-8170-40d4-965d-82b5f545f1a4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object">
       <UniqueIdentifier>{4c9ad120-bb92-46c0-ae2e-0f143655fbce}</UniqueIdentifier>
     </Filter>

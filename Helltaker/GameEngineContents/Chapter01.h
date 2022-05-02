@@ -8,6 +8,7 @@ class LodingNext;
 class Chapter01 : public GameEngineLevel
 {
 private:
+	 int  ChapterCount_;
 	Player* Player_;
 	ChapterBackGound* ChapterBackGound_;
 	BotUI* BotUI_;

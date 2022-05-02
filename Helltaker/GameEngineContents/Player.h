@@ -1,4 +1,5 @@
 #pragma once
+#include"PlayerEnums.h"
 #include <GameEngine/GameEngineActor.h>
 #include <GameEngine/GameEngineRendererTileMap.h>
 #include <GameEngineBase/GameEngineSound.h>
@@ -32,26 +33,37 @@ private:
 	GameEngineRenderer* PlayerRender_;
 	GameEngineImage* ChapterCol_;
 	float Speed_;
+	int LifePoint_;
+	PlayerState NextState_;
+	PlayerState PreState_;
 
 	void Start() override;
 	void Update() override;
 	void Render() override;
-	void ColSet();
 	void KeySet();
 
-	std::string NextLevel_;
-	std::string PreLevel_;
-	std::string EntryLevel_;
 
-private:
-	void IdleUpdate();
-	void MoveUpdate();
-	void AttackUpdate();
-	void HitUpdate();
-	void DieUpdate();
-	void WinUpdate();
+	void HitObject();
+
+public:	
+
+	void ColSet(int _ChapterCount);
+	void ChangeState(PlayerState _State);
+	 void StateUpdate();
+
+
+private: //State
 	void IdleStart();
+	void IdleUpdate();
 	void MoveStart();
+	void MoveUpdate();
+	void AttackStart();
+	void AttackUpdate();
+	void DieStart();
+	void DieUpdate();
+	void WinStart();
+	void WinUpdate();
+
 
 
 };
