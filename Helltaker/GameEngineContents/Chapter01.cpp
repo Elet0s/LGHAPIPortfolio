@@ -41,7 +41,14 @@ void Chapter01::Loading()
 	ChapterBackGound_->ChapterBackGoundTileMap_.CreateTile<Ston>(9, 8, "Ston.bmp", 3, static_cast<int>(ORDER::STON));
 	ChapterBackGound_->ChapterBackGoundTileMap_.CreateTile<Ston>(7, 8, "Ston.bmp", 2, static_cast<int>(ORDER::STON));
 	
-	Monster_ = CreateActor<Monster>(2);
+	Monster_.reserve(8);
+	for (size_t i = 0; i < 8; i++)
+	{
+		Monster_.push_back(CreateActor<Monster>(static_cast<int>(ORDER::MONSTER)));
+	}
+
+	Monster_[0]->SetPosition({642,240});
+	Monster_[1]->SetPosition({ 300,240 });
 
 	Player_ = CreateActor<Player>(1);
 	Player_->ColSet(ChapterCount_);

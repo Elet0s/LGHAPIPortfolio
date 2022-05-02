@@ -1,5 +1,7 @@
 #pragma once
 #include <GameEngine/GameEngineLevel.h>
+#include<vector>
+
 class Player;
 class ChapterBackGound;
 class BotUi;
@@ -17,7 +19,7 @@ private:
 	TopUi* TopUi_;
 	Loding* Loding_;
 	LodingNext* LodingNext_;
-	Monster* Monster_;
+	std::vector<Monster*>Monster_; 
 	
 public:
 
