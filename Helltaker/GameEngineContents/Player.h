@@ -34,7 +34,7 @@ private:
 	GameEngineImage* ChapterCol_;
 	float Speed_;
 	int LifePoint_;
-	PlayerState NextState_;
+	PlayerState CurState_;
 	PlayerState PreState_;
 
 	void Start() override;
@@ -57,8 +57,8 @@ private: //State
 	void IdleUpdate();
 	void MoveStart();
 	void MoveUpdate();
-	void AttackStart();
-	void AttackUpdate();
+	void KickStart();
+	void KickUpdate();
 	void DieStart();
 	void DieUpdate();
 	void WinStart();

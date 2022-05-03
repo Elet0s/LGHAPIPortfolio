@@ -25,33 +25,76 @@ void Player::Start()
 	PlayerRender_ = CreateRendererToScale("PlayerLeft.bmp", { 100 ,100 });
 	PlayerRender_->CreateAnimation("PlayerLeft.bmp", "PlayerLeft", 0, 11, 0.069f, true);
 	PlayerRender_->CreateAnimation("PlayerRight.bmp", "PlayerRight", 0, 11, 0.069f, true);
+	PlayerRender_->CreateAnimation("PlayerMoveL.bmp", "PlayerMoveL", 0, 5, 0.069f, true);
+	PlayerRender_->CreateAnimation("PlayerMoveR.bmp", "PlayerMoveR", 0, 5, 0.069f, true);
+	PlayerRender_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 0, 12, 0.069f, true);
+	PlayerRender_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 0, 12, 0.069f, true);
 	PlayerRender_->ChangeAnimation("PlayerLeft");
 	KeySet();
 ;
 }
 void Player::Update()
 {
-	
+	StateUpdate();
 }
 void Player::Render()
 {
 
 }
-void Player::ChangeState(PlayerState _State)
+void Player::ChangeState(PlayerState _State) //특정 조건이 만족하면 호출하여 상태를 바꿔줌
 {
-	if (NextState_ == _State)
-	{
-	}
-	else if (NextState_ != _State)
+	if (CurState_ != _State)
 	{
 
+		switch (_State)
+		{
+		case PlayerState::Idle:
+			IdleStart();
+			break;
+		case PlayerState::Kick:
+			KickStart();
+			break;
+		case PlayerState::Move:
+			MoveStart();
+			break;
+		case PlayerState::Die:
+			break;
+			DieStart();
+		case PlayerState::Win:
+			WinStart();
+			break;
+		default:
+			break;
+		}
+	}
+
+	CurState_ = _State;
+}
+void Player::StateUpdate()// 계속 상태를 체크하면서 현재 상태에 맞는 업데이트를 해줌
+{
+	switch (CurState_)
+	{
+	case PlayerState::Idle:
+		IdleUpdate();
+		break;
+
+	case PlayerState::Move:
+		MoveUpdate();
+		break;
+	case PlayerState::Kick:
+		break;
+		KickUpdate();
+	case PlayerState::Die:
+		DieUpdate();
+		break;
+	case PlayerState::Win:
+		WinUpdate();
+		break;
+	default:
+		break;
 	}
 }
-void Player::StateUpdate()
-{
-
-}
-void Player::ColSet(int _ChapterCount)
+void Player::ColSet(int _ChapterCount) // 챕터에서 호출하여 레벨에 맞게 콜리전과 맵 인자 세팅
 {	
 	if(_ChapterCount==1)
 	{
@@ -61,7 +104,7 @@ void Player::ColSet(int _ChapterCount)
 	}
 
 }
-void Player::KeySet()
+void Player::KeySet() // 키세팅
 {
 	if (false == GameEngineInput::GetInst()->IsKey("MoveLeft"))
 	{

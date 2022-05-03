@@ -231,8 +231,10 @@ void Helltaker::GameInit()
 		PlayerMoveR->CutCount(6, 1);
 		GameEngineImage* PlayerMoveL = GameEngineImageManager::GetInst()->Find("PlayerMoveL.bmp");
 		PlayerMoveL->CutCount(6, 1);
-		GameEngineImage* PlayerKick = GameEngineImageManager::GetInst()->Find("PlayerKick.bmp");
-		PlayerKick->CutCount(13, 1);
+		GameEngineImage* PlayerKickR = GameEngineImageManager::GetInst()->Find("PlayerKickR.bmp");
+		PlayerKickR->CutCount(13, 1);
+		GameEngineImage* PlayerKickL = GameEngineImageManager::GetInst()->Find("PlayerKickL.bmp");
+		PlayerKickL->CutCount(13, 1);
 		GameEngineImage* Ston = GameEngineImageManager::GetInst()->Find("Ston.bmp");
 		Ston->CutCount(11, 1);
 		GameEngineImage* MonsterR = GameEngineImageManager::GetInst()->Find("MonsterR.bmp");

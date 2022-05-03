@@ -29,11 +29,11 @@ void Player::MoveUpdate()
 {
 
 }
-void Player::AttackStart()
+void Player::KickStart()
 {
 
 }
-void Player::AttackUpdate()
+void Player::KickUpdate()
 {
 
 
