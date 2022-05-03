@@ -5,6 +5,7 @@
 #include <GameEngine/GameEngineImageManager.h>
 #include <GameEngineBase/GameEngineWindow.h>
 
+
 #include "ContentsEnums.h"
 #include "Chapter01.h"
 #include "Player.h"
@@ -41,14 +42,9 @@ void Chapter01::Loading()
 	ChapterBackGound_->ChapterBackGoundTileMap_.CreateTile<Ston>(9, 8, "Ston.bmp", 3, static_cast<int>(ORDER::STON));
 	ChapterBackGound_->ChapterBackGoundTileMap_.CreateTile<Ston>(7, 8, "Ston.bmp", 2, static_cast<int>(ORDER::STON));
 	
-	Monster_.reserve(8);
-	for (size_t i = 0; i < 8; i++)
-	{
-		Monster_.push_back(CreateActor<Monster>(static_cast<int>(ORDER::MONSTER)));
-	}
-
-	Monster_[0]->SetPosition({642,240});
-	Monster_[1]->SetPosition({ 300,240 });
+	ChapterBackGound_->ChapterBackGoundTileMap_.CreateTile<Monster>(8, 5, "MonsterR.bmp", 0, static_cast<int>(ORDER::MONSTER));//타일맵 오브젝트 몬스터 생성
+	ChapterBackGound_->ChapterBackGoundTileMap_.CreateTile<Monster>(10, 5, "MonsterR.bmp", 0, static_cast<int>(ORDER::MONSTER));
+	ChapterBackGound_->ChapterBackGoundTileMap_.CreateTile<Monster>(9, 4, "MonsterR.bmp", 0, static_cast<int>(ORDER::MONSTER));
 
 	Player_ = CreateActor<Player>(1);
 	Player_->ColSet(ChapterCount_);
@@ -65,6 +61,8 @@ void Chapter01::Update()
 }
 void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
+	ChpterBgmPlayer_ = GameEngineSound::SoundPlayControl("Chapter.wav");
+	GameEngineSound::SoundPlayOneShot("LodingN.wav", 0);
 }
 
 void Chapter01::LevelChangeEnd(GameEngineLevel* _NextLevel)

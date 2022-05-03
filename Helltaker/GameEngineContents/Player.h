@@ -42,9 +42,6 @@ private:
 	void Render() override;
 	void KeySet();
 
-
-	void HitObject();
-
 public:	
 
 	void ColSet(int _ChapterCount);

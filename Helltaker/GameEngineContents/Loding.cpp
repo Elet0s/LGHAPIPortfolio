@@ -1,6 +1,7 @@
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngine/GameEngine.h>
+#include <GameEngineBase/GameEngineSound.h>
 #include"Loding.h"
 
 
@@ -19,7 +20,7 @@ void Loding::Start()
 	LodingRender_ = CreateRenderer();
 	LodingRender_->CreateFolderAnimation("Loding", "Loding", 0, 19, 0.04f, false);
 	LodingRender_->ChangeAnimation("Loding");
-	
+	GameEngineSound::SoundPlayOneShot("Loding.wav", 0);
 }
 void Loding::Update()
 {

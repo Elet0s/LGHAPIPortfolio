@@ -1,7 +1,7 @@
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngine/GameEngine.h>
-
+#include <GameEngineBase/GameEngineSound.h>
 #include"LodingNext.h"
 
 LodingNext::LodingNext()
@@ -19,6 +19,7 @@ void LodingNext::Start()
 	LodingNextRender_ = CreateRenderer();
 	LodingNextRender_->CreateFolderAnimation("Loding", "LodingNext", 19, 27, 0.04f, false);
 	LodingNextRender_->ChangeAnimation("LodingNext");
+	
 }
 void LodingNext::Update()
 {

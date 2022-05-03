@@ -1,8 +1,8 @@
 #pragma once
 #include <GameEngine/GameEngineActor.h>
-#include <GameEngine/GameEngineRenderer.h>
+#include <GameEngine/GameEngineRendererTileMap.h>
 
-class Monster : public GameEngineActor
+class Monster : public Tile
 {
 public:
 
@@ -14,8 +14,6 @@ public:
 	Monster& operator=(Monster&& _Other) noexcept = delete;
 	bool RState_;
 protected:
-	void Start() override;
-	void Update() override;
 private:
 	GameEngineRenderer* MonsterRender_;
 

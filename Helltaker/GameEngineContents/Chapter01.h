@@ -1,6 +1,7 @@
 #pragma once
 #include <GameEngine/GameEngineLevel.h>
 #include<vector>
+#include <GameEngineBase/GameEngineSound.h>
 
 class Player;
 class ChapterBackGound;
@@ -20,6 +21,7 @@ private:
 	Loding* Loding_;
 	LodingNext* LodingNext_;
 	std::vector<Monster*>Monster_; 
+	GameEngineSoundPlayer ChpterBgmPlayer_;
 	
 public:
 

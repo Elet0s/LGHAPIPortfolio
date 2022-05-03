@@ -129,7 +129,6 @@ void MenuLevel::Update()
 void MenuLevel::LevelChangeStart(GameEngineLevel* _NextLevel)
 {
 	BgmPlayer_ = GameEngineSound::SoundPlayControl("Menu.wav");
-
 }
 
 void MenuLevel::LevelChangeEnd(GameEngineLevel* _NextLevel)
