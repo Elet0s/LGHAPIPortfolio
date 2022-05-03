@@ -10,6 +10,7 @@ class TopUi;
 class Loding;
 class LodingNext;
 class Monster;
+class Helper;
 class Chapter01 : public GameEngineLevel
 {
 private:
@@ -20,7 +21,6 @@ private:
 	TopUi* TopUi_;
 	Loding* Loding_;
 	LodingNext* LodingNext_;
-	std::vector<Monster*>Monster_; 
 	GameEngineSoundPlayer ChpterBgmPlayer_;
 	
 public:
