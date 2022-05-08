@@ -55,6 +55,7 @@ void Player::MoveUpdate()
 				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 +20 });
 				MoveEnd_ = false;
 				ChangeState(PlayerState::Idle);
+				LifePoint_ -= 1;
 			}
 			break;
 
@@ -69,6 +70,7 @@ void Player::MoveUpdate()
 				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 20 });
 				MoveEnd_ = false;
 				ChangeState(PlayerState::Idle);
+				LifePoint_ -= 1;
 			}
 			break;
 

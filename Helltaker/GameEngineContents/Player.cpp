@@ -37,8 +37,8 @@ void Player::Start()
 	PlayerS_ = CreateRenderer("TileBase.bmp");
 	PlayerS_->CreateAnimation("PlayerLeft.bmp", "PlayerLeft", 0, 11, 0.065f, true);
 	PlayerS_->CreateAnimation("PlayerRight.bmp", "PlayerRight", 0, 11, 0.065f, true);
-	PlayerS_->CreateAnimation("PlayerMoveL.bmp", "PlayerMoveL", 0, 5, 0.065f, true);
-	PlayerS_->CreateAnimation("PlayerMoveR.bmp", "PlayerMoveR", 0, 5, 0.065f, true);
+	PlayerS_->CreateAnimation("PlayerMoveL.bmp", "PlayerMoveL", 0, 5, 0.1f, true);
+	PlayerS_->CreateAnimation("PlayerMoveR.bmp", "PlayerMoveR", 0, 5, 0.1f, true);
 	PlayerS_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 0, 12, 0.065f, true);
 	PlayerS_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 0, 12, 0.065f, true);
 
