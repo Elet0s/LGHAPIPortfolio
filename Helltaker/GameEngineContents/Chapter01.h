@@ -1,28 +1,25 @@
 #pragma once
 #include <GameEngine/GameEngineLevel.h>
-#include<vector>
 #include <GameEngineBase/GameEngineSound.h>
+#include "ChapterBackGound.h"
 
-class Player;
-class ChapterBackGound;
+
+class GameEngineSound;
 class BotUi;
+class Player;
 class TopUi;
-class Loding;
 class LodingNext;
-class Monster;
-class Helper;
 class Chapter01 : public GameEngineLevel
 {
 private:
 	 int  ChapterCount_;
-	Player* Player_;
 	ChapterBackGound* ChapterBackGound_;
+	GameEngineSoundPlayer ChapterBgm_;
 	BotUi* BotUi_;
+	Player* Player_;
 	TopUi* TopUi_;
-	Loding* Loding_;
 	LodingNext* LodingNext_;
-	GameEngineSoundPlayer ChpterBgmPlayer_;
-	
+
 public:
 
 	Chapter01();

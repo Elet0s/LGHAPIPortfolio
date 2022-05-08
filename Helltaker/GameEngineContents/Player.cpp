@@ -7,11 +7,10 @@
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngine/GameEngineLevel.h> 
 
-
-
 Player::Player()
 	: Speed_(150.0f)
 	, LifePoint_(0)
+,	CurState_(PlayerState::Idle)
 {
 }
 
@@ -21,15 +20,15 @@ Player::~Player()
 
 void Player::Start()
 {
-
+	SetPosition({ 1160,290 });
 	PlayerRender_ = CreateRendererToScale("PlayerLeft.bmp", { 100 ,100 });
-	PlayerRender_->CreateAnimation("PlayerLeft.bmp", "PlayerLeft", 0, 11, 0.069f, true);
-	PlayerRender_->CreateAnimation("PlayerRight.bmp", "PlayerRight", 0, 11, 0.069f, true);
-	PlayerRender_->CreateAnimation("PlayerMoveL.bmp", "PlayerMoveL", 0, 5, 0.069f, true);
-	PlayerRender_->CreateAnimation("PlayerMoveR.bmp", "PlayerMoveR", 0, 5, 0.069f, true);
-	PlayerRender_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 0, 12, 0.069f, true);
-	PlayerRender_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 0, 12, 0.069f, true);
-	PlayerRender_->ChangeAnimation("PlayerLeft");
+	PlayerRender_->CreateAnimation("PlayerLeft.bmp", "PlayerLeft", 0, 11, 0.065f, true);
+	PlayerRender_->CreateAnimation("PlayerRight.bmp", "PlayerRight", 0, 11, 0.065f, true);
+	PlayerRender_->CreateAnimation("PlayerMoveL.bmp", "PlayerMoveL", 0, 5, 0.065f, true);
+	PlayerRender_->CreateAnimation("PlayerMoveR.bmp", "PlayerMoveR", 0, 5, 0.065f, true);
+	PlayerRender_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 0, 12, 0.065f, true);
+	PlayerRender_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 0, 12, 0.065f, true);
+
 	KeySet();
 ;
 }
@@ -98,7 +97,7 @@ void Player::ColSet(int _ChapterCount) // 챕터에서 호출하여 레벨에 맞게 콜리전과
 {	
 	if(_ChapterCount==1)
 	{
-		SetPosition({ 1160,290 });
+
 		ChapterCol_ = GameEngineImageManager::GetInst()->Find("ChapterBG01C.bmp");
 		LifePoint_ = 23;
 	}

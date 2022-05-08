@@ -4,6 +4,14 @@
 #include <GameEngine/GameEngineRendererTileMap.h>
 #include <GameEngineBase/GameEngineSound.h>
 
+
+
+class PlayerTile: public Tile
+{
+	
+};
+
+
 class Player : public GameEngineActor
 {
 public:

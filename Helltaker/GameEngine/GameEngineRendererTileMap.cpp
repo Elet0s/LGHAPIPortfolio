@@ -23,5 +23,11 @@ TileIndex GameEngineRendererTileMap::GetTileIndex(const float4& _Pos)
 
 void GameEngineRendererTileMap::DeleteTile(int _X, int _Y)
 {
+	if (nullptr == Tiles_[_Y][_X])
+	{
+		return;
+	}
 
+	delete Tiles_[_Y][_X];
+	Tiles_[_Y][_X] = nullptr;
 }

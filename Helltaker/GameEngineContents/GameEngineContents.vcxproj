@@ -102,6 +102,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +119,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,6 +153,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -201,23 +204,15 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameObjectManager.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Helltaker.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Helper.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="KeyEx.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="LifeCounter.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="Lock.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -266,10 +261,6 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="PlayerEnums.h" />
-    <ClInclude Include="Monster.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="StartBackGround.h">
       <SubType>
       </SubType>
@@ -279,10 +270,6 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="StartText.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="Ston.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -299,10 +286,6 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="TopUi.h" />
-    <ClInclude Include="Wall.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BeelFly.cpp">
@@ -345,23 +328,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Helltaker.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Helper.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="KeyEx.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
     <ClCompile Include="LifeCounter.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="Lock.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -410,10 +385,6 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="PlayerState.cpp" />
-    <ClCompile Include="Monster.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
     <ClCompile Include="StartBackGround.cpp">
       <SubType>
       </SubType>
@@ -423,10 +394,6 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="StartText.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="Ston.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -443,10 +410,6 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="TopUi.cpp" />
-    <ClCompile Include="Wall.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameEngineBase\GameEngineBase.vcxproj">

@@ -23,18 +23,6 @@
     <ClInclude Include="Chapter03.h">
       <Filter>Level\Chapter</Filter>
     </ClInclude>
-    <ClInclude Include="KeyEx.h">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Lock.h">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Wall.h">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClInclude>
     <ClInclude Include="LifeCounter.h">
       <Filter>Actor\Chapter\Object\Ui</Filter>
     </ClInclude>
@@ -104,13 +92,10 @@
     <ClInclude Include="PlayerEnums.h">
       <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
-    <ClInclude Include="Ston.h">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClInclude>
     <ClInclude Include="TopUi.h">
       <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
-    <ClInclude Include="Helper.h">
+    <ClInclude Include="GameObjectManager.h">
       <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
   </ItemGroup>
@@ -136,18 +121,6 @@
     </ClCompile>
     <ClCompile Include="Chapter03.cpp">
       <Filter>Level\Chapter</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyEx.cpp">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Lock.cpp">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Wall.cpp">
-      <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
     <ClCompile Include="LifeCounter.cpp">
       <Filter>Actor\Chapter\Object\Ui</Filter>
@@ -215,13 +188,10 @@
     <ClCompile Include="ChapterBackGound.cpp">
       <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
-    <ClCompile Include="Ston.cpp">
-      <Filter>Actor\Chapter\Object</Filter>
-    </ClCompile>
     <ClCompile Include="TopUi.cpp">
       <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
-    <ClCompile Include="Helper.cpp">
+    <ClCompile Include="GameObjectManager.cpp">
       <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
   </ItemGroup>

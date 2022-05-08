@@ -46,11 +46,11 @@ void MenuLevel::Loading()
 	}
 	if (false == GameEngineInput::GetInst()->IsKey("SelectUp"))
 	{
-		GameEngineInput::GetInst()->CreateKey("SelectUp", 'w');
+		GameEngineInput::GetInst()->CreateKey("SelectUp", VK_UP);
 	}
 	if (false == GameEngineInput::GetInst()->IsKey("SelectDown"))
 	{
-		GameEngineInput::GetInst()->CreateKey("SelectDown", 's');
+		GameEngineInput::GetInst()->CreateKey("SelectDown", VK_DOWN);
 	}
 }
 void MenuLevel::Update()
@@ -77,19 +77,19 @@ void MenuLevel::Update()
 				GameEngineSound::SoundPlayOneShot("MenuSelect.wav", 0);
 				StartText_ = CreateActor<StartText>(4);
 				MenuSelcet_->Death();
-				NextCount_ += 1;
+				NextCount_  = 3;
 			}
 			if (MenuSelcet_->GetMenuSelcetCount() == 2)//2.챕터선택
 			{		
 			 GameEngineSound::SoundPlayOneShot("MenuSelect.wav", 0);
-				NextCount_ += 1;
+				NextCount_ = 5;
 			}
 			if (MenuSelcet_->GetMenuSelcetCount() == 3)//3.게임종료
 			{
 				GameEngineSound::SoundPlayOneShot("MenuSelect.wav", 0);
 				EndText_ = CreateActor<EndText>(4);
 				MenuSelcet_->Death();
-				NextCount_ += 3;
+				NextCount_ = 6;
 			}
 		}
 		else if (NextCount_ == 3)//Start누르고 대사
@@ -105,7 +105,7 @@ void MenuLevel::Update()
 			{
 				StartBackGround_ = CreateActor<StartBackGround>(3);
 				StartEvent_ = CreateActor<StartEvent>(2);
-				NextCount_ += 1;
+				NextCount_ = 4;
 			}
 		}
 		else if (NextCount_ == 4)
@@ -114,10 +114,14 @@ void MenuLevel::Update()
 			if (StartText_->GetStartTextCount() == 6)//게임체인지
 			{
 				Loding_ = CreateActor<Loding>(5);		
-				NextCount_ += 2;
+				NextCount_ = 7;
 			}
 		}
-		else if (NextCount_ == 5)//게임종료
+		else if (NextCount_ == 5)//챕터셀렉
+		{
+
+		}
+		else if (NextCount_ == 6)//게임종료
 		{
 			GameEngineSound::SoundPlayOneShot("TextNext.wav", 0);
 			GameEngineWindow::GetInst().Off();

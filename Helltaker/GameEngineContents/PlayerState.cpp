@@ -17,7 +17,7 @@ void Player::IdleStart()
 }
 void Player::IdleUpdate()
 {
-	
+	PlayerRender_->ChangeAnimation("PlayerLeft");
 }
 
 void Player::MoveStart()

@@ -3,14 +3,13 @@
 enum class ORDER
 {
 	BACKGROUND,
-	PLAYER,
-
-	UI,
+	BASETILE,
+	MONSTER,
 	STON,
 	TRAP,
 	LOCK,
 	KEY,
 	HELPER,
-	MONSTER,
-
+	PLAYER,
+	UI,
 };
