@@ -6,9 +6,9 @@
 
 class GameEngineSound;
 class BotUi;
-class Player;
 class TopUi;
 class LodingNext;
+
 class Chapter01 : public GameEngineLevel
 {
 private:
@@ -16,7 +16,6 @@ private:
 	ChapterBackGound* ChapterBackGound_;
 	GameEngineSoundPlayer ChapterBgm_;
 	BotUi* BotUi_;
-	Player* Player_;
 	TopUi* TopUi_;
 	LodingNext* LodingNext_;
 

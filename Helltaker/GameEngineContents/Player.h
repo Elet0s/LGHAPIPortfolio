@@ -1,14 +1,23 @@
 #pragma once
 #include"PlayerEnums.h"
+#include"ContentsEnums.h"
 #include <GameEngine/GameEngineActor.h>
 #include <GameEngine/GameEngineRendererTileMap.h>
 #include <GameEngineBase/GameEngineSound.h>
 
-
-
 class PlayerTile: public Tile
 {
-	
+public:
+	PlayerTile()
+	{
+	}
+	~PlayerTile()
+	{
+	}
+
+	MapObject TileState_ = MapObject::Player;
+
+
 };
 
 
@@ -22,40 +31,54 @@ public:
 	Player& operator=(const Player& _Other) = delete;
 	Player& operator=(Player&& _Other) noexcept = delete;
 
-	inline void SetChapter01TileMap(GameEngineRendererTileMap* _TileMap)
+	inline void SetTileMap(GameEngineRendererTileMap* _TileMap)
 	{
 		TileMap_ = _TileMap;
 	}
-	inline void SetChapter02TileMap(GameEngineRendererTileMap* _TileMap)
+	inline void CheakChapter(int _ChapterLevel)
 	{
-		TileMap_ = _TileMap;
+		ChapterLevel_ = _ChapterLevel;
 	}
-	inline void SetChapter03TileMap(GameEngineRendererTileMap* _TileMap)
+	inline GameEngineRendererTileMap* ReturnPlayerTileMap_()
 	{
-		TileMap_ = _TileMap;
+		return TileMap_;
 	}
-protected:
-	GameEngineSoundPlayer BgmPlayer_;
+
+	static Player* PlayerObject_;
+	void ColSet(int _ChapterCount);
+	void ChangeState(PlayerState _State);
+	void StateUpdate();
+
 private:
+	PlayerTile* PlayerTileBase;
+	GameEngineSoundPlayer BgmPlayer_;
 	GameEngineRendererTileMap* TileMap_;
-	GameEngineRenderer* PlayerRender_;
+	GameEngineRenderer* PlayerS_;
 	GameEngineImage* ChapterCol_;
-	float Speed_;
+	bool RLState_;
+	bool MakeCheak_;
+	int ChapterLevel_;
 	int LifePoint_;
+	float Speed_;
 	PlayerState CurState_;
 	PlayerState PreState_;
-
+	void CreatePlayer(int _x, int _y, int _index);
 	void Start() override;
 	void Update() override;
 	void Render() override;
 	void KeySet();
-
-public:	
-
-	void ColSet(int _ChapterCount);
-	void ChangeState(PlayerState _State);
-	 void StateUpdate();
-
+	float PlayerX_;
+	float PlayerY_;
+	float ShiftX_;
+	float ShiftY_;
+	void LeftMoveShift();
+	void RightMoveShift();
+	void UpMoveShift();
+	void DownMoveShift();
+	bool MoveStart_;
+	bool MoveEnd_;
+	bool MoveSet_;
+	int LTUD_;
 
 private: //State
 	void IdleStart();
@@ -69,6 +92,8 @@ private: //State
 	void WinStart();
 	void WinUpdate();
 
+private: //Cheak
+	bool MoveCheak();
 
 
 };

@@ -13,3 +13,14 @@ enum class ORDER
 	PLAYER,
 	UI,
 };
+
+enum class 	MapObject
+{
+	Trap,
+	Ston,
+	Helper,
+	Monster,
+	Lock,
+	Key,
+	Player
+};

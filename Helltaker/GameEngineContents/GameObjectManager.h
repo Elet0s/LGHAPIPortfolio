@@ -1,17 +1,26 @@
 #pragma once
 #include <GameEngine/GameEngineActor.h>
 #include <GameEngine/GameEngineRendererTileMap.h>
-
+#include "ContentsEnums.h"
 class GameObjectTile :public Tile
 {
 public:
 	GameObjectTile()
+		:Off_(false)
+		, IsLKick_(false)
+		, TileObjectX_(0)
+		, TileObjectY_(0)
 	{
 	}
 	~GameObjectTile()
 	{
-	}
 
+	}
+	int TileObjectX_;
+	int TileObjectY_;
+	MapObject TileState_;
+	bool IsLKick_;
+	bool Off_;
 	GameEngineRenderer* Monster_;
 	GameEngineRenderer* Helper_;
 	GameEngineRenderer* Ston_;
@@ -33,12 +42,13 @@ public:
 	GameObjectManager& operator=(GameObjectManager&& _Other) noexcept = delete;
 
 	static GameObjectManager* GameObjectManager_;
+	GameEngineRendererTileMap* GameObjectTileMap_;
 	bool RLState_;
 	bool MakeCheak_;
 	int ChapterLevel_;
 
 private:
-	GameEngineRendererTileMap* GameObjectTileMap_;
+
 	void Start() override;
 	void Update() override;
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override;
@@ -49,8 +59,9 @@ private:
 	void CreateTrap(int _Posx, int _Posy, int _index);
 	void CreateKey(int _Posx, int _Posy, int _index);
 	void CreateLock(int _Posx, int _Posy, int _index);
+	void CheakAni();
 
-	std::vector< GameObjectTile* > Monster;
+	std::vector< GameObjectTile* > Mon;
 	std::vector< GameObjectTile* >Hellper;
 	std::vector< GameObjectTile* >Ston;
 	std::vector< GameObjectTile* >Wall;
@@ -65,5 +76,9 @@ public:
 	inline void CheakChapter(int _ChapterLevel)
 	{
 		ChapterLevel_ = _ChapterLevel;
+	}
+	inline GameEngineRendererTileMap* ReturnGameTileObejctMap_()
+	{
+		return GameObjectTileMap_;
 	}
 };
