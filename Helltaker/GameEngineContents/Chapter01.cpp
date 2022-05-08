@@ -38,7 +38,7 @@ void Chapter01::Loading()
 
 	GameObjectManager::GameObjectManager_ = CreateActor<GameObjectManager>();
 	GameObjectManager::GameObjectManager_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
-	GameObjectManager::GameObjectManager_->CheakChapter(ChapterCount_);
+	GameObjectManager::GameObjectManager_->ObjectCheakChapter(ChapterCount_);
 
 	Player::PlayerObject_ = CreateActor<Player>(1);
 	Player::PlayerObject_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);

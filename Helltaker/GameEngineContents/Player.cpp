@@ -39,8 +39,8 @@ void Player::Start()
 	PlayerS_->CreateAnimation("PlayerRight.bmp", "PlayerRight", 0, 11, 0.065f, true);
 	PlayerS_->CreateAnimation("PlayerMoveL.bmp", "PlayerMoveL", 0, 5, 0.1f, true);
 	PlayerS_->CreateAnimation("PlayerMoveR.bmp", "PlayerMoveR", 0, 5, 0.1f, true);
-	PlayerS_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 0, 12, 0.065f, true);
-	PlayerS_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 0, 12, 0.065f, true);
+	PlayerS_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 7, 12, 0.065f, true);
+	PlayerS_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 7, 12, 0.065f, true);
 
 	KeySet();
 }
@@ -98,26 +98,31 @@ void Player::StateUpdate()// 계속 상태를 체크하면서 현재 상태에 맞는 업데이트를 
 	case PlayerState::Move:
 		MoveUpdate();
 		break;
+
 	case PlayerState::Kick:
-		break;
 		KickUpdate();
+		break;
+
 	case PlayerState::Die:
 		DieUpdate();
 		break;
+
 	case PlayerState::Win:
 		WinUpdate();
 		break;
+
 	default:
 		break;
 	}
 }
-void Player::ColSet(int _ChapterCount) // 챕터에서 호출하여 레벨에 맞게 콜리전과 맵 인자 세팅
-{	
-	if(_ChapterCount==1)
+void Player::CheakChapter(int _ChapterLevel)
+{
+	ChapterLevel_ = _ChapterLevel;
+	switch (_ChapterLevel == 1)
 	{
-
-		ChapterCol_ = GameEngineImageManager::GetInst()->Find("ChapterBG01C.bmp");
+	case 1:
 		LifePoint_ = 23;
+		break;
 	}
 
 }

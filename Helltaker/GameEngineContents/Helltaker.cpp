@@ -243,6 +243,10 @@ void Helltaker::GameInit()
 		MonsterL->CutCount(12, 1);
 		GameEngineImage* Pandemonica = GameEngineImageManager::GetInst()->Find("Pandemonica.bmp");
 		Pandemonica->CutCount(12, 1);
+		GameEngineImage* MonsterHitL = GameEngineImageManager::GetInst()->Find("MonsterHitL.bmp");
+		MonsterHitL->CutCount(6, 1);
+		GameEngineImage* MonsterHitR = GameEngineImageManager::GetInst()->Find("MonsterHitR.bmp");
+		MonsterHitR->CutCount(6, 1);
 	}
 
 

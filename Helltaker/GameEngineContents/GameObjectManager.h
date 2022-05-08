@@ -8,19 +8,28 @@ public:
 	GameObjectTile()
 		:Off_(false)
 		, IsLKick_(false)
+		, IsRkick_(false)
+		, IsUKick_(false)
+		, IsDkick_(false)
 		, TileObjectX_(0)
 		, TileObjectY_(0)
+
 	{
 	}
 	~GameObjectTile()
 	{
 
 	}
-	int TileObjectX_;
-	int TileObjectY_;
+	float TileObjectX_;
+	float TileObjectY_;
+
 	MapObject TileState_;
 	bool IsLKick_;
+	bool IsRkick_;
+	bool IsUKick_;
+	bool IsDkick_;
 	bool Off_;
+
 	GameEngineRenderer* Monster_;
 	GameEngineRenderer* Helper_;
 	GameEngineRenderer* Ston_;
@@ -46,6 +55,7 @@ public:
 	bool RLState_;
 	bool MakeCheak_;
 	int ChapterLevel_;
+	void ObjectCheakChapter(int _ChapterLevel);
 
 private:
 
@@ -60,6 +70,8 @@ private:
 	void CreateKey(int _x, int _y, int _index);
 	void CreateLock(int _x, int _y, int _index);
 	void CheakAni();
+	bool ShiftCheak_;
+
 
 	std::vector< GameObjectTile* > Mon;
 	std::vector< GameObjectTile* >Hellper;
@@ -68,14 +80,18 @@ private:
 	std::vector< GameObjectTile* >Trap;
 	std::vector< GameObjectTile* >Key;
 	std::vector< GameObjectTile* >Lock;
+
+
+	void LShiftTileObject(float _X, float _y);
+	void RShiftTileObject(float _X, float _y);
+	void UShiftTileObject(float _X, float _y);
+	void DShiftTileObject(float _X, float _y);
+	float ShiftX_;
+	float ShiftY_;
 public:
 	inline void SetTileMap(GameEngineRendererTileMap* _TileMap)
 	{
 		GameObjectTileMap_ = _TileMap;
-	}
-	inline void CheakChapter(int _ChapterLevel)
-	{
-		ChapterLevel_ = _ChapterLevel;
 	}
 	inline GameEngineRendererTileMap* ReturnGameTileObejctMap_()
 	{

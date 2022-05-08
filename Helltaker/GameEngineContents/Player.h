@@ -35,20 +35,16 @@ public:
 	{
 		TileMap_ = _TileMap;
 	}
-	inline void CheakChapter(int _ChapterLevel)
-	{
-		ChapterLevel_ = _ChapterLevel;
-	}
+
 	inline GameEngineRendererTileMap* ReturnPlayerTileMap_()
 	{
 		return TileMap_;
 	}
 
 	static Player* PlayerObject_;
-	void ColSet(int _ChapterCount);
 	void ChangeState(PlayerState _State);
 	void StateUpdate();
-
+	void CheakChapter(int _ChapterLevel);
 private:
 	PlayerTile* PlayerTileBase;
 	GameEngineSoundPlayer BgmPlayer_;
