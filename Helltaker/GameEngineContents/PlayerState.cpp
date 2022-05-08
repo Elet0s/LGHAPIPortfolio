@@ -77,11 +77,31 @@ void Player::MoveUpdate()
 		case 3:
 
 			UpMoveShift();
+			if (MoveEnd_ == true)// 랜더러 이동효과 끝났으면
+			{
+				Player::PlayerObject_->ReturnPlayerTileMap_()->DeleteTile(PlayerX_, PlayerY_);
+				PlayerY_ -= 1; // 이동한곳에 맞게 변수 바꿔주고
+				Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
+				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 20 });
+				MoveEnd_ = false;
+				ChangeState(PlayerState::Idle);
+				LifePoint_ -= 1;
+			}
 			break;
 
 		case 4:
 
 			DownMoveShift();
+			if (MoveEnd_ == true)// 랜더러 이동효과 끝났으면
+			{
+				Player::PlayerObject_->ReturnPlayerTileMap_()->DeleteTile(PlayerX_, PlayerY_);
+				PlayerY_ += 1; // 이동한곳에 맞게 변수 바꿔주고
+				Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
+				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 20 });
+				MoveEnd_ = false;
+				ChangeState(PlayerState::Idle);
+				LifePoint_ -= 1;
+			}
 			break;
 
 		}
@@ -136,7 +156,7 @@ void Player::MoveUpdate()
 			TileChanger_->IsLKick_ = true;// 킥하고 몬스터 지워짐
 					//PlayerS_->ChangeAnimation("PlayerKickL");
 		}
-		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Ston)
+		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Ston)
 		{
 
 		}
@@ -145,13 +165,67 @@ void Player::MoveUpdate()
 
 	else if (true == GameEngineInput::GetInst()->IsDown("UpMove"))
 	{
+		if (TileMap_->GetTile<PlayerTile>(PlayerX_ , PlayerY_ -1) == nullptr)
+		{
+			if (RLState_ == true)
+			{
+				PlayerS_->ChangeAnimation("PlayerMoveL");
+			}
+			else if (RLState_ == false)
+			{
+				PlayerS_->ChangeAnimation("PlayerMoveR");
+			}
 
+			if (MoveEnd_ == false) 
+			{
+				MoveStart_ = true;
+				LTUD_ = 3;
+			}
+		}
+		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ , PlayerY_-1)->TileState_ == MapObject::Monster)//몬스터이면
+		{
+			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ , PlayerY_-1); //게임 오브젝트 타일 호출.
+			TileChanger_->TileObjectY_ - 1;
+			TileChanger_->IsLKick_ = true;// 킥하고 몬스터 지워짐
+					//PlayerS_->ChangeAnimation("PlayerKickL");
+		}
+		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ , PlayerY_-1)->TileState_ == MapObject::Ston)
+		{
+
+		}
 	}
 
 
 	else if (true == GameEngineInput::GetInst()->IsDown("DownMove"))
 	{
+		if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1) == nullptr)
+		{
+			if (RLState_ == true)
+			{
+				PlayerS_->ChangeAnimation("PlayerMoveL");
+			}
+			else if (RLState_ == false)
+			{
+				PlayerS_->ChangeAnimation("PlayerMoveR");
+			}
 
+			if (MoveEnd_ == false)
+			{
+				MoveStart_ = true;
+				LTUD_ = 4;
+			}
+		}
+		else if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Monster)//몬스터이면
+		{
+			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1); //게임 오브젝트 타일 호출.
+			TileChanger_->TileObjectY_ + 1;
+			TileChanger_->IsLKick_ = true;// 킥하고 몬스터 지워짐
+					//PlayerS_->ChangeAnimation("PlayerKickL");
+		}
+		else if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Ston)
+		{
+
+		}
 	}
 
 	//플레이어 좌표기준 이동 하는 타일 확인

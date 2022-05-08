@@ -200,11 +200,45 @@ void Player::RightMoveShift()
 }
 void Player::UpMoveShift()
 {
+	if (MoveSet_ == false)
+	{
+		ShiftX_ = PlayerX_ * 100 + 50; // 원래위치
+		ShiftY_ = PlayerY_ * 90 + 20;
+		MoveSet_ = true;
+	}
 
+	if (ShiftY_ > (PlayerY_ - 1) * 90 + 20)
+	{
+		ShiftY_ -= 100 * GameEngineTime::GetDeltaTime() * 10.0f;
+		PlayerS_->SetPivot({ ShiftX_ ,  ShiftY_ });
+	}
+	else if (ShiftY_ <= (PlayerY_ - 1) * 90 + 20)
+	{
+		MoveSet_ = false;
+		MoveStart_ = false;
+		MoveEnd_ = true;
+	}
 }
 void Player::DownMoveShift()
 {
+	if (MoveSet_ == false)
+	{
+		ShiftX_ = PlayerX_ * 100 + 50; // 원래위치
+		ShiftY_ = PlayerY_ * 90 + 20;
+		MoveSet_ = true;
+	}
 
+	if (ShiftY_ <= (PlayerY_ + 1) * 90 + 20)
+	{
+		ShiftY_ += 100 * GameEngineTime::GetDeltaTime() * 10.0f;
+		PlayerS_->SetPivot({ ShiftX_ ,  ShiftY_ });
+	}
+	else if (ShiftY_ > (PlayerY_ + 1) * 90 + 20)
+	{
+		MoveSet_ = false;
+		MoveStart_ = false;
+		MoveEnd_ = true;
+	}
 }
 
 
