@@ -52,13 +52,13 @@ private:
 	void Start() override;
 	void Update() override;
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override;
-	void CreateMonster(int _Posx, int _Posy, int _index);
-	void CreateHellper(int _Posx, int _Posy, int _index);
-	void CreateSton(int _Posx, int _Posy, int _index);
-	void CreateWall(int _Posx, int _Posy, int _index);
-	void CreateTrap(int _Posx, int _Posy, int _index);
-	void CreateKey(int _Posx, int _Posy, int _index);
-	void CreateLock(int _Posx, int _Posy, int _index);
+	void CreateMonster(int _x, int _y, int _index);
+	void CreateHelper(int _x, int _y, int _index);
+	void CreateSton(int _x, int _y, int _index);
+	void CreateWall(int _x, int _y, int _index);
+	void CreateTrap(int _x, int _y, int _index);
+	void CreateKey(int _x, int _y, int _index);
+	void CreateLock(int _x, int _y, int _index);
 	void CheakAni();
 
 	std::vector< GameObjectTile* > Mon;

@@ -125,8 +125,8 @@ void Player::MoveUpdate()
 		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Monster)//몬스터이면
 		{
 			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_); //게임 오브젝트 타일 호출.
-			TileChanger_->TileObjectX_ - 1;
-			TileChanger_->IsLKick_ = true;// 킥하고 몬스터 지워짐
+			TileChanger_->TileObjectX_ - 1;//플레이어는 킥애니메이션 재생하고
+			TileChanger_->IsLKick_ = true;// 몬스터는 플레이어가 누른 방향을 알아야함 몬스터의 상태는 몬스터 타일에서 처리
 					//PlayerS_->ChangeAnimation("PlayerKickL");
 		}
 		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Ston)

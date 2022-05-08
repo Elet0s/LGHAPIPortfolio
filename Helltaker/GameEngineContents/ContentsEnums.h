@@ -3,6 +3,7 @@
 enum class ORDER
 {
 	BACKGROUND,
+	WALL,
 	BASETILE,
 	MONSTER,
 	STON,
