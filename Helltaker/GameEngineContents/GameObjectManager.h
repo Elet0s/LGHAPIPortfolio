@@ -8,9 +8,9 @@ public:
 	GameObjectTile()
 		:Off_(false)
 		, IsLKick_(false)
-		, IsRkick_(false)
+		, IsRKick_(false)
 		, IsUKick_(false)
-		, IsDkick_(false)
+		, IsDKick_(false)
 		, TileObjectX_(0)
 		, TileObjectY_(0)
 
@@ -25,9 +25,9 @@ public:
 
 	MapObject TileState_;
 	bool IsLKick_;
-	bool IsRkick_;
+	bool IsRKick_;
 	bool IsUKick_;
-	bool IsDkick_;
+	bool IsDKick_;
 	bool Off_;
 
 	GameEngineRenderer* Monster_;
@@ -82,10 +82,6 @@ private:
 	std::vector< GameObjectTile* >Lock;
 
 
-	void LShiftTileObject(float _X, float _y);
-	void RShiftTileObject(float _X, float _y);
-	void UShiftTileObject(float _X, float _y);
-	void DShiftTileObject(float _X, float _y);
 	float ShiftX_;
 	float ShiftY_;
 public:

@@ -110,6 +110,7 @@ void Player::MoveUpdate()
 
 	if (true == GameEngineInput::GetInst()->IsDown("LeftMove"))
 	{
+		LifePoint_ -= 1;
 		RLState_ = true;//true니까 왼쪽
 
 		if (TileMap_->GetTile<PlayerTile>(PlayerX_ - 1, PlayerY_) == nullptr)//이동할지점에 오브젝트가 없으면
@@ -126,7 +127,8 @@ void Player::MoveUpdate()
 		{
 			ChangeState(PlayerState::Kick);//플레이어 킥 재생
 			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_); //게임 오브젝트 타일 호출.
-			TileChanger_->IsLKick_ = true;// 몬스터야 너 왼쪽에서 차였어
+			TileChanger_->IsLKick_ = true;// 몬스터야 너 오른쪽에서 차였어
+		
 		}
 		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Ston)
 		{
@@ -137,6 +139,7 @@ void Player::MoveUpdate()
 
 	else if (true == GameEngineInput::GetInst()->IsDown("RightMove"))
 	{
+		LifePoint_ -= 1;
 		RLState_ = false;
 		if (TileMap_->GetTile<PlayerTile>(PlayerX_ + 1, PlayerY_) == nullptr)//이동할지점에 오브젝트가 없으면
 		{
@@ -148,12 +151,12 @@ void Player::MoveUpdate()
 				LTUD_ = 2;
 			}
 		}
-		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Monster)//몬스터이면
+		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Monster)//몬스터이면
 		{
+			ChangeState(PlayerState::Kick);//플레이어 킥 재생
 			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_); //게임 오브젝트 타일 호출.
-			TileChanger_->TileObjectX_ + 1;
-			TileChanger_->IsLKick_ = true;// 킥하고 몬스터 지워짐
-					//PlayerS_->ChangeAnimation("PlayerKickL");
+			TileChanger_->IsRKick_ = true;// 몬스터야 너 왼쪽에서 차였어
+			
 		}
 		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Ston)
 		{
@@ -164,6 +167,7 @@ void Player::MoveUpdate()
 
 	else if (true == GameEngineInput::GetInst()->IsDown("UpMove"))
 	{
+		LifePoint_ -= 1;
 		if (TileMap_->GetTile<PlayerTile>(PlayerX_ , PlayerY_ -1) == nullptr)
 		{
 			if (RLState_ == true)
@@ -181,12 +185,12 @@ void Player::MoveUpdate()
 				LTUD_ = 3;
 			}
 		}
-		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ , PlayerY_-1)->TileState_ == MapObject::Monster)//몬스터이면
+		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ , PlayerY_ - 1)->TileState_ == MapObject::Monster)//몬스터이면
 		{
-			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ , PlayerY_-1); //게임 오브젝트 타일 호출.
-			TileChanger_->TileObjectY_ - 1;
-			TileChanger_->IsLKick_ = true;// 킥하고 몬스터 지워짐
-					//PlayerS_->ChangeAnimation("PlayerKickL");
+			ChangeState(PlayerState::Kick);//플레이어 킥 재생
+			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ , PlayerY_ - 1); //게임 오브젝트 타일 호출.
+			TileChanger_->IsUKick_ = true;// 몬스터야 너 아래에서 차였어
+
 		}
 		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ , PlayerY_-1)->TileState_ == MapObject::Ston)
 		{
@@ -197,6 +201,7 @@ void Player::MoveUpdate()
 
 	else if (true == GameEngineInput::GetInst()->IsDown("DownMove"))
 	{
+		LifePoint_ -= 1;
 		if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1) == nullptr)
 		{
 			if (RLState_ == true)
@@ -214,12 +219,11 @@ void Player::MoveUpdate()
 				LTUD_ = 4;
 			}
 		}
-		else if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Monster)//몬스터이면
+		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Monster)//몬스터이면
 		{
+			ChangeState(PlayerState::Kick);//플레이어 킥 재생
 			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1); //게임 오브젝트 타일 호출.
-			TileChanger_->TileObjectY_ + 1;
-			TileChanger_->IsLKick_ = true;// 
-
+			TileChanger_->IsDKick_ = true;// 몬스터야 너 위에서 차였어
 		}
 		else if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Ston)
 		{
@@ -233,7 +237,15 @@ void Player::MoveUpdate()
 
 void Player::KickStart()
 {
-	PlayerS_->ChangeAnimation("PlayerKickL");
+	if (RLState_ == true)
+	{
+		PlayerS_->ChangeAnimation("PlayerKickL");
+	}
+	else if (RLState_ == false)
+	{
+		PlayerS_->ChangeAnimation("PlayerKickR");
+	}
+	
 }
 void Player::KickUpdate()
 {

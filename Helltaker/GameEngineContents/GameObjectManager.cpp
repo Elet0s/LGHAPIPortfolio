@@ -146,7 +146,7 @@ void GameObjectManager::CheakAni()
 			continue;
 		}
 
-		if (true == Mon[i]->IsLKick_)
+		if (true == Mon[i]->IsLKick_)///왼쪽
 		{
 			if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_ - 1, Mon[i]->TileObjectY_) == nullptr)//뒤에 아무것도 없으면
 			{
@@ -168,6 +168,7 @@ void GameObjectManager::CheakAni()
 					ShiftX_ = Mon[i]->TileObjectX_;
 					ShiftY_ = Mon[i]->TileObjectY_;
 					Mon[i]->Monster_->Off();
+			
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
 					CreateMonster(ShiftX_ - 1, ShiftY_, 0);
 					ShiftCheak_ = false;
@@ -182,21 +183,136 @@ void GameObjectManager::CheakAni()
 				if (true == Mon[i]->Monster_->IsEndAnimation())
 				{
 					Mon[i]->Monster_->Off();
+	
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
 				}
 			}
 		}
-		else if (true == Mon[i]->IsRkick_)
-		{
 
+
+		else if (true == Mon[i]->IsRKick_)///오른쪽
+		{
+			if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_ + 1, Mon[i]->TileObjectY_) == nullptr)//뒤에 아무것도 없으면
+			{
+				if (ShiftCheak_ == false)
+				{
+					Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+					ShiftX_ = Mon[i]->TileObjectX_ * 100 + 50;
+					ShiftY_ = Mon[i]->TileObjectY_ * 90 + 50;
+					ShiftCheak_ = true;
+				}
+				else if (ShiftX_ < (Mon[i]->TileObjectX_ + 1) * 100 + 50)
+				{
+					ShiftX_ += 100 * GameEngineTime::GetDeltaTime() * 10.0f;
+					Mon[i]->Monster_->SetPivot({ ShiftX_ , ShiftY_ });
+				}
+				else if (ShiftX_ >= (Mon[i]->TileObjectX_ + 1) * 100 + 50)
+				{
+
+					ShiftX_ = Mon[i]->TileObjectX_;
+					ShiftY_ = Mon[i]->TileObjectY_;
+					Mon[i]->Monster_->Off();
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					CreateMonster(ShiftX_ + 1, ShiftY_, 0);
+					ShiftCheak_ = false;
+					ShiftX_ = 0;
+					ShiftY_ = 0;
+
+				}
+			}
+			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_ + 1, Mon[i]->TileObjectY_) != nullptr)// 뒤에 무엇이 있으면
+			{
+				Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+				if (true == Mon[i]->Monster_->IsEndAnimation())
+				{
+					Mon[i]->Monster_->Off();
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+				}
+			}
 		}
-		else if (true == Mon[i]->IsUKick_)
-		{
 
+
+		else if (true == Mon[i]->IsUKick_)///위
+		{
+			if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_ , Mon[i]->TileObjectY_ - 1) == nullptr)//뒤에 아무것도 없으면
+			{
+				if (ShiftCheak_ == false)
+				{
+					Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+					ShiftX_ = Mon[i]->TileObjectX_ * 100 + 50;
+					ShiftY_ = Mon[i]->TileObjectY_ * 90 + 50;
+					ShiftCheak_ = true;
+				}
+				else if (ShiftY_ > (Mon[i]->TileObjectY_ - 1) * 100 + 50)
+				{
+					ShiftY_ -= 100 * GameEngineTime::GetDeltaTime() * 10.0f;
+					Mon[i]->Monster_->SetPivot({ ShiftX_ , ShiftY_ });
+				}
+				else if (ShiftY_ <= (Mon[i]->TileObjectY_ - 1) * 100 + 50)
+				{
+
+					ShiftX_ = Mon[i]->TileObjectX_;
+					ShiftY_ = Mon[i]->TileObjectY_;
+					Mon[i]->Monster_->Off();
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					CreateMonster(ShiftX_ , ShiftY_ - 1, 0);
+					ShiftCheak_ = false;
+					ShiftX_ = 0;
+					ShiftY_ = 0;
+
+				}
+			}
+			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_ , Mon[i]->TileObjectY_ - 1) != nullptr)// 뒤에 무엇이 있으면
+			{
+				Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+				if (true == Mon[i]->Monster_->IsEndAnimation())
+				{
+					Mon[i]->Monster_->Off();
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+				}
+			}
 		}
-		else if (true == Mon[i]->IsDkick_)
-		{
 
+
+		else if (true == Mon[i]->IsDKick_)///아래
+		{
+			if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_ + 1) == nullptr)//뒤에 아무것도 없으면
+			{
+				if (ShiftCheak_ == false)
+				{
+					Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+					ShiftX_ = Mon[i]->TileObjectX_ * 100 + 50;
+					ShiftY_ = Mon[i]->TileObjectY_ * 90 + 50;
+					ShiftCheak_ = true;
+				}
+				else if (ShiftY_ < (Mon[i]->TileObjectY_ + 1) * 100 + 50)
+				{
+					ShiftX_ += 100 * GameEngineTime::GetDeltaTime() * 10.0f;
+					Mon[i]->Monster_->SetPivot({ ShiftX_ , ShiftY_ });
+				}
+				else if (ShiftY_ >= (Mon[i]->TileObjectY_ + 1) * 100 + 50)
+				{
+
+					ShiftX_ = Mon[i]->TileObjectX_;
+					ShiftY_ = Mon[i]->TileObjectY_;
+					Mon[i]->Monster_->Off();
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					CreateMonster(ShiftX_, ShiftY_ + 1, 0);
+					ShiftCheak_ = false;
+					ShiftX_ = 0;
+					ShiftY_ = 0;
+
+				}
+			}
+			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_ + 1) != nullptr)// 뒤에 무엇이 있으면
+			{
+				Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+				if (true == Mon[i]->Monster_->IsEndAnimation())
+				{
+					Mon[i]->Monster_->Off();
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+				}
+			}
 		}
 	}
 }
@@ -204,24 +320,4 @@ void GameObjectManager::CheakAni()
 void GameObjectManager::ObjectCheakChapter(int _ChapterLevel)
 {
 	ChapterLevel_ = _ChapterLevel;
-}
-
-void GameObjectManager::LShiftTileObject(float _X, float _y)
-{
-	
-
-
-
-}
-void GameObjectManager::RShiftTileObject(float _X, float _y)
-{
-
-}
-void GameObjectManager::UShiftTileObject(float _X, float _y)
-{
-
-}
-void GameObjectManager::DShiftTileObject(float _X, float _y)
-{
-
 }
