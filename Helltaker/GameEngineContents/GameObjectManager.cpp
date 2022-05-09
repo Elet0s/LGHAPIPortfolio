@@ -188,8 +188,10 @@ void GameObjectManager::CheakMonsterAni()
 			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_ - 1, Mon[i]->TileObjectY_) != nullptr)// 뒤에 무엇이 있으면
 			{
 				Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+			
 				if (true == Mon[i]->Monster_->IsEndAnimation())
 				{
+					GameEngineSound::SoundPlayOneShot("MonsterDie.wav", 0);
 					Mon[i]->Monster_->Off();
 					
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
@@ -233,8 +235,10 @@ void GameObjectManager::CheakMonsterAni()
 			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_ + 1, Mon[i]->TileObjectY_) != nullptr)// 뒤에 무엇이 있으면
 			{
 				Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+				
 				if (true == Mon[i]->Monster_->IsEndAnimation())
 				{
+					GameEngineSound::SoundPlayOneShot("MonsterDie.wav", 0);
 					Mon[i]->Monster_->Off();
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
 					Mon.erase(Mon.begin() + i);
@@ -278,10 +282,11 @@ void GameObjectManager::CheakMonsterAni()
 			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_ , Mon[i]->TileObjectY_ - 1) != nullptr)// 뒤에 무엇이 있으면
 			{
 				Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+				
 				if (true == Mon[i]->Monster_->IsEndAnimation())
 				{
+					GameEngineSound::SoundPlayOneShot("MonsterDie.wav", 0);
 					Mon[i]->Monster_->Off();
-
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
 					Mon.erase(Mon.begin() + i);
 				}
@@ -323,8 +328,10 @@ void GameObjectManager::CheakMonsterAni()
 			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_ + 1) != nullptr)// 뒤에 무엇이 있으면
 			{
 				Mon[i]->Monster_->ChangeAnimation("MonsterHitL");
+
 				if (true == Mon[i]->Monster_->IsEndAnimation())
 				{
+					GameEngineSound::SoundPlayOneShot("MonsterDie.wav", 0);
 					Mon[i]->Monster_->Off();
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
 					Mon.erase(Mon.begin() + i);
@@ -348,11 +355,14 @@ void GameObjectManager::CheakStonAni()
 		{
 			if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_ - 1, Ston[i]->TileObjectY_) == nullptr)//뒤에 아무것도 없으면
 			{
+
 				if (ShiftCheak_ == false)
 				{
+					GameEngineSound::SoundPlayOneShot("StoneMove.wav", 0);
 					ShiftX_ = Ston[i]->TileObjectX_ * 100 + 50;
 					ShiftY_ = Ston[i]->TileObjectY_ * 90 + 50;
 					ShiftCheak_ = true;
+					
 				}
 				else if (ShiftX_ > (Ston[i]->TileObjectX_ - 1) * 100 + 50)
 				{
@@ -361,7 +371,7 @@ void GameObjectManager::CheakStonAni()
 				}
 				else if (ShiftX_ <= (Ston[i]->TileObjectX_ - 1) * 100 + 50)
 				{
-
+					
 					ShiftX_ = Ston[i]->TileObjectX_;
 					ShiftY_ = Ston[i]->TileObjectY_;
 					Ston[i]->Ston_->Off();
@@ -378,7 +388,9 @@ void GameObjectManager::CheakStonAni()
 			}
 			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_ - 1, Ston[i]->TileObjectY_) != nullptr)// 뒤에 무엇이 있으면
 			{
+				
 				Ston[i]->IsDKick_ = false;
+				
 			}
 		}
 
@@ -389,6 +401,7 @@ void GameObjectManager::CheakStonAni()
 			{
 				if (ShiftCheak_ == false)
 				{
+					GameEngineSound::SoundPlayOneShot("StoneMove.wav", 0);
 					ShiftX_ = Ston[i]->TileObjectX_ * 100 + 50;
 					ShiftY_ = Ston[i]->TileObjectY_ * 90 + 50;
 					ShiftCheak_ = true;
@@ -425,6 +438,7 @@ void GameObjectManager::CheakStonAni()
 			{
 				if (ShiftCheak_ == false)
 				{
+					GameEngineSound::SoundPlayOneShot("StoneMove.wav", 0);
 					ShiftX_ = Ston[i]->TileObjectX_ * 100 + 50;
 					ShiftY_ = Ston[i]->TileObjectY_ * 90 + 50;
 					ShiftCheak_ = true;
@@ -461,6 +475,7 @@ void GameObjectManager::CheakStonAni()
 			{
 				if (ShiftCheak_ == false)
 				{
+					GameEngineSound::SoundPlayOneShot("StoneMove.wav", 0);
 					ShiftX_ = Ston[i]->TileObjectX_ * 100 + 50;
 					ShiftY_ = Ston[i]->TileObjectY_ * 90 + 50;
 					ShiftCheak_ = true;
