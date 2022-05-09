@@ -1,6 +1,7 @@
 #include"GameObjectManager.h"
 #include "ContentsEnums.h"
 #include <GameEngine/GameEngineRenderer.h>
+#include "Player.h"
 GameObjectManager* GameObjectManager::GameObjectManager_ = nullptr;
 
 GameObjectManager::GameObjectManager()
@@ -10,6 +11,7 @@ GameObjectManager::GameObjectManager()
 	, ShiftCheak_(false)
 	, ShiftX_(0)
 	, ShiftY_(0)
+	, ChapterClear_(false)
 {
 
 }
@@ -74,6 +76,7 @@ void GameObjectManager::Update()
 
 	CheakMonsterAni();
 	CheakStonAni();
+	CheakHelper();
 }
 void GameObjectManager::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
@@ -492,7 +495,20 @@ void GameObjectManager::CheakStonAni()
 	}
 }
 
+void GameObjectManager::CheakHelper()
+{
+//	if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(Helper[0]->TileObjectX_ -1 , Helper[0]->TileObjectY_)->TileState_ == MapObject::Player)
+//	{
+//		ChapterClear_ = true;
+//	}
+}
+
 void GameObjectManager::ObjectCheakChapter(int _ChapterLevel)
 {
 	ChapterLevel_ = _ChapterLevel;
+}
+
+bool GameObjectManager::GetChapterClear()
+{
+	return ChapterClear_;
 }

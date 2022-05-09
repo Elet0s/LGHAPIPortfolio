@@ -36,22 +36,30 @@ void Chapter01::Loading()
 	ChapterBackGound_->GetRenderer()->SetPivot(ChapterBackGoundScale.Half());//윈도우기준 그려줄 위치 정해주고
 	ChapterBackGound_->ChapterBackGoundTileMap_.TileRangeSetting(19, 12, { 100,90 });// 타일맵 만들어줌
 
-	GameObjectManager::GameObjectManager_ = CreateActor<GameObjectManager>();
+	GameObjectManager::GameObjectManager_ = CreateActor<GameObjectManager>(1);
 	GameObjectManager::GameObjectManager_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
 	GameObjectManager::GameObjectManager_->ObjectCheakChapter(ChapterCount_);
 
-	Player::PlayerObject_ = CreateActor<Player>(1);
+	Player::PlayerObject_ = CreateActor<Player>(2);
 	Player::PlayerObject_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
 	Player::PlayerObject_->CheakChapter(ChapterCount_);
 
-	BotUi_ = CreateActor<BotUi>(3);
-	TopUi_ = CreateActor<TopUi>(2);
+	BotUi_ = CreateActor<BotUi>(4);
+	TopUi_ = CreateActor<TopUi>(3);
 	LodingNext_ = CreateActor<LodingNext>(9);
 }
 
 void Chapter01::Update()
 {
-
+	//if (ChapterClear() == true)
+	//{
+	//
+	//
+	//	if (true == GameEngineInput::GetInst()->IsDown("Next"))
+	//	{
+	//
+	//	}
+	//}
 }
 void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
@@ -61,5 +69,10 @@ void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 
 void Chapter01::LevelChangeEnd(GameEngineLevel* _NextLevel)
 {
-
+	Loding_ = CreateActor<Loding>(9);
+	GameEngineSound::SoundPlayOneShot("Loding.wav", 0);
+}
+bool Chapter01::ChapterClear()
+{
+	return GameObjectManager::GameObjectManager_->GetChapterClear();
 }

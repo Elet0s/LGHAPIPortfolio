@@ -142,7 +142,9 @@ void Player::KeySet() // Å°¼¼ÆÃ
 void Player::CreatePlayer(int _x, int _y, int _index)
 {
 	PlayerTileBase = TileMap_ ->CreateTile<PlayerTile>(_x, _y, "TileBase.bmp", static_cast<int>(ORDER::PLAYER));
+	PlayerTileBase->TileState_ = MapObject::Player;
 	PlayerS_->SetPivot({(float)_x * 100 + 50 , (float)_y * 90 +20 });
+	PlayerS_->SetOrder(6);
 }
 
 bool Player::MoveCheak()

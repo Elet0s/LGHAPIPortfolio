@@ -15,7 +15,7 @@ public:
 	{
 	}
 
-	MapObject TileState_ = MapObject::Player;
+	MapObject TileState_;
 
 
 };
@@ -42,6 +42,8 @@ public:
 	}
 
 	static Player* PlayerObject_;
+	float PlayerX_;
+	float PlayerY_;
 	void ChangeState(PlayerState _State);
 	void StateUpdate();
 	void CheakChapter(int _ChapterLevel);
@@ -63,8 +65,7 @@ private:
 	void Update() override;
 	void Render() override;
 	void KeySet();
-	float PlayerX_;
-	float PlayerY_;
+
 	float ShiftX_;
 	float ShiftY_;
 	void LeftMoveShift();

@@ -56,6 +56,7 @@ public:
 	bool MakeCheak_;
 	int ChapterLevel_;
 	void ObjectCheakChapter(int _ChapterLevel);
+	bool GetChapterClear();
 
 private:
 
@@ -71,7 +72,10 @@ private:
 	void CreateLock(int _x, int _y, int _index);
 	void CheakMonsterAni();
 	void CheakStonAni();
+	void CheakHelper();
 	bool ShiftCheak_;
+	bool ChapterClear_;
+
 
 
 	std::vector< GameObjectTile* > Mon;
