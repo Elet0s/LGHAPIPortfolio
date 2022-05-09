@@ -52,7 +52,7 @@ void Player::MoveUpdate()
 				Player::PlayerObject_->ReturnPlayerTileMap_()->DeleteTile(PlayerX_, PlayerY_);
 				PlayerX_ -= 1; // 이동한곳에 맞게 변수 바꿔주고
 				Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
-				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 +20 });
+				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 +30 });
 				MoveEnd_ = false;
 				ChangeState(PlayerState::Idle);
 				LifePoint_ -= 1;
@@ -67,7 +67,7 @@ void Player::MoveUpdate()
 				Player::PlayerObject_->ReturnPlayerTileMap_()->DeleteTile(PlayerX_, PlayerY_);
 				PlayerX_ += 1; // 이동한곳에 맞게 변수 바꿔주고
 				Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
-				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 20 });
+				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 30 });
 				MoveEnd_ = false;
 				ChangeState(PlayerState::Idle);
 				LifePoint_ -= 1;
@@ -82,7 +82,7 @@ void Player::MoveUpdate()
 				Player::PlayerObject_->ReturnPlayerTileMap_()->DeleteTile(PlayerX_, PlayerY_);
 				PlayerY_ -= 1; // 이동한곳에 맞게 변수 바꿔주고
 				Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
-				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 20 });
+				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 30 });
 				MoveEnd_ = false;
 				ChangeState(PlayerState::Idle);
 				LifePoint_ -= 1;
@@ -97,7 +97,7 @@ void Player::MoveUpdate()
 				Player::PlayerObject_->ReturnPlayerTileMap_()->DeleteTile(PlayerX_, PlayerY_);
 				PlayerY_ += 1; // 이동한곳에 맞게 변수 바꿔주고
 				Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
-				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 20 });
+				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 30 });
 				MoveEnd_ = false;
 				ChangeState(PlayerState::Idle);
 				LifePoint_ -= 1;
