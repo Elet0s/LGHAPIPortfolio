@@ -47,6 +47,7 @@ public:
 	void ChangeState(PlayerState _State);
 	void StateUpdate();
 	void CheakChapter(int _ChapterLevel);
+	bool ClearChapter();
 private:
 	PlayerTile* PlayerTileBase;
 	GameEngineSoundPlayer BgmPlayer_;

@@ -93,7 +93,7 @@ void GameObjectManager::CreateMonster(int _x, int _y, int _index)
 	MonsterTileBase->Monster_->CreateAnimation("MonsterL.bmp", "MonsterL", 0, 11, 0.065f, true);
 	MonsterTileBase->Monster_->CreateAnimation("MonsterHitL.bmp", "MonsterHitL", 0, 5, 0.1f, true);
 	MonsterTileBase->Monster_->CreateAnimation("MonsterHitR.bmp", "MonsterHitR", 0, 5, 0.1f, true);
-	MonsterTileBase->Monster_->ChangeAnimation("MonsterL");
+	MonsterTileBase->Monster_->ChangeAnimation("MonsterR");
 	MonsterTileBase->Monster_->SetOrder(static_cast<int>(ORDER::MONSTER));
 	MonsterTileBase->TileState_ = MapObject::Monster;
 

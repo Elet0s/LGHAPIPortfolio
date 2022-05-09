@@ -195,12 +195,12 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="ContentsEnums.h" />
-    <ClInclude Include="EndText.h">
+    <ClInclude Include="ClearEvent.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Event.h">
+    <ClInclude Include="ContentsEnums.h" />
+    <ClInclude Include="EndText.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -320,11 +320,11 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="EndText.cpp">
+    <ClCompile Include="ClearEvent.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Event.cpp">
+    <ClCompile Include="EndText.cpp">
       <SubType>
       </SubType>
     </ClCompile>

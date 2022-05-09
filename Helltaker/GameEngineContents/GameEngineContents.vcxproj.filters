@@ -26,9 +26,6 @@
     <ClInclude Include="LifeCounter.h">
       <Filter>Actor\Chapter\Object\Ui</Filter>
     </ClInclude>
-    <ClInclude Include="Event.h">
-      <Filter>Actor\Chapter\Global</Filter>
-    </ClInclude>
     <ClInclude Include="MenuLevel.h">
       <Filter>Level\Menu</Filter>
     </ClInclude>
@@ -98,6 +95,9 @@
     <ClInclude Include="GameObjectManager.h">
       <Filter>Actor\Chapter\Object</Filter>
     </ClInclude>
+    <ClInclude Include="ClearEvent.h">
+      <Filter>Actor\Chapter\Event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
@@ -124,9 +124,6 @@
     </ClCompile>
     <ClCompile Include="LifeCounter.cpp">
       <Filter>Actor\Chapter\Object\Ui</Filter>
-    </ClCompile>
-    <ClCompile Include="Event.cpp">
-      <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
     <ClCompile Include="MenuLevel.cpp">
       <Filter>Level\Menu</Filter>
@@ -194,6 +191,9 @@
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>Actor\Chapter\Object</Filter>
     </ClCompile>
+    <ClCompile Include="ClearEvent.cpp">
+      <Filter>Actor\Chapter\Event</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -246,6 +246,9 @@
     </Filter>
     <Filter Include="Actor\Global">
       <UniqueIdentifier>{0c2ab7f7-0066-4c13-b376-fc504d629c88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Chapter\Event">
+      <UniqueIdentifier>{50ca5b66-7e72-4ca2-a4e2-ff4f96b27619}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -15,6 +15,7 @@
 #include "Loding.h"
 #include "LodingNext.h"
 #include "GameObjectManager.h"
+#include "ClearEvent.h"
 
 
 Chapter01::Chapter01()
@@ -47,19 +48,20 @@ void Chapter01::Loading()
 	BotUi_ = CreateActor<BotUi>(4);
 	TopUi_ = CreateActor<TopUi>(3);
 	LodingNext_ = CreateActor<LodingNext>(9);
+
 }
 
 void Chapter01::Update()
 {
-	//if (ChapterClear() == true)
-	//{
-	//
-	//
-	//	if (true == GameEngineInput::GetInst()->IsDown("Next"))
-	//	{
-	//
-	//	}
-	//}
+	if (Player::PlayerObject_->ClearChapter() == true)
+	{
+		ClearEvent_ =	CreateActor<ClearEvent>(9);
+
+		if (true == GameEngineInput::GetInst()->IsDown("Next"))
+		{
+
+		}
+	}
 }
 void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {

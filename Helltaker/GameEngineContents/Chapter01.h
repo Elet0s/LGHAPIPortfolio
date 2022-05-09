@@ -3,12 +3,12 @@
 #include <GameEngineBase/GameEngineSound.h>
 #include "ChapterBackGound.h"
 
-
 class GameEngineSound;
 class BotUi;
 class TopUi;
 class LodingNext;
 class Loding;
+class ClearEvent;
 
 class Chapter01 : public GameEngineLevel
 {
@@ -20,6 +20,7 @@ private:
 	TopUi* TopUi_;
 	LodingNext* LodingNext_;
 	Loding* Loding_;
+	ClearEvent* ClearEvent_;
 	bool ChapterClear();
 public:
 

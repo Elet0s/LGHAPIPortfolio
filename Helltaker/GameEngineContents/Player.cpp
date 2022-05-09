@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "ContentsEnums.h"
+#include "GameObjectManager.h"
 #include <GameEngine/GameEngine.h>
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngine/GameEngineImageManager.h>
@@ -8,6 +9,7 @@
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngine/GameEngineLevel.h> 
 #include <GameEngineBase/GameEngineTime.h>
+
 
 Player* Player::PlayerObject_ = nullptr;
 
@@ -248,4 +250,14 @@ void Player::DownMoveShift()
 	}
 }
 
-
+bool Player::ClearChapter()
+ {
+	if (TileMap_->GetTile<PlayerTile>(PlayerX_ + 1, PlayerY_) == nullptr)
+	{
+		return false;
+	}
+	else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Helper)
+	{
+		return true;
+	}
+}
