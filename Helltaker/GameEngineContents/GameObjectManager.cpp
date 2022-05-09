@@ -72,7 +72,8 @@ void GameObjectManager::Update()
 		MakeCheak_ = true;
 	}
 
-	CheakAni();
+	CheakMonsterAni();
+	CheakStonAni();
 }
 void GameObjectManager::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
@@ -106,6 +107,8 @@ void GameObjectManager::CreateHelper(int _x, int _y, int _index)
 	HelperTileBase->Helper_->ChangeAnimation("Pandemonica");
 	HelperTileBase->Helper_->SetOrder(static_cast<int>(ORDER::HELPER));
 	HelperTileBase->TileState_ = MapObject::Helper;
+
+	Helper.push_back(HelperTileBase);
 }
 void GameObjectManager::CreateSton(int _x, int _y, int _index)
 {
@@ -119,6 +122,7 @@ void GameObjectManager::CreateSton(int _x, int _y, int _index)
 	StonTileBase->Ston_->PauseOn();
 	StonTileBase->Ston_->SetOrder(static_cast<int>(ORDER::STON));
 	StonTileBase->TileState_ = MapObject::Ston;
+	Ston.push_back(StonTileBase);
 }
 void GameObjectManager::CreateWall(int _x, int _y, int _index)
 {
@@ -137,7 +141,7 @@ void GameObjectManager::CreateLock(int _x, int _y, int _index)
 
 }
 
-void GameObjectManager::CheakAni()
+void GameObjectManager::CheakMonsterAni()
 {
 	for (int i = 0; i < Mon.size(); i++)
 	{
@@ -168,8 +172,9 @@ void GameObjectManager::CheakAni()
 					ShiftX_ = Mon[i]->TileObjectX_;
 					ShiftY_ = Mon[i]->TileObjectY_;
 					Mon[i]->Monster_->Off();
-			
+				
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					Mon.erase(Mon.begin() + i);
 					CreateMonster(ShiftX_ - 1, ShiftY_, 0);
 					ShiftCheak_ = false;
 					ShiftX_ = 0;
@@ -183,8 +188,9 @@ void GameObjectManager::CheakAni()
 				if (true == Mon[i]->Monster_->IsEndAnimation())
 				{
 					Mon[i]->Monster_->Off();
-	
+					
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					Mon.erase(Mon.begin() + i);
 				}
 			}
 		}
@@ -213,6 +219,7 @@ void GameObjectManager::CheakAni()
 					ShiftY_ = Mon[i]->TileObjectY_;
 					Mon[i]->Monster_->Off();
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					Mon.erase(Mon.begin() + i);
 					CreateMonster(ShiftX_ + 1, ShiftY_, 0);
 					ShiftCheak_ = false;
 					ShiftX_ = 0;
@@ -227,6 +234,7 @@ void GameObjectManager::CheakAni()
 				{
 					Mon[i]->Monster_->Off();
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					Mon.erase(Mon.begin() + i);
 				}
 			}
 		}
@@ -254,7 +262,9 @@ void GameObjectManager::CheakAni()
 					ShiftX_ = Mon[i]->TileObjectX_;
 					ShiftY_ = Mon[i]->TileObjectY_;
 					Mon[i]->Monster_->Off();
+		
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					Mon.erase(Mon.begin() + i);
 					CreateMonster(ShiftX_ , ShiftY_ - 1, 0);
 					ShiftCheak_ = false;
 					ShiftX_ = 0;
@@ -268,7 +278,9 @@ void GameObjectManager::CheakAni()
 				if (true == Mon[i]->Monster_->IsEndAnimation())
 				{
 					Mon[i]->Monster_->Off();
+
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					Mon.erase(Mon.begin() + i);
 				}
 			}
 		}
@@ -297,6 +309,7 @@ void GameObjectManager::CheakAni()
 					ShiftY_ = Mon[i]->TileObjectY_;
 					Mon[i]->Monster_->Off();
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					Mon.erase(Mon.begin() + i);
 					CreateMonster(ShiftX_, ShiftY_ + 1, 0);
 					ShiftCheak_ = false;
 					ShiftX_ = 0;
@@ -311,8 +324,170 @@ void GameObjectManager::CheakAni()
 				{
 					Mon[i]->Monster_->Off();
 					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Mon[i]->TileObjectX_, Mon[i]->TileObjectY_);
+					Mon.erase(Mon.begin() + i);
 				}
 			}
+		}
+	}
+}
+
+
+void GameObjectManager::CheakStonAni()
+{
+	for (int i = 0; i < Ston.size(); i++)
+	{
+		if (nullptr == Ston[i])
+		{
+			continue;
+		}
+
+		if (true == Ston[i]->IsLKick_)///왼쪽	
+		{
+			if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_ - 1, Ston[i]->TileObjectY_) == nullptr)//뒤에 아무것도 없으면
+			{
+				if (ShiftCheak_ == false)
+				{
+					ShiftX_ = Ston[i]->TileObjectX_ * 100 + 50;
+					ShiftY_ = Ston[i]->TileObjectY_ * 90 + 50;
+					ShiftCheak_ = true;
+				}
+				else if (ShiftX_ > (Ston[i]->TileObjectX_ - 1) * 100 + 50)
+				{
+					ShiftX_ -= 100 * GameEngineTime::GetDeltaTime() * 10.0f;
+					Ston[i]->Ston_->SetPivot({ ShiftX_ , ShiftY_ });
+				}
+				else if (ShiftX_ <= (Ston[i]->TileObjectX_ - 1) * 100 + 50)
+				{
+
+					ShiftX_ = Ston[i]->TileObjectX_;
+					ShiftY_ = Ston[i]->TileObjectY_;
+					Ston[i]->Ston_->Off();
+
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Ston[i]->TileObjectX_, Ston[i]->TileObjectY_);
+					Ston.erase(Ston.begin() + i);
+					CreateSton(ShiftX_ - 1, ShiftY_, 0);
+					ShiftCheak_ = false;
+					ShiftX_ = 0;
+					ShiftY_ = 0;
+
+
+				}
+			}
+			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_ - 1, Ston[i]->TileObjectY_) != nullptr)// 뒤에 무엇이 있으면
+			{
+				Ston[i]->IsDKick_ = false;
+			}
+		}
+
+
+		else if (true == Ston[i]->IsRKick_)///오른쪽
+		{
+			if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_ + 1, Ston[i]->TileObjectY_) == nullptr)//뒤에 아무것도 없으면
+			{
+				if (ShiftCheak_ == false)
+				{
+					ShiftX_ = Ston[i]->TileObjectX_ * 100 + 50;
+					ShiftY_ = Ston[i]->TileObjectY_ * 90 + 50;
+					ShiftCheak_ = true;
+				}
+				else if (ShiftX_ < (Ston[i]->TileObjectX_ + 1) * 100 + 50)
+				{
+					ShiftX_ += 100 * GameEngineTime::GetDeltaTime() * 10.0f;
+					Ston[i]->Ston_->SetPivot({ ShiftX_ , ShiftY_ });
+				}
+				else if (ShiftX_ >= (Ston[i]->TileObjectX_ + 1) * 100 + 50)
+				{
+
+					ShiftX_ = Ston[i]->TileObjectX_;
+					ShiftY_ = Ston[i]->TileObjectY_;
+					Ston[i]->Ston_->Off();
+
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Ston[i]->TileObjectX_, Ston[i]->TileObjectY_);
+					Ston.erase(Ston.begin() + i);
+					CreateSton(ShiftX_ + 1, ShiftY_, 0);
+					ShiftCheak_ = false;
+					ShiftX_ = 0;
+					ShiftY_ = 0;
+
+				}
+			}
+			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_ +1, Ston[i]->TileObjectY_) != nullptr)// 뒤에 무엇이 있으면
+			{
+				Ston[i]->IsDKick_ = false;
+			}
+		}
+		else if (true == Ston[i]->IsUKick_)///위
+		{
+			if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_, Ston[i]->TileObjectY_ - 1) == nullptr)//뒤에 아무것도 없으면
+			{
+				if (ShiftCheak_ == false)
+				{
+					ShiftX_ = Ston[i]->TileObjectX_ * 100 + 50;
+					ShiftY_ = Ston[i]->TileObjectY_ * 90 + 50;
+					ShiftCheak_ = true;
+				}
+				else if (ShiftY_ > (Ston[i]->TileObjectY_ - 1) * 100 + 50)
+				{
+					ShiftY_ -= 100 * GameEngineTime::GetDeltaTime() * 10.0f;
+					Ston[i]->Ston_->SetPivot({ ShiftX_ , ShiftY_ });
+				}
+				else if (ShiftY_ <= (Ston[i]->TileObjectY_ - 1) * 100 + 50)
+				{
+
+					ShiftX_ = Ston[i]->TileObjectX_;
+					ShiftY_ = Ston[i]->TileObjectY_;
+					Ston[i]->Ston_->Off();
+
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Ston[i]->TileObjectX_, Ston[i]->TileObjectY_);
+					Ston.erase(Ston.begin() + i);
+					CreateSton(ShiftX_, ShiftY_ - 1, 0);
+					ShiftCheak_ = false;
+					ShiftX_ = 0;
+					ShiftY_ = 0;
+
+				}
+			}
+			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_ , Ston[i]->TileObjectY_ -1) != nullptr)// 뒤에 무엇이 있으면
+			{
+				Ston[i]->IsDKick_ = false;
+			}
+		}
+		else if (true == Ston[i]->IsDKick_)///아래
+		{
+			if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_, Ston[i]->TileObjectY_ + 1) == nullptr)//뒤에 아무것도 없으면
+			{
+				if (ShiftCheak_ == false)
+				{
+					ShiftX_ = Ston[i]->TileObjectX_ * 100 + 50;
+					ShiftY_ = Ston[i]->TileObjectY_ * 90 + 50;
+					ShiftCheak_ = true;
+				}
+				else if (ShiftY_ < (Ston[i]->TileObjectY_ + 1) * 100 + 50)
+				{
+					ShiftY_ += 100 * GameEngineTime::GetDeltaTime() * 10.0f;
+					Ston[i]->Ston_->SetPivot({ ShiftX_ , ShiftY_ });
+				}
+				else if (ShiftY_ >= (Ston[i]->TileObjectY_ + 1) * 100 + 50)
+				{
+
+					ShiftX_ = Ston[i]->TileObjectX_;
+					ShiftY_ = Ston[i]->TileObjectY_;
+					Ston[i]->Ston_->Off();
+
+					GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->DeleteTile(Ston[i]->TileObjectX_, Ston[i]->TileObjectY_);
+					Ston.erase(Ston.begin() + i);
+					CreateSton(ShiftX_, ShiftY_ + 1, 0);
+					ShiftCheak_ = false;
+					ShiftX_ = 0;
+					ShiftY_ = 0;
+
+				}
+			}
+			else if (GameObjectTileMap_->GetTile<GameObjectTile>(Ston[i]->TileObjectX_, Ston[i]->TileObjectY_ + 1) != nullptr)// 뒤에 무엇이 있으면
+			{
+				Ston[i]->IsDKick_ = false;
+			}
+
 		}
 	}
 }

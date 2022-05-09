@@ -40,7 +40,7 @@ void Player::Start()
 	PlayerS_->CreateAnimation("PlayerMoveL.bmp", "PlayerMoveL", 0, 5, 0.1f, true);
 	PlayerS_->CreateAnimation("PlayerMoveR.bmp", "PlayerMoveR", 0, 5, 0.1f, true);
 	PlayerS_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 7, 12, 0.065f, true);
-	PlayerS_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 7, 12, 0.065f, true);
+	PlayerS_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 0, 6, 0.065f, true);
 
 	KeySet();
 }
@@ -141,7 +141,7 @@ void Player::KeySet() // Å°¼¼ÆÃ
 }
 void Player::CreatePlayer(int _x, int _y, int _index)
 {
-	PlayerTileBase = TileMap_ ->CreateTile<PlayerTile>(_x, _y, "TileBase.bmp", static_cast<int>(ORDER::BASETILE));
+	PlayerTileBase = TileMap_ ->CreateTile<PlayerTile>(_x, _y, "TileBase.bmp", static_cast<int>(ORDER::PLAYER));
 	PlayerS_->SetPivot({(float)_x * 100 + 50 , (float)_y * 90 +20 });
 }
 

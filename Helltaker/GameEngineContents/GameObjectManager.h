@@ -69,12 +69,13 @@ private:
 	void CreateTrap(int _x, int _y, int _index);
 	void CreateKey(int _x, int _y, int _index);
 	void CreateLock(int _x, int _y, int _index);
-	void CheakAni();
+	void CheakMonsterAni();
+	void CheakStonAni();
 	bool ShiftCheak_;
 
 
 	std::vector< GameObjectTile* > Mon;
-	std::vector< GameObjectTile* >Hellper;
+	std::vector< GameObjectTile* >Helper;
 	std::vector< GameObjectTile* >Ston;
 	std::vector< GameObjectTile* >Wall;
 	std::vector< GameObjectTile* >Trap;

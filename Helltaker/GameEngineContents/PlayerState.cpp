@@ -130,9 +130,11 @@ void Player::MoveUpdate()
 			TileChanger_->IsLKick_ = true;// 몬스터야 너 오른쪽에서 차였어
 		
 		}
-		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Ston)
+		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Ston)
 		{
-
+			ChangeState(PlayerState::Kick);
+			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_);
+			TileChanger_->IsLKick_ = true;
 		}
 	}
 
@@ -158,9 +160,11 @@ void Player::MoveUpdate()
 			TileChanger_->IsRKick_ = true;// 몬스터야 너 왼쪽에서 차였어
 			
 		}
-		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Ston)
+		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Ston)
 		{
-
+			ChangeState(PlayerState::Kick);
+			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_); 
+			TileChanger_->IsRKick_ = true;
 		}
 	}
 
@@ -192,9 +196,11 @@ void Player::MoveUpdate()
 			TileChanger_->IsUKick_ = true;// 몬스터야 너 아래에서 차였어
 
 		}
-		else if (TileMap_->GetTile<PlayerTile>(PlayerX_ , PlayerY_-1)->TileState_ == MapObject::Ston)
+		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ , PlayerY_-1)->TileState_ == MapObject::Ston)
 		{
-
+			ChangeState(PlayerState::Kick);
+			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ - 1); 
+			TileChanger_->IsUKick_ = true;
 		}
 	}
 
@@ -225,9 +231,11 @@ void Player::MoveUpdate()
 			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1); //게임 오브젝트 타일 호출.
 			TileChanger_->IsDKick_ = true;// 몬스터야 너 위에서 차였어
 		}
-		else if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Ston)
+		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Ston)
 		{
-
+			ChangeState(PlayerState::Kick);
+			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1);
+			TileChanger_->IsDKick_ = true;
 		}
 	}
 
