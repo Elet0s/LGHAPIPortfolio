@@ -1,9 +1,10 @@
 #pragma once
-#include "GameEngineLevel.h"
 #include <GameEngineBase/GameEngineNameObject.h>
 #include <GameEngineBase/GameEngineUpdateObject.h>
+
 #include <GameEngineBase/GameEngineMath.h>
 #include "GameEngineEnum.h"
+#include <GameEngine/GameEngineLevel.h>
 #include <list>
 
 // 
@@ -16,15 +17,12 @@ class GameEngineRenderer;
 class GameEngineCollision;
 class GameEngineActor : public GameEngineNameObject, public GameEngineUpdateObject
 {
-	//// ActorBase
 public:
 	friend GameEngineLevel;
 
-	// constrcuter destructer
 	GameEngineActor();
 	virtual ~GameEngineActor();
 
-	// delete Function
 	GameEngineActor(const GameEngineActor& _Other) = delete;
 	GameEngineActor(GameEngineActor&& _Other) noexcept = delete;
 	GameEngineActor& operator=(const GameEngineActor& _Other) = delete;
@@ -43,7 +41,7 @@ public:
 
 	inline float4 GetCameraEffectPosition()
 	{
-		return Position_ - GetLevel()->GetCameraPos();
+		return Position_;//-GetLevel()->GetCameraPos();
 	}
 
 	inline float4 GetPosition()

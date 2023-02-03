@@ -11,9 +11,9 @@ public:
 	StartEvent(StartEvent&& _Other) noexcept = delete;
 	StartEvent& operator=(const StartEvent& _Other) = delete;
 	StartEvent& operator=(StartEvent&& _Other) noexcept = delete;
-
-protected:
 	void Start();
+protected:
+
 	void Update();
 private:
 	GameEngineRenderer* StartEvent_;

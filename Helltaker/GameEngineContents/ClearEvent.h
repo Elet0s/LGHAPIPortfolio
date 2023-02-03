@@ -10,8 +10,9 @@ public:
 	ClearEvent(ClearEvent&& _Other) noexcept = delete;
 	ClearEvent& operator=(const ClearEvent& _Other) = delete;
 	ClearEvent& operator=(ClearEvent&& _Other) noexcept = delete;
-protected:
 	void Start() override;
+protected:
+
 	void Render() override;
 	void Update();
 private:

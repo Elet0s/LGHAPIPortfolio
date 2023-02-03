@@ -14,9 +14,9 @@ public:
 	TitleLogo(TitleLogo&& _Other) noexcept = delete;
 	TitleLogo& operator=(const TitleLogo& _Other) = delete;
 	TitleLogo& operator=(TitleLogo&& _Other) noexcept = delete;
-
-protected:
 	void Start();
+protected:
+
 	void Render();
 	void Update();
 private:

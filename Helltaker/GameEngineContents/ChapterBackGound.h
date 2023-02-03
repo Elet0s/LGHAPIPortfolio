@@ -14,9 +14,9 @@ public:
 	ChapterBackGound(ChapterBackGound&& _Other) noexcept = delete;
 	ChapterBackGound& operator=(const ChapterBackGound& _Other) = delete;
 	ChapterBackGound& operator=(ChapterBackGound&& _Other) noexcept = delete;
-
-protected:
 	void Start() override;
+protected:
+
 	void Render() override;
 
 private: 

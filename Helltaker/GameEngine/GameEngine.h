@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <GameEngineBase/GameEngineDebug.h>
+#include "GameEngineLevel.h"
 
 // 설명 : 게임엔진이란 게임 그자체의 시작점과 끝점 실행중을 담당
 class GameEngineImage;
@@ -62,10 +63,9 @@ protected:
 	template<typename LevelType>
 	void CreateLevel(const std::string& _Name)
 	{
-		LevelType* NewLevel = new LevelType();
+		GameEngineLevel* NewLevel = new LevelType();
 		NewLevel->SetName(_Name);
-		GameEngineLevel* Level = NewLevel;
-		Level->Loading();
+		NewLevel->Loading();
 		AllLevel_.insert(std::make_pair(_Name, NewLevel));
 	}
 

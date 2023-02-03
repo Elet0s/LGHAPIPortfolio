@@ -5,6 +5,8 @@
 #include "GameEngineCollision.h"
 
 
+
+
 GameEngineActor::GameEngineActor()
 	: Level_(nullptr)
 	, IsResetIgnore(false)

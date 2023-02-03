@@ -4,7 +4,7 @@
 class MenuText : public GameEngineActor
 {
 protected:
-	void Start();
+
 	void Render();
 	void Update();
 private:
@@ -12,6 +12,7 @@ private:
 	GameEngineRenderer* MenuTextRenderer001_;
 	GameEngineRenderer* MenuTextRenderer002_;
 public:
+	void Start();
 	MenuText();
 	~MenuText();
 

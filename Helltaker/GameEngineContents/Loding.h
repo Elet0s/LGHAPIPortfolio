@@ -6,10 +6,11 @@ class Loding : public GameEngineActor
 private:
 	GameEngineRenderer* LodingRender_;
 protected:
-	void Start();
+
 	void Update();
 
 public:
+	void Start();
 	Loding();
 	~Loding();
 

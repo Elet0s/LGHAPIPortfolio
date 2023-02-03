@@ -57,10 +57,10 @@ public:
 	int ChapterLevel_;
 	void ObjectCheakChapter(int _ChapterLevel);
 	bool GetChapterClear();
-
+	void Start() override;
 private:
 
-	void Start() override;
+
 	void Update() override;
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override;
 	void CreateMonster(int _x, int _y, int _index);

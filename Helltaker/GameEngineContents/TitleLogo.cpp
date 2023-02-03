@@ -3,6 +3,7 @@
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngineBase/GameEngineTime.h>
 
+
 TitleLogo::TitleLogo()
 : Width_(460)
 , Hight_(230)

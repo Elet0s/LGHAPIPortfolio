@@ -5,6 +5,7 @@
 #include <vector>
 #include <GameEngineBase/GameEngineNameObject.h>
 #include <GameEngineBase/GameEngineMath.h>
+#include <GameEngine/GameEngineActor.h>
 
 class GameEngineActor;
 struct ChangeOrderItem
@@ -56,11 +57,11 @@ public:
 	ActorType* CreateActor(int _Order = 0, const std::string& _Name = "")
 	{
 		ActorType* NewActor = new ActorType();
-		GameEngineActor* StartActor = NewActor;
+		GameEngineActor* StartActor = (NewActor);
 		NewActor->GameEngineUpdateObject::SetOrder(_Order);
 		NewActor->SetName(_Name);
 		NewActor->SetLevel(this);
-		StartActor->Start();
+		NewActor->Start();
 		std::list<GameEngineActor*>& Group = AllActor_[_Order];
 		Group.push_back(NewActor);
 

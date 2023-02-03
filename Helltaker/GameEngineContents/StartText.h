@@ -11,8 +11,9 @@ public:
 	StartText(StartText&& _Other) noexcept = delete;
 	StartText& operator=(const StartText& _Other) = delete;
 	StartText& operator=(StartText&& _Other) noexcept = delete;
-protected:
 	void Start();
+protected:
+
 	void Render();
 	void Update();
 private:

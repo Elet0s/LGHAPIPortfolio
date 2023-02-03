@@ -11,9 +11,9 @@ public:
 	StartBackGround(StartBackGround&& _Other) noexcept = delete;
 	StartBackGround& operator=(const StartBackGround& _Other) = delete;
 	StartBackGround& operator=(StartBackGround&& _Other) noexcept = delete;
-
-protected:
 	void Start();
+protected:
+
 	void Update();
 private:
 	GameEngineRenderer* StartBackGround00_;

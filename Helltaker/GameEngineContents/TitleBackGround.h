@@ -14,9 +14,9 @@ public:
 	TitleBackGround(TitleBackGround&& _Other) noexcept = delete;
 	TitleBackGround& operator=(const TitleBackGround& _Other) = delete;
 	TitleBackGround& operator=(TitleBackGround&& _Other) noexcept = delete;
-
-protected:
 	void Start();
+protected:
+
 	void Render();
 	void Update();
 private:

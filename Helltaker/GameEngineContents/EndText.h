@@ -4,13 +4,14 @@
 class EndText : public GameEngineActor
 {
 protected:
-	void Start();
+
 	void Render();
 	void Update();
 private:
 	float TextCount_;
 	GameEngineRenderer* EndTextRender01;
 public:
+	void Start();
 	EndText();
 	~EndText();
 

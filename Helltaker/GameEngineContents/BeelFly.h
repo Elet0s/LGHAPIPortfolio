@@ -11,9 +11,9 @@ public:
 	BeelFly(BeelFly&& _Other) noexcept = delete;
 	BeelFly& operator=(const BeelFly& _Other) = delete;
 	BeelFly& operator=(BeelFly&& _Other) noexcept = delete;
-
-protected:
 	void Start();
+protected:
+
 	void Render();
 private:
 	float Width_;

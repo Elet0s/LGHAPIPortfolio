@@ -11,9 +11,9 @@ public:
 	MenuSelcet(MenuSelcet&& _Other) noexcept = delete;
 	MenuSelcet& operator=(const MenuSelcet& _Other) = delete;
 	MenuSelcet& operator=(MenuSelcet&& _Other) noexcept = delete;
-
-protected:
 	void Start();
+protected:
+
 	void Update();
 private:
 	GameEngineRenderer* MenuSelcetRenderer01_;

@@ -12,9 +12,9 @@ public:
 	Booper& operator=(const Booper& _Other) = delete;
 	Booper& operator=(Booper&& _Other) noexcept = delete;
 
-
-protected:
 	void Start();
+protected:
+
 	void Update();
 private:
 	GameEngineRenderer* BooperRender_;

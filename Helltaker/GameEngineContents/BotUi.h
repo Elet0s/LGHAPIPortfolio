@@ -11,9 +11,9 @@ public:
 	BotUi(BotUi&& _Other) noexcept = delete;
 	BotUi& operator=(const BotUi& _Other) = delete;
 	BotUi& operator=(BotUi&& _Other) noexcept = delete;
-
-protected:
 	void Start() override;
+protected:
+
 	void Render() override;
 private:
 	GameEngineRenderer* BotUiRender01_;

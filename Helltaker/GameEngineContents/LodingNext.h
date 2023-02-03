@@ -4,11 +4,12 @@
 class LodingNext : public GameEngineActor
 {
 protected:
-	void Start();
+
 	void Update();
 private:
 	GameEngineRenderer* LodingNextRender_;
 public:
+	void Start();
 	LodingNext();
 	~LodingNext();
 

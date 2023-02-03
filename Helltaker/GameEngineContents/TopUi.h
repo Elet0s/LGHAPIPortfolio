@@ -5,6 +5,8 @@ class GameEngineRenderer;
 class TopUi :	public GameEngineActor
 {
 public:
+	void Start() override;
+
 	TopUi();
 	~TopUi();
 
@@ -14,7 +16,7 @@ public:
 	TopUi& operator=(const TopUi& _Other) = delete;
 	TopUi& operator=(TopUi&& _Other) noexcept = delete;
 protected:
-	void Start() override;
+
 	void Render() override;
 private:
 	GameEngineRenderer* TopUiRender01_;

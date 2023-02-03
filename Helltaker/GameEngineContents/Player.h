@@ -40,6 +40,7 @@ public:
 	{
 		return TileMap_;
 	}
+	void Start() override;
 
 	static Player* PlayerObject_;
 	float PlayerX_;
@@ -62,7 +63,7 @@ private:
 	PlayerState CurState_;
 	PlayerState PreState_;
 	void CreatePlayer(int _x, int _y, int _index);
-	void Start() override;
+
 	void Update() override;
 	void Render() override;
 	void KeySet();

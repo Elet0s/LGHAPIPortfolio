@@ -12,8 +12,9 @@ public:
 	MenuBackGround01(MenuBackGround01&& _Other) noexcept = delete;
 	MenuBackGround01& operator=(const MenuBackGround01& _Other) = delete;
 	MenuBackGround01& operator=(MenuBackGround01&& _Other) noexcept = delete;
-protected:
 	void Start();
+protected:
+
 	void Render();
 	void Update();
 private:

@@ -11,9 +11,9 @@ public:
 	MenuTopUi(MenuTopUi&& _Other) noexcept = delete;
 	MenuTopUi& operator=(const MenuTopUi& _Other) = delete;
 	MenuTopUi& operator=(MenuTopUi&& _Other) noexcept = delete;
-
-protected:
 	void Start();
+protected:
+
 	void Render();
 	void Update();
 private:
