@@ -17,10 +17,6 @@ TileIndex GameEngineRendererTileMap::GetTileIndex(const float4& _Pos)
 }
 
 
-
-
-
-
 void GameEngineRendererTileMap::DeleteTile(int _X, int _Y)
 {
 	if (nullptr == Tiles_[_Y][_X])
@@ -30,4 +26,25 @@ void GameEngineRendererTileMap::DeleteTile(int _X, int _Y)
 
 	delete Tiles_[_Y][_X];
 	Tiles_[_Y][_X] = nullptr;
+}
+
+GameEngineRendererTileMap::GameEngineRendererTileMap(GameEngineActor* _Actor)
+	: Master_(_Actor)
+{
+}
+
+GameEngineRendererTileMap::~GameEngineRendererTileMap()
+{
+	for (size_t y = 0; y < Tiles_.size(); y++)
+	{
+		for (size_t x = 0; x < Tiles_[y].size(); x++)
+		{
+			if (nullptr == Tiles_[y][x])
+			{
+				continue;
+			}
+			delete Tiles_[y][x];
+			Tiles_[y][x] = nullptr;
+		}
+	}
 }

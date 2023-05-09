@@ -15,7 +15,7 @@ enum class ORDER
 	UI,
 };
 
-enum class 	MapObject
+enum class MapObject
 {
 	Trap,
 	Ston,

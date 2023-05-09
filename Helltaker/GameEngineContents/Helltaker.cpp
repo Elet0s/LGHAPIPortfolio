@@ -9,6 +9,8 @@
 #include "TitleLevel.h"
 #include "MenuLevel.h"
 #include "Chapter01.h"
+#include "Chapter02.h"
+#include "Chapter03.h"
 
 Helltaker::Helltaker()
 	:Chapter_(0)
@@ -253,7 +255,9 @@ void Helltaker::GameInit()
 	CreateLevel<TitleLevel>("TitleLevel");
 	CreateLevel<MenuLevel>("MenuLevel");
 	CreateLevel<Chapter01>("Chapter01");
-	ChangeLevel("TitleLevel");
+	CreateLevel<Chapter02>("Chapter02");
+	CreateLevel<Chapter03>("Chapter03");
+	ChangeLevel("MenuLevel");
 }
 
 void Helltaker::GameLoop()

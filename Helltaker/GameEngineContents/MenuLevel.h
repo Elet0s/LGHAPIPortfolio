@@ -43,7 +43,7 @@ public:
 	MenuLevel& operator=(const MenuLevel& _Other) = delete;
 	MenuLevel& operator=(MenuLevel&& _Other) noexcept = delete;
 protected:
-	void Loading() override;
+	void Start() override;
 	void Update() override;
 	void LevelChangeStart(GameEngineLevel* _NextLevel) override;
 	void LevelChangeEnd(GameEngineLevel* _PrevLevel) override;

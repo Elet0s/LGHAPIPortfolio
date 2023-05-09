@@ -11,6 +11,7 @@ protected:
 
 public:
 	void Start();
+	void Reload();
 	Loding();
 	~Loding();
 

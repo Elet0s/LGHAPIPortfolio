@@ -98,6 +98,21 @@
     <ClInclude Include="ClearEvent.h">
       <Filter>Actor\Chapter\Event</Filter>
     </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper.h">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Ston.h">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Lock.h">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
@@ -194,6 +209,21 @@
     <ClCompile Include="ClearEvent.cpp">
       <Filter>Actor\Chapter\Event</Filter>
     </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper.cpp">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Ston.cpp">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Lock.cpp">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Key.cpp">
+      <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -249,6 +279,9 @@
     </Filter>
     <Filter Include="Actor\Chapter\Event">
       <UniqueIdentifier>{50ca5b66-7e72-4ca2-a4e2-ff4f96b27619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Chapter\Object\GameObject">
+      <UniqueIdentifier>{e7ba96e1-1b79-401e-be55-772bf2ee8bb1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

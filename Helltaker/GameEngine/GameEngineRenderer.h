@@ -248,7 +248,7 @@ private:
 		void Update();
 
 		// 처음 재생상태로 만드는것.
-		void Reset()
+		 void Reset()
 		{
 			IsEnd = false;
 			CurrentFrame_ = StartFrame_;
@@ -277,6 +277,11 @@ public:
 	inline const FrameAnimation* CurrentAnimation()
 	{
 		return CurrentAnimation_;
+	}
+
+	inline void  FrameReset()
+	{
+		CurrentAnimation_->Reset();
 	}
 
 

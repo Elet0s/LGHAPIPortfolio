@@ -91,8 +91,8 @@ void GameObjectManager::CreateMonster(int _x, int _y, int _index)
 	MonsterTileBase->Monster_->SetPivot({ (float)_x * 100+50, (float)_y* 90 +50 });// 몬스터 이미지 여백 때문에 오차 있음 x50, y50
 	MonsterTileBase->Monster_->CreateAnimation("MonsterR.bmp", "MonsterR", 0, 11, 0.065f, true);
 	MonsterTileBase->Monster_->CreateAnimation("MonsterL.bmp", "MonsterL", 0, 11, 0.065f, true);
-	MonsterTileBase->Monster_->CreateAnimation("MonsterHitL.bmp", "MonsterHitL", 0, 5, 0.1f, true);
-	MonsterTileBase->Monster_->CreateAnimation("MonsterHitR.bmp", "MonsterHitR", 0, 5, 0.1f, true);
+	MonsterTileBase->Monster_->CreateAnimation("MonsterHitL.bmp", "MonsterHitL", 0, 5, 0.05f, true);
+	MonsterTileBase->Monster_->CreateAnimation("MonsterHitR.bmp", "MonsterHitR", 0, 5, 0.05f, true);
 	MonsterTileBase->Monster_->ChangeAnimation("MonsterR");
 	MonsterTileBase->Monster_->SetOrder(static_cast<int>(ORDER::MONSTER));
 	MonsterTileBase->TileState_ = MapObject::Monster;
@@ -125,6 +125,7 @@ void GameObjectManager::CreateSton(int _x, int _y, int _index)
 	StonTileBase->Ston_->PauseOn();
 	StonTileBase->Ston_->SetOrder(static_cast<int>(ORDER::STON));
 	StonTileBase->TileState_ = MapObject::Ston;
+	StonTileBase->Ston_->Off();
 	Ston.push_back(StonTileBase);
 }
 void GameObjectManager::CreateWall(int _x, int _y, int _index)

@@ -30,7 +30,7 @@ MenuLevel::~MenuLevel()
 
 }
 
-void MenuLevel::Loading()
+void MenuLevel::Start()
 {
 	CreateActor<MenuBackGround00>(0);
 	MenuBackGround01_ = CreateActor<MenuBackGround01>(1);

@@ -13,15 +13,16 @@ class ClearEvent;
 class Chapter01 : public GameEngineLevel
 {
 private:
-	 int  ChapterCount_;
-	ChapterBackGound* ChapterBackGound_;
-	GameEngineSoundPlayer ChapterBgm_;
-	BotUi* BotUi_;
-	TopUi* TopUi_;
-	LodingNext* LodingNext_;
-	Loding* Loding_;
-	ClearEvent* ClearEvent_;
+	 int  ChapterCount_; // 카운터
+	ChapterBackGound* ChapterBackGound_; // 배경화면, 타일맵관리
+	GameEngineSoundPlayer ChapterBgm_; // BGM사운드
+	BotUi* BotUi_; // 움직일수있는 카운터 체크
+	TopUi* TopUi_; // 
+	LodingNext* LodingNext_; // 
+	Loding* Loding_; // Chapter 시작, 재시작 
+	ClearEvent* ClearEvent_; // 목표달성시 대화창
 	bool ChapterClear();
+
 public:
 
 	Chapter01();
@@ -33,7 +34,7 @@ public:
 	Chapter01& operator=(Chapter01&& _Other) noexcept = delete;
 
 protected:
-	void Loading() override;
+	void Start() override;
 	void Update() override;
 	void LevelChangeStart(GameEngineLevel* _NextLevel) override;
 	void LevelChangeEnd(GameEngineLevel* _PrevLevel) override;

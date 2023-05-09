@@ -5,22 +5,47 @@
 
 
 ChapterBackGound::ChapterBackGound()
-	:ChapterBackGoundRender_(nullptr)
-	, ChapterBackGoundTileMap_(this)// 1.타일맵 만들 때 actor가 필요한데 백그라운드에서 생성하는 것이니까 백그라운드에서 엑터를 가지고 있어야한다. 그렇기에 부모class인 actordml 생성자를 받아서 호출 해주려고 this호출  2.보이진 않지만 여기서 부모클래스자료형 하나가 만들어져있음
+	:BackGoundRender_(nullptr)
+	, ChapterBackGoundTileMap_(this)
 {
-	// 내가 가지고 있으니 is a <-actor
-	// 내가 줘야할 곳은 has a <-TileMap
 }
+
 ChapterBackGound::~ChapterBackGound()
 {
-
 }
 
 void ChapterBackGound::Start()
 {
-	ChapterBackGoundRender_ = CreateRenderer();
+	BackGoundRender_ = CreateRenderer();
+	if (this->GetLevel()->GetNameConstRef() == "Chapter01")
+	{
+		BackGoundRender_->SetImage("ChapterBG01.bmp");
+		ChapterBackGoundScale_ = BackGoundRender_->GetImage()->GetScale();
+		BackGoundRender_->SetPivot(ChapterBackGoundScale_.Half());
+		ChapterBackGoundTileMap_.TileRangeSetting(19, 12, { 100,90 });
+	}
+	else if (this->GetLevel()->GetNameConstRef() == "Chapter02")
+	{
+		BackGoundRender_->SetImage("ChapterBG02.bmp");
+		ChapterBackGoundScale_ = BackGoundRender_->GetImage()->GetScale();
+		BackGoundRender_->SetPivot(ChapterBackGoundScale_.Half());
+		ChapterBackGoundTileMap_.TileRangeSetting(19, 12, { 100,90 });
+	}
+	else if (this->GetLevel()->GetNameConstRef() == "Chapter03")
+	{
+		BackGoundRender_->SetImage("ChapterBG03.bmp");
+		ChapterBackGoundScale_ = BackGoundRender_->GetImage()->GetScale();
+		BackGoundRender_->SetPivot(ChapterBackGoundScale_.Half());
+		ChapterBackGoundTileMap_.TileRangeSetting(19, 12, { 100,90 });
+	}
 }
 
-void ChapterBackGound::Render()
+void ChapterBackGound::Update()
 {
+
+}
+
+void ChapterBackGound::SetChaterLevel(int _CurChapterLevel_)
+{
+	CurChapterLevel_ = _CurChapterLevel_;
 }

@@ -30,14 +30,16 @@ public:
 class GameEngineImage;
 class GameEngineRendererTileMap
 {
-	std::vector<std::vector<Tile*>> Tiles_;
+public:
+	GameEngineRendererTileMap(GameEngineActor* _Actor);
+	virtual ~GameEngineRendererTileMap();
 
+public:
+	std::vector<std::vector<Tile*>> Tiles_;
 	float4 TileSize_;
 	float4 TileSizeHalf_;
 	GameEngineActor* Master_;
 
-public:
-	// Å¸ÀÏ¸ÊÀ» ¸Ê ÀüÃ¼¿¡ »ý¼º
 	void TileRangeSetting(int _X, int _Y, float4 _TileSize)
 	{
 		if (0 >= _X)
@@ -143,26 +145,6 @@ public:
 
 	TileIndex GetTileIndex(const float4& _Pos);
 
-public:
-	GameEngineRendererTileMap(GameEngineActor* _Actor)
-		: Master_(_Actor)
-	{
-	}
 
-	virtual ~GameEngineRendererTileMap()
-	{
-		for (size_t y = 0; y < Tiles_.size(); y++)
-		{
-			for (size_t x = 0; x < Tiles_[y].size(); x++)
-			{
-				if (nullptr == Tiles_[y][x])
-				{
-					continue;
-				}
-				delete Tiles_[y][x];
-				Tiles_[y][x] = nullptr;
-			}
-		}
-	}
 };
 

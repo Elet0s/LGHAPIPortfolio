@@ -123,7 +123,7 @@ public:
 protected:
 	// 시점함수
 	// 만들어지면서 리소스나 액터를 만들때 써라
-	virtual void Loading() = 0;
+	virtual void Start() = 0;
 	// 이 레벨이 현재 레벨일때 해야할일을 실행한다.
 	virtual void Update() = 0;
 	// Current레벨 => Next레벨로 이전할때 현재레벨이 실행하는 함수.

@@ -20,6 +20,13 @@
 
 Chapter01::Chapter01()
 	:ChapterCount_(1)
+	, BotUi_()
+	, ChapterBackGound_()
+	, ChapterBgm_()
+	, TopUi_()
+	, LodingNext_()
+	, Loding_()
+	, ClearEvent_()
 {
 
 }
@@ -29,39 +36,49 @@ Chapter01::~Chapter01()
 
 }
 
-void Chapter01::Loading()
+void Chapter01::Start()
 {
-	ChapterBackGound_ = CreateActor<ChapterBackGound>((int)ORDER::BACKGROUND);//Actor 만들고
-	ChapterBackGound_->GetRenderer()->SetImage("ChapterBG01.bmp");//Actor에 이미지 세팅해주고
-	float4 ChapterBackGoundScale = ChapterBackGound_->GetRenderer()->GetImage()->GetScale();//이미지 크기 구하고
-	ChapterBackGound_->GetRenderer()->SetPivot(ChapterBackGoundScale.Half());//윈도우기준 그려줄 위치 정해주고
-	ChapterBackGound_->ChapterBackGoundTileMap_.TileRangeSetting(19, 12, { 100,90 });// 타일맵 만들어줌
 
-	GameObjectManager::GameObjectManager_ = CreateActor<GameObjectManager>(1);
-	GameObjectManager::GameObjectManager_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
-	GameObjectManager::GameObjectManager_->ObjectCheakChapter(ChapterCount_);
-
-	Player::PlayerObject_ = CreateActor<Player>(2);
-	Player::PlayerObject_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
-	Player::PlayerObject_->CheakChapter(ChapterCount_);
-
-	BotUi_ = CreateActor<BotUi>(4);
-	TopUi_ = CreateActor<TopUi>(3);
+	////키 세팅////
+	if (false == GameEngineInput::GetInst()->IsKey("Reload"))
+	{
+		GameEngineInput::GetInst()->CreateKey("Reload", 'R');
+	}
+	if (false == GameEngineInput::GetInst()->IsKey("OfenMenu"))
+	{
+		GameEngineInput::GetInst()->CreateKey("OfenMenu", VK_ESCAPE);
+	}
+	if (false == GameEngineInput::GetInst()->IsKey("Advice"))
+	{
+		GameEngineInput::GetInst()->CreateKey("Advice", 'L');
+	}
+	////Actor 생성////
 	LodingNext_ = CreateActor<LodingNext>(9);
+	//CreateActor<Loding>((int)ORDER::UI);
+	ChapterBackGound* A = CreateActor<ChapterBackGound>((int)ORDER::BACKGROUND);
+	
+	
+	//GameObjectManager::GameObjectManager_ = CreateActor<GameObjectManager>(1);
+	//GameObjectManager::GameObjectManager_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
+	//GameObjectManager::GameObjectManager_->ObjectCheakChapter(ChapterCount_);
 
+	//Player::PlayerObject_ = CreateActor<Player>(2);
+	//Player::PlayerObject_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
+	//Player::PlayerObject_->CheakChapter(ChapterCount_);
+
+	//BotUi_ = CreateActor<BotUi>(4);
+	//TopUi_ = CreateActor<TopUi>(3);
+	
 }
 
 void Chapter01::Update()
 {
-	if (Player::PlayerObject_->ClearChapter() == true)
-	{
-		ClearEvent_ =	CreateActor<ClearEvent>(9);
+	//if (Player::PlayerObject_->ClearChapter() == true)
+	//{
+	//	ClearEvent_ =	CreateActor<ClearEvent>(9);
 
-		if (true == GameEngineInput::GetInst()->IsDown("Next"))
-		{
 
-		}
-	}
+	//}
 }
 void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {

@@ -2,7 +2,7 @@
 #include <GameEngine/GameEngineActor.h>
 #include <GameEngine/GameEngineRendererTileMap.h>
 #include "ContentsEnums.h"
-class GameObjectTile :public Tile
+class GameObjectTile : public Tile
 {
 public:
 	GameObjectTile()
@@ -59,6 +59,36 @@ public:
 	bool GetChapterClear();
 	void Start() override;
 private:
+
+	template<class ObjectClass>
+	void CreateObject(MapObject TileState_)
+	{
+		switch (TileState_)
+		{
+		case MapObject::Trap:
+			break;
+		case MapObject::Ston:
+			break;
+		case MapObject::Helper:
+			break;
+		case MapObject::Monster:
+			break;
+		case MapObject::Lock:
+			break;
+		case MapObject::Key:
+			break;
+		case MapObject::Player:
+			break;
+		default:
+			break;
+		}
+
+	}
+
+	void SetPositionObject(int _x, int _y)
+	{
+
+	}
 
 
 	void Update() override;
