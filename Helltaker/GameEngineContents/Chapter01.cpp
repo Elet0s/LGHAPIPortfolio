@@ -12,8 +12,7 @@
 #include "BotUI.h"
 #include "TopUi.h"
 #include "ChapterBackGound.h"
-#include "Loding.h"
-#include "LodingNext.h"
+#include "LodingManager.h"
 #include "GameObjectManager.h"
 #include "ClearEvent.h"
 
@@ -24,8 +23,7 @@ Chapter01::Chapter01()
 	, ChapterBackGound_()
 	, ChapterBgm_()
 	, TopUi_()
-	, LodingNext_()
-	, Loding_()
+	, LodingManager_()
 	, ClearEvent_()
 {
 
@@ -53,7 +51,7 @@ void Chapter01::Start()
 		GameEngineInput::GetInst()->CreateKey("Advice", 'L');
 	}
 	////Actor »ý¼º////
-	LodingNext_ = CreateActor<LodingNext>(9);
+	LodingManager_ = CreateActor<LodingManager>(9);
 	//CreateActor<Loding>((int)ORDER::UI);
 	ChapterBackGound* A = CreateActor<ChapterBackGound>((int)ORDER::BACKGROUND);
 	
@@ -83,13 +81,11 @@ void Chapter01::Update()
 void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
 	ChapterBgm_ = GameEngineSound::SoundPlayControl("Chapter.wav");
-	GameEngineSound::SoundPlayOneShot("LodingN.wav", 0);
+	LodingManager_->Shoot("End");
 }
 
 void Chapter01::LevelChangeEnd(GameEngineLevel* _NextLevel)
 {
-	Loding_ = CreateActor<Loding>(9);
-	GameEngineSound::SoundPlayOneShot("Loding.wav", 0);
 }
 bool Chapter01::ChapterClear()
 {

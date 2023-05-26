@@ -77,12 +77,6 @@
     <ClInclude Include="MenuSelcet.h">
       <Filter>Actor\Menu\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Loding.h">
-      <Filter>Actor\Global</Filter>
-    </ClInclude>
-    <ClInclude Include="LodingNext.h">
-      <Filter>Actor\Global</Filter>
-    </ClInclude>
     <ClInclude Include="ChapterBackGound.h">
       <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
@@ -112,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="Key.h">
       <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LodingManager.h">
+      <Filter>Actor\Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -188,12 +185,6 @@
     <ClCompile Include="MenuSelcet.cpp">
       <Filter>Actor\Menu\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Loding.cpp">
-      <Filter>Actor\Global</Filter>
-    </ClCompile>
-    <ClCompile Include="LodingNext.cpp">
-      <Filter>Actor\Global</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerState.cpp">
       <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
@@ -223,6 +214,9 @@
     </ClCompile>
     <ClCompile Include="Key.cpp">
       <Filter>Actor\Chapter\Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="LodingManager.cpp">
+      <Filter>Actor\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

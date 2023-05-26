@@ -228,11 +228,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Loding.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="LodingNext.h">
+    <ClInclude Include="LodingManager.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -372,11 +368,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Loding.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="LodingNext.cpp">
+    <ClCompile Include="LodingManager.cpp">
       <SubType>
       </SubType>
     </ClCompile>

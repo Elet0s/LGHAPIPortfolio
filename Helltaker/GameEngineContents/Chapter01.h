@@ -6,8 +6,8 @@
 class GameEngineSound;
 class BotUi;
 class TopUi;
-class LodingNext;
-class Loding;
+
+class LodingManager;
 class ClearEvent;
 
 class Chapter01 : public GameEngineLevel
@@ -17,9 +17,8 @@ private:
 	ChapterBackGound* ChapterBackGound_; // 배경화면, 타일맵관리
 	GameEngineSoundPlayer ChapterBgm_; // BGM사운드
 	BotUi* BotUi_; // 움직일수있는 카운터 체크
-	TopUi* TopUi_; // 
-	LodingNext* LodingNext_; // 
-	Loding* Loding_; // Chapter 시작, 재시작 
+	TopUi* TopUi_;
+	LodingManager* LodingManager_; 
 	ClearEvent* ClearEvent_; // 목표달성시 대화창
 	bool ChapterClear();
 

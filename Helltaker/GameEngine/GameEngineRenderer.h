@@ -102,6 +102,11 @@ public:
 		IsCameraEffect_ = true;
 	}
 
+	bool IsPause()
+	{
+		return Pause_;
+	}
+
 	void SetPause(bool _Value)
 	{
 		Pause_ = _Value;

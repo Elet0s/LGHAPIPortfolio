@@ -19,7 +19,8 @@
 #include"StartBackGround.h"
 #include"StartEvent.h"
 #include"EndText.h"
-#include"Loding.h"
+#include"LodingManager.h"
+
 MenuLevel::MenuLevel()
 	:NextCount_(0)
 {
@@ -39,6 +40,7 @@ void MenuLevel::Start()
 	CreateActor<Booper>(3);
 	CreateActor<MenuTopUi>(4);
 	CreateActor<MenuBotUI>(4);
+
 
 	if (false == GameEngineInput::GetInst()->IsKey("Next"))
 	{
@@ -113,7 +115,8 @@ void MenuLevel::Update()
 			GameEngineSound::SoundPlayOneShot("TextNext.wav", 0);
 			if (StartText_->GetStartTextCount() == 6)//게임체인지
 			{
-				Loding_ = CreateActor<Loding>(5);		
+				LodingManager_ = CreateActor<LodingManager>(10);
+				LodingManager_->Shoot("Start");
 				NextCount_ = 7;
 			}
 		}
@@ -126,9 +129,8 @@ void MenuLevel::Update()
 			GameEngineSound::SoundPlayOneShot("TextNext.wav", 0);
 			GameEngineWindow::GetInst().Off();
 		}
+
 	}
-
-
 }
 void MenuLevel::LevelChangeStart(GameEngineLevel* _NextLevel)
 {

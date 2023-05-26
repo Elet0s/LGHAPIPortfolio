@@ -257,7 +257,7 @@ void Helltaker::GameInit()
 	CreateLevel<Chapter01>("Chapter01");
 	CreateLevel<Chapter02>("Chapter02");
 	CreateLevel<Chapter03>("Chapter03");
-	ChangeLevel("MenuLevel");
+	ChangeLevel("Chapter01");
 }
 
 void Helltaker::GameLoop()
