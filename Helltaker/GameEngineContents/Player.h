@@ -4,11 +4,13 @@
 #include <GameEngine/GameEngineActor.h>
 #include <GameEngine/GameEngineRendererTileMap.h>
 #include <GameEngineBase/GameEngineSound.h>
+#include"LifeCounter.h"
 
 class PlayerTile: public Tile
 {
 public:
 	PlayerTile()
+		:TileState_(MapObject::none)
 	{
 	}
 	~PlayerTile()
@@ -16,13 +18,41 @@ public:
 	}
 
 	MapObject TileState_;
-
-
 };
 
 
 class Player : public GameEngineActor
 {
+public:
+
+	static Player* PlayerObject_;
+	float PlayerX_;
+	float PlayerY_;
+
+protected:
+
+
+	int LifePoint_;
+private:
+	PlayerTile* PlayerTileBase;
+	GameEngineSoundPlayer BgmPlayer_;
+	GameEngineRendererTileMap* TileMap_;
+	GameEngineRenderer* PlayerS_;
+	GameEngineImage* ChapterCol_;
+	bool RLState_;
+	bool MakeCheak_;
+	int ChapterLevel_;
+
+	float Speed_;
+	PlayerState CurState_;
+	PlayerState PreState_;
+	float ShiftX_;
+	float ShiftY_;
+	bool MoveStart_;
+	bool MoveEnd_;
+	bool MoveSet_;
+	int LTUD_;
+	LifeCounter* LifeCount_;
 public:
 	Player();
 	~Player();
@@ -41,45 +71,23 @@ public:
 		return TileMap_;
 	}
 	void Start() override;
-
-	static Player* PlayerObject_;
-	float PlayerX_;
-	float PlayerY_;
+	void SetLifePoint(int _LifePoint);
+	int GetLifePoint();
 	void ChangeState(PlayerState _State);
 	void StateUpdate();
 	void CheakChapter(int _ChapterLevel);
 	bool ClearChapter();
 private:
-	PlayerTile* PlayerTileBase;
-	GameEngineSoundPlayer BgmPlayer_;
-	GameEngineRendererTileMap* TileMap_;
-	GameEngineRenderer* PlayerS_;
-	GameEngineImage* ChapterCol_;
-	bool RLState_;
-	bool MakeCheak_;
-	int ChapterLevel_;
-	int LifePoint_;
-	float Speed_;
-	PlayerState CurState_;
-	PlayerState PreState_;
-	void CreatePlayer(int _x, int _y, int _index);
 
+	void CreatePlayer(int _x, int _y, int _index);
 	void Update() override;
-	void Render() override;
 	void KeySet();
 
-	float ShiftX_;
-	float ShiftY_;
 	void LeftMoveShift();
 	void RightMoveShift();
 	void UpMoveShift();
 	void DownMoveShift();
-	bool MoveStart_;
-	bool MoveEnd_;
-	bool MoveSet_;
-	int LTUD_;
-
-private: //State
+ //State
 	void IdleStart();
 	void IdleUpdate();
 	void MoveStart();
@@ -90,8 +98,7 @@ private: //State
 	void DieUpdate();
 	void WinStart();
 	void WinUpdate();
-
-private: //Cheak
+ //Cheak
 	bool MoveCheak();
 
 

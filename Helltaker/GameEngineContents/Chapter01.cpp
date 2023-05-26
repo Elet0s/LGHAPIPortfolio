@@ -51,21 +51,23 @@ void Chapter01::Start()
 		GameEngineInput::GetInst()->CreateKey("Advice", 'L');
 	}
 	////Actor »ý¼º////
-	LodingManager_ = CreateActor<LodingManager>(9);
-	//CreateActor<Loding>((int)ORDER::UI);
-	ChapterBackGound* A = CreateActor<ChapterBackGound>((int)ORDER::BACKGROUND);
-	
-	
+	LodingManager_ = CreateActor<LodingManager>(10);
+	ChapterBackGound_ = CreateActor<ChapterBackGound>((int)ORDER::BACKGROUND);
+
+
 	//GameObjectManager::GameObjectManager_ = CreateActor<GameObjectManager>(1);
 	//GameObjectManager::GameObjectManager_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
 	//GameObjectManager::GameObjectManager_->ObjectCheakChapter(ChapterCount_);
 
-	//Player::PlayerObject_ = CreateActor<Player>(2);
-	//Player::PlayerObject_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
-	//Player::PlayerObject_->CheakChapter(ChapterCount_);
+	Player::PlayerObject_ = CreateActor<Player>(2);
+	Player::PlayerObject_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
+	Player::PlayerObject_->CheakChapter(ChapterCount_);
+	Player::PlayerObject_->SetLifePoint(32);
 
-	//BotUi_ = CreateActor<BotUi>(4);
-	//TopUi_ = CreateActor<TopUi>(3);
+	LifeCounter_ = CreateActor<LifeCounter>(10);
+
+	BotUi_ = CreateActor<BotUi>(4);
+	TopUi_ = CreateActor<TopUi>(3);
 	
 }
 

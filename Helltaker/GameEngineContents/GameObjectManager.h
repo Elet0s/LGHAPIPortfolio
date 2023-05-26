@@ -1,3 +1,4 @@
+
 #pragma once
 #include <GameEngine/GameEngineActor.h>
 #include <GameEngine/GameEngineRendererTileMap.h>
@@ -13,7 +14,10 @@ public:
 		, IsDKick_(false)
 		, TileObjectX_(0)
 		, TileObjectY_(0)
-
+		,Key_()
+		,Helper_()
+		, Lock_()
+		, Monster_()
 	{
 	}
 	~GameObjectTile()

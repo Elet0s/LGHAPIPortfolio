@@ -4,6 +4,7 @@
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngine/GameEngineImageManager.h>
 #include <GameEngineBase/GameEngineSound.h>
+#include <GameEngine/GameEngineFont.h>
 
 #include "Helltaker.h"
 #include "TitleLevel.h"
@@ -33,7 +34,6 @@ void Helltaker::GameInit()
 		ResourcesDir.Move("Resource");
 		ResourcesDir.Move("AudioClip");
 
-		// 폴더안에 모든 이미지 파일을 찾는다.
 		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile();
 
 		for (size_t i = 0; i < AllImageFileList.size(); i++)

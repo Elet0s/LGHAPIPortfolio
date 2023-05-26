@@ -17,6 +17,7 @@ enum class ORDER
 
 enum class MapObject
 {
+	none,
 	Trap,
 	Ston,
 	Helper,

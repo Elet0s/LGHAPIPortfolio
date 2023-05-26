@@ -56,9 +56,14 @@ void Player::Update()
 
 	StateUpdate();
 }
-void Player::Render()
-{
 
+void Player::SetLifePoint(int _LifePoint)
+{
+	LifePoint_  = _LifePoint;
+}
+int Player::GetLifePoint()
+{
+	return LifePoint_;
 }
 void Player::ChangeState(PlayerState _State) //특정 조건이 만족하면 호출하여 상태를 바꿔줌
 {
@@ -137,7 +142,6 @@ void Player::KeySet() // 키세팅
 		GameEngineInput::GetInst()->CreateKey("UpMove", VK_UP);
 		GameEngineInput::GetInst()->CreateKey("DownMove", VK_DOWN);
 		GameEngineInput::GetInst()->CreateKey("Esc", VK_ESCAPE);
-		GameEngineInput::GetInst()->CreateKey("Reload", 'R');
 		GameEngineInput::GetInst()->CreateKey("Helper", 'L');
 	}
 }

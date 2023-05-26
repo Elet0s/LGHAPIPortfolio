@@ -50,7 +50,7 @@ void GameEngineFont::Draw(const std::string& _Text, float4 _Postion, int TextCol
 	SetBkMode(GameEngine::BackBufferDC(), 1);
 	oldFont = (HFONT)SelectObject(GameEngine::BackBufferDC(), hFont);
 
-	RECT NewRect = { _Postion.ix(), _Postion.iy(), 1280, 720 };
+	RECT NewRect = { _Postion.ix(), _Postion.iy(), 1920, 1080 };
 	DrawTextW(GameEngine::BackBufferDC(),
 		WText.c_str(), static_cast<int>(WText.size()), &NewRect,
 		DT_LEFT

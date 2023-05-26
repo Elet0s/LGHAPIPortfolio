@@ -12,6 +12,7 @@ GameObjectManager::GameObjectManager()
 	, ShiftX_(0)
 	, ShiftY_(0)
 	, ChapterClear_(false)
+	, GameObjectTileMap_()
 {
 
 }
@@ -85,10 +86,10 @@ void GameObjectManager::LevelChangeStart(GameEngineLevel* _PrevLevel)
 void GameObjectManager::CreateMonster(int _x, int _y, int _index)
 {
 	GameObjectTile* MonsterTileBase = GameObjectTileMap_->CreateTile<GameObjectTile>(_x, _y, "TileBase.bmp", static_cast<int>(ORDER::BASETILE));
-	MonsterTileBase->TileObjectX_ = _x;
-	MonsterTileBase->TileObjectY_ = _y;
+	MonsterTileBase->TileObjectX_ = static_cast<float>(_x);
+	MonsterTileBase->TileObjectY_ = static_cast<float>(_y);
 	MonsterTileBase->Monster_ = CreateRenderer("MonsterL.bmp");
-	MonsterTileBase->Monster_->SetPivot({ (float)_x * 100+50, (float)_y* 90 +50 });// 몬스터 이미지 여백 때문에 오차 있음 x50, y50
+	MonsterTileBase->Monster_->SetPivot({ MonsterTileBase->TileObjectX_ * 100+50, MonsterTileBase->TileObjectY_ * 90 +50 });// 몬스터 이미지 여백 때문에 오차 있음 x50, y50
 	MonsterTileBase->Monster_->CreateAnimation("MonsterR.bmp", "MonsterR", 0, 11, 0.065f, true);
 	MonsterTileBase->Monster_->CreateAnimation("MonsterL.bmp", "MonsterL", 0, 11, 0.065f, true);
 	MonsterTileBase->Monster_->CreateAnimation("MonsterHitL.bmp", "MonsterHitL", 0, 5, 0.05f, true);
@@ -102,10 +103,10 @@ void GameObjectManager::CreateMonster(int _x, int _y, int _index)
 void GameObjectManager::CreateHelper(int _x, int _y, int _index)
 {
 	GameObjectTile* HelperTileBase = GameObjectTileMap_->CreateTile<GameObjectTile>(_x, _y, "TileBase.bmp", static_cast<int>(ORDER::BASETILE));
-	HelperTileBase->TileObjectX_ = _x;
-	HelperTileBase->TileObjectY_ = _y;
+	HelperTileBase->TileObjectX_ = static_cast<float>(_x);
+	HelperTileBase->TileObjectY_ = static_cast<float>(_y);
 	HelperTileBase->Helper_ = CreateRenderer("Pandemonica.bmp");
-	HelperTileBase->Helper_->SetPivot({ (float)_x * 100 + 50, (float)_y * 90 + 50 });// 몬스터 이미지 여백 때문에 오차 있음 x50, y50
+	HelperTileBase->Helper_->SetPivot({ HelperTileBase->TileObjectX_ * 100 + 50, HelperTileBase->TileObjectY_ * 90 + 50 });// 몬스터 이미지 여백 때문에 오차 있음 x50, y50
 	HelperTileBase->Helper_->CreateAnimation("Pandemonica.bmp", "Pandemonica", 0, 11, 0.065f, true);
 	HelperTileBase->Helper_->ChangeAnimation("Pandemonica");
 	HelperTileBase->Helper_->SetOrder(static_cast<int>(ORDER::HELPER));
