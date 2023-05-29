@@ -9,6 +9,7 @@ class TopUi;
 class LodingManager;
 class ClearEvent;
 class LifeCounter;
+class ChapterCounter;
 
 class Chapter01 : public GameEngineLevel
 {
@@ -21,7 +22,8 @@ private:
 	TopUi* TopUi_;
 	LodingManager* LodingManager_; 
 	ClearEvent* ClearEvent_; // 목표달성시 대화창
-	bool ChapterClear();
+	ChapterCounter* ChapterCounter_;
+
 
 public:
 
@@ -33,6 +35,7 @@ public:
 	Chapter01& operator=(const Chapter01& _Other) = delete;
 	Chapter01& operator=(Chapter01&& _Other) noexcept = delete;
 
+	bool ChapterClear();
 protected:
 	void Start() override;
 	void Update() override;

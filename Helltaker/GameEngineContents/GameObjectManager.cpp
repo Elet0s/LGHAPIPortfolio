@@ -126,7 +126,6 @@ void GameObjectManager::CreateSton(int _x, int _y, int _index)
 	StonTileBase->Ston_->PauseOn();
 	StonTileBase->Ston_->SetOrder(static_cast<int>(ORDER::STON));
 	StonTileBase->TileState_ = MapObject::Ston;
-	StonTileBase->Ston_->Off();
 	Ston.push_back(StonTileBase);
 }
 void GameObjectManager::CreateWall(int _x, int _y, int _index)

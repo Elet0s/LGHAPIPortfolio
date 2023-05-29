@@ -21,5 +21,6 @@ protected:
 
 private:
 	float Chapter_;
+	float4 Value_;
 };
 

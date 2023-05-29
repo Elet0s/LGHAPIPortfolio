@@ -15,6 +15,7 @@
 #include "LodingManager.h"
 #include "GameObjectManager.h"
 #include "ClearEvent.h"
+#include"ChapterCounter.h"
 
 
 Chapter01::Chapter01()
@@ -25,6 +26,8 @@ Chapter01::Chapter01()
 	, TopUi_()
 	, LodingManager_()
 	, ClearEvent_()
+	, ChapterCounter_()
+	,LifeCounter_()
 {
 
 }
@@ -55,16 +58,18 @@ void Chapter01::Start()
 	ChapterBackGound_ = CreateActor<ChapterBackGound>((int)ORDER::BACKGROUND);
 
 
-	//GameObjectManager::GameObjectManager_ = CreateActor<GameObjectManager>(1);
-	//GameObjectManager::GameObjectManager_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
-	//GameObjectManager::GameObjectManager_->ObjectCheakChapter(ChapterCount_);
+	GameObjectManager::GameObjectManager_ = CreateActor<GameObjectManager>(1);
+	GameObjectManager::GameObjectManager_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
+	GameObjectManager::GameObjectManager_->ObjectCheakChapter(ChapterCount_);
 
 	Player::PlayerObject_ = CreateActor<Player>(2);
 	Player::PlayerObject_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
 	Player::PlayerObject_->CheakChapter(ChapterCount_);
-	Player::PlayerObject_->SetLifePoint(32);
+	Player::PlayerObject_->SetLifePoint(23);
 
-	LifeCounter_ = CreateActor<LifeCounter>(10);
+	LifeCounter_ = CreateActor<LifeCounter>(9);
+	ChapterCounter_ = CreateActor<ChapterCounter>(9);
+	ChapterCounter_->SetChapterPoint(ChapterCount_);
 
 	BotUi_ = CreateActor<BotUi>(4);
 	TopUi_ = CreateActor<TopUi>(3);
@@ -80,6 +85,7 @@ void Chapter01::Update()
 
 	//}
 }
+
 void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
 	ChapterBgm_ = GameEngineSound::SoundPlayControl("Chapter.wav");

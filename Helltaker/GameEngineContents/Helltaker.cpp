@@ -14,7 +14,8 @@
 #include "Chapter03.h"
 
 Helltaker::Helltaker()
-	:Chapter_(0)
+	:Chapter_(0),
+	Value_({ 1920, 1080 })
 {
 }
 
@@ -26,8 +27,9 @@ void Helltaker::GameInit()
 {
 	//////////////////////이미지 로드하는 부분
 
-	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 0, 0 }, { 1920, 1080 });
+	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 0, 0 }, Value_);
 	{
+		
 		//각종 사운드 디렉토리
 		GameEngineDirectory ResourcesDir;
 		ResourcesDir.MoveParent("Helltaker");
@@ -250,7 +252,6 @@ void Helltaker::GameInit()
 		GameEngineImage* MonsterHitR = GameEngineImageManager::GetInst()->Find("MonsterHitR.bmp");
 		MonsterHitR->CutCount(6, 1);
 	}
-
 
 	CreateLevel<TitleLevel>("TitleLevel");
 	CreateLevel<MenuLevel>("MenuLevel");
