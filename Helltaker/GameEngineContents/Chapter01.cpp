@@ -4,7 +4,7 @@
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngine/GameEngineImageManager.h>
 #include <GameEngineBase/GameEngineWindow.h>
-
+#include<GameEngineBase/GameEngineTime.h>
 
 #include "ContentsEnums.h"
 #include "Chapter01.h"
@@ -28,6 +28,8 @@ Chapter01::Chapter01()
 	, ClearEvent_()
 	, ChapterCounter_()
 	,LifeCounter_()
+	,  ReloadTimer_(0.0f)
+, ReloadCheaker_(false)
 {
 
 }
@@ -53,6 +55,7 @@ void Chapter01::Start()
 	{
 		GameEngineInput::GetInst()->CreateKey("Advice", 'L');
 	}
+
 	////Actor »ý¼º////
 	LodingManager_ = CreateActor<LodingManager>(10);
 	ChapterBackGound_ = CreateActor<ChapterBackGound>((int)ORDER::BACKGROUND);
@@ -65,7 +68,9 @@ void Chapter01::Start()
 	Player::PlayerObject_ = CreateActor<Player>(2);
 	Player::PlayerObject_-> SetTileMap(&ChapterBackGound_->ChapterBackGoundTileMap_);
 	Player::PlayerObject_->CheakChapter(ChapterCount_);
+	Player::PlayerObject_->PlayerPositionSet();
 	Player::PlayerObject_->SetLifePoint(23);
+
 
 	LifeCounter_ = CreateActor<LifeCounter>(9);
 	ChapterCounter_ = CreateActor<ChapterCounter>(9);
@@ -78,17 +83,26 @@ void Chapter01::Start()
 
 void Chapter01::Update()
 {
-	//if (Player::PlayerObject_->ClearChapter() == true)
-	//{
-	//	ClearEvent_ =	CreateActor<ClearEvent>(9);
+	if (true == GameEngineInput::GetInst()->IsDown("Reload"))
+	{
+		ReloadCheaker_ = true;
 
+	}
+	if (ReloadCheaker_ == true)
+	{
+		ReloadTimer_ += GameEngineTime::GetDeltaTime();
+		if (ReloadTimer_ >= 1.0f)
+		{
+			Player::PlayerObject_->ReloadSet();
+			ReloadCheaker_ = false;
+			ReloadTimer_ = 0.0f;
+		}
 
-	//}
+	}
 }
 
 void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
-	ChapterBgm_ = GameEngineSound::SoundPlayControl("Chapter.wav");
 	LodingManager_->Shoot("End");
 }
 

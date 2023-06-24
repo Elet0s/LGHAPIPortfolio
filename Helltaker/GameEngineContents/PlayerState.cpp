@@ -25,6 +25,12 @@ void Player::IdleUpdate()
 		PlayerS_->ChangeAnimation("PlayerRight");
 	}
 
+	if (LifePoint_ <= 0)
+	{
+		ChangeState(PlayerState::Win);
+		return;
+	}
+
 	if (MoveCheak() == true)
 	{
 		ChangeState(PlayerState::Move);
@@ -284,9 +290,12 @@ void Player::DieUpdate()
 }
 void Player::WinStart()
 {
-
+	PlayerS_->ChangeAnimation("PlayerWinPlay");
 }
 void Player::WinUpdate()
 {
-
+	if (PlayerS_->IsEndAnimation() == true)
+	{
+		PlayerS_->PauseOn();
+	}
 }

@@ -45,7 +45,7 @@ private:
 
 	float Speed_;
 	PlayerState CurState_;
-	PlayerState PreState_;
+	PlayerState 	PreState_;
 	float ShiftX_;
 	float ShiftY_;
 	bool MoveStart_;
@@ -53,6 +53,9 @@ private:
 	bool MoveSet_;
 	int LTUD_;
 	LifeCounter* LifeCount_;
+
+	bool WinCheak_;
+
 public:
 	Player();
 	~Player();
@@ -77,6 +80,9 @@ public:
 	void StateUpdate();
 	void CheakChapter(int _ChapterLevel);
 	bool ClearChapter();
+
+	void PlayerPositionSet();
+	void ReloadSet();
 private:
 
 	void CreatePlayer(int _x, int _y, int _index);
@@ -87,6 +93,10 @@ private:
 	void RightMoveShift();
 	void UpMoveShift();
 	void DownMoveShift();
+	
+
+
+
  //State
 	void IdleStart();
 	void IdleUpdate();
@@ -100,6 +110,7 @@ private:
 	void WinUpdate();
  //Cheak
 	bool MoveCheak();
+
 
 
 };

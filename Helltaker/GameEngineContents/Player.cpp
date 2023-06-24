@@ -8,7 +8,6 @@
 #include<GameEngineBase/GameEngineTime.h>
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngine/GameEngineLevel.h> 
-#include <GameEngineBase/GameEngineTime.h>
 
 
 Player* Player::PlayerObject_ = nullptr;
@@ -19,14 +18,15 @@ Player::Player()
 	, MakeCheak_(false)
 	, CurState_(PlayerState::Idle)
 	, RLState_(true)
-	, PlayerX_(11)
-	, PlayerY_(3)
+	, PlayerX_(0)
+	, PlayerY_(0)
 	, MoveSet_(false)
 	, MoveStart_(false)
 	, MoveEnd_(false)
 	, ShiftX_(0)
 	, ShiftY_(0)
 	, LTUD_(0)
+	, WinCheak_(false)
 {
 }
 
@@ -43,8 +43,9 @@ void Player::Start()
 	PlayerS_->CreateAnimation("PlayerMoveR.bmp", "PlayerMoveR", 0, 5, 0.1f, true);
 	PlayerS_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 7, 12, 0.065f, true);
 	PlayerS_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 0, 6, 0.065f, true);
-
+	PlayerS_->CreateFolderAnimation("PlayerWin", "PlayerWinPlay", 0, 18, 0.065f, false);
 	KeySet();
+
 }
 void Player::Update()
 {
@@ -61,10 +62,12 @@ void Player::SetLifePoint(int _LifePoint)
 {
 	LifePoint_  = _LifePoint;
 }
+
 int Player::GetLifePoint()
 {
 	return LifePoint_;
 }
+
 void Player::ChangeState(PlayerState _State) //특정 조건이 만족하면 호출하여 상태를 바꿔줌
 {
 	if (CurState_ != _State)
@@ -141,8 +144,6 @@ void Player::KeySet() // 키세팅
 		GameEngineInput::GetInst()->CreateKey("RightMove", VK_RIGHT);
 		GameEngineInput::GetInst()->CreateKey("UpMove", VK_UP);
 		GameEngineInput::GetInst()->CreateKey("DownMove", VK_DOWN);
-		GameEngineInput::GetInst()->CreateKey("Esc", VK_ESCAPE);
-		GameEngineInput::GetInst()->CreateKey("Helper", 'L');
 	}
 }
 void Player::CreatePlayer(int _x, int _y, int _index)
@@ -263,5 +264,32 @@ bool Player::ClearChapter()
 	else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Helper)
 	{
 		return true;
+	}
+}
+
+
+void Player::PlayerPositionSet()//챕터별 플레이어 초기위치 설정
+{
+	if (ChapterLevel_ == 1)
+	{
+		Player::PlayerObject_->ReturnPlayerTileMap_()->DeleteTile(PlayerX_, PlayerY_);
+		PlayerX_ = 11;
+		PlayerY_ = 3;
+		Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
+		PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 30 });
+	}
+
+}
+
+void Player::ReloadSet()//리로드시 플레이어 위치 및 라이프 초기화
+{
+	if (ChapterLevel_ == 1)
+	{
+		Player::PlayerObject_->ReturnPlayerTileMap_()->DeleteTile(PlayerX_, PlayerY_);
+		PlayerX_ = 11;
+		PlayerY_ = 3;
+		Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
+		PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 30 });
+		LifePoint_ = 23;
 	}
 }

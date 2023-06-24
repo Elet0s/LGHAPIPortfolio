@@ -221,6 +221,17 @@ void Helltaker::GameInit()
 			ResourcesDir.Move("DieEvent");
 			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
 		}
+		{
+			// Player상태이미지
+			GameEngineDirectory ResourcesDir;
+			ResourcesDir.MoveParent("Helltaker");
+			ResourcesDir.Move("Resource");
+			ResourcesDir.Move("Chapter");
+			ResourcesDir.Move("Global");
+			ResourcesDir.Move("Player");
+			ResourcesDir.Move("PlayerWin");
+			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
+		}
 
 	//////////////////////이미지 자르는 부분
 
@@ -251,6 +262,7 @@ void Helltaker::GameInit()
 		MonsterHitL->CutCount(6, 1);
 		GameEngineImage* MonsterHitR = GameEngineImageManager::GetInst()->Find("MonsterHitR.bmp");
 		MonsterHitR->CutCount(6, 1);
+
 	}
 
 	CreateLevel<TitleLevel>("TitleLevel");

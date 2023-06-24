@@ -23,7 +23,8 @@ private:
 	LodingManager* LodingManager_; 
 	ClearEvent* ClearEvent_; // 목표달성시 대화창
 	ChapterCounter* ChapterCounter_;
-
+	float ReloadTimer_;
+	bool ReloadCheaker_;
 
 public:
 
