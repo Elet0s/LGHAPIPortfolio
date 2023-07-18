@@ -216,19 +216,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Helper.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="Key.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="LifeCounter.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="Lock.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -268,10 +256,6 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Monster.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <SubType>
       </SubType>
@@ -286,10 +270,6 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="StartText.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="Ston.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -360,19 +340,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Helper.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="Key.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
     <ClCompile Include="LifeCounter.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="Lock.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -412,10 +380,6 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <SubType>
       </SubType>
@@ -430,10 +394,6 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="StartText.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="Ston.cpp">
       <SubType>
       </SubType>
     </ClCompile>

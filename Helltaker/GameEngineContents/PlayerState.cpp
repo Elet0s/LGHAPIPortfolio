@@ -14,6 +14,7 @@ void Player::IdleStart()
 {
 
 }
+
 void Player::IdleUpdate()
 {
 	if (RLState_ == true)
@@ -25,9 +26,18 @@ void Player::IdleUpdate()
 		PlayerS_->ChangeAnimation("PlayerRight");
 	}
 
-	if (LifePoint_ <= 0)
+	if (LifePoint_ <= 0)//라이프가 모두 닳았을때
 	{
-		ChangeState(PlayerState::Win);
+		ClearConditionCheak();
+		//플레이어가 도착지점에 도달하면
+		if (WinCheak_ == true)
+		{
+			ChangeState(PlayerState::Win);
+		}
+		else //죽는 상태로
+		{
+			ChangeState(PlayerState::Die);
+		}
 		return;
 	}
 
@@ -273,6 +283,7 @@ void Player::KickStart()
 	}
 	
 }
+
 void Player::KickUpdate()
 {
 		if (PlayerS_->IsEndAnimation() == true)
@@ -280,19 +291,26 @@ void Player::KickUpdate()
 			ChangeState(PlayerState::Idle);
 		}
 }
-void Player::DieStart()
-{
 
-}
-void Player::DieUpdate()
-{
-
-}
 void Player::WinStart()
 {
 	PlayerS_->ChangeAnimation("PlayerWinPlay");
 }
 void Player::WinUpdate()
+{
+	if (PlayerS_->IsEndAnimation() == true)
+	{
+		PlayerS_->PauseOn();
+		WinCheak_ = false;
+	}
+}
+
+void Player::DieStart()
+{
+	PlayerS_->ChangeAnimation("PlayerDiePlay");
+	PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 - 300 });
+}
+void Player::DieUpdate()
 {
 	if (PlayerS_->IsEndAnimation() == true)
 	{

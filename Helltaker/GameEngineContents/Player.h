@@ -5,7 +5,7 @@
 #include <GameEngine/GameEngineRendererTileMap.h>
 #include <GameEngineBase/GameEngineSound.h>
 #include"LifeCounter.h"
-
+#include<bitset>
 class PlayerTile: public Tile
 {
 public:
@@ -53,8 +53,9 @@ private:
 	bool MoveSet_;
 	int LTUD_;
 	LifeCounter* LifeCount_;
-
 	bool WinCheak_;
+
+	std::bitset<4> PlayerConditionCheak_;
 
 public:
 	Player();
@@ -83,6 +84,12 @@ public:
 
 	void PlayerPositionSet();
 	void ReloadSet();
+
+	void ClearConditionCheak();
+
+	void LifeTestSet();
+
+
 private:
 
 	void CreatePlayer(int _x, int _y, int _index);
@@ -104,10 +111,10 @@ private:
 	void MoveUpdate();
 	void KickStart();
 	void KickUpdate();
-	void DieStart();
-	void DieUpdate();
 	void WinStart();
 	void WinUpdate();
+	void DieStart();
+	void DieUpdate();
  //Cheak
 	bool MoveCheak();
 

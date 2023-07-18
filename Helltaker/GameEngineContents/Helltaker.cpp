@@ -232,7 +232,17 @@ void Helltaker::GameInit()
 			ResourcesDir.Move("PlayerWin");
 			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
 		}
-
+		{
+			// Player상태이미지
+			GameEngineDirectory ResourcesDir;
+			ResourcesDir.MoveParent("Helltaker");
+			ResourcesDir.Move("Resource");
+			ResourcesDir.Move("Chapter");
+			ResourcesDir.Move("Global");
+			ResourcesDir.Move("Player");
+			ResourcesDir.Move("PlayerDie");
+			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
+		}
 	//////////////////////이미지 자르는 부분
 
 	{

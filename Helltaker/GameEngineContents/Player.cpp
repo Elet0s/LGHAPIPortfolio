@@ -9,7 +9,6 @@
 #include <GameEngine/GameEngineRenderer.h>
 #include <GameEngine/GameEngineLevel.h> 
 
-
 Player* Player::PlayerObject_ = nullptr;
 
 Player::Player()
@@ -44,6 +43,7 @@ void Player::Start()
 	PlayerS_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 7, 12, 0.065f, true);
 	PlayerS_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 0, 6, 0.065f, true);
 	PlayerS_->CreateFolderAnimation("PlayerWin", "PlayerWinPlay", 0, 18, 0.065f, false);
+	PlayerS_->CreateFolderAnimation("PlayerDie", "PlayerDiePlay", 0, 17, 0.065f, false);
 	KeySet();
 
 }
@@ -54,8 +54,45 @@ void Player::Update()
 	CreatePlayer(PlayerX_, PlayerY_, 0);//챕터 정보 받아서 스위치문으로 인자값 바꿔줄것
 	MakeCheak_ = true;
 	}
-
 	StateUpdate();
+	LifeTestSet();
+}
+
+void Player::ClearConditionCheak()
+{
+	if(TileMap_->GetTile<PlayerTile>(PlayerX_+1, PlayerY_) != nullptr)
+	{
+		if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Helper)
+		{
+			WinCheak_ = true;
+		}
+	}
+
+	if (TileMap_->GetTile<PlayerTile>(PlayerX_ - 1, PlayerY_) != nullptr)
+	{
+		if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Helper)
+		{
+			WinCheak_ = true;
+		}
+	}
+
+	if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ - 1) != nullptr)
+	{
+		if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ - 1)->TileState_ == MapObject::Helper)
+		{
+			WinCheak_ = true;
+		}
+	}
+
+	if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1) != nullptr)
+	{
+		if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Helper)
+		{
+			WinCheak_ = true;
+		}
+	}
+
+
 }
 
 void Player::SetLifePoint(int _LifePoint)
@@ -85,8 +122,8 @@ void Player::ChangeState(PlayerState _State) //특정 조건이 만족하면 호출하여 상�
 			MoveStart();
 			break;
 		case PlayerState::Die:
-			break;
 			DieStart();
+			break;
 		case PlayerState::Win:
 			WinStart();
 			break;
@@ -134,7 +171,6 @@ void Player::CheakChapter(int _ChapterLevel)
 		LifePoint_ = 23;
 		break;
 	}
-
 }
 void Player::KeySet() // 키세팅
 {
@@ -144,8 +180,18 @@ void Player::KeySet() // 키세팅
 		GameEngineInput::GetInst()->CreateKey("RightMove", VK_RIGHT);
 		GameEngineInput::GetInst()->CreateKey("UpMove", VK_UP);
 		GameEngineInput::GetInst()->CreateKey("DownMove", VK_DOWN);
+		GameEngineInput::GetInst()->CreateKey("LifeTestSet", 'Y');
 	}
 }
+
+void Player::LifeTestSet()
+{
+	if (true == GameEngineInput::GetInst()->IsDown("LifeTestSet"))
+	{
+		LifePoint_ = 1;
+	}
+}
+
 void Player::CreatePlayer(int _x, int _y, int _index)
 {
 	PlayerTileBase = TileMap_ ->CreateTile<PlayerTile>(_x, _y, "TileBase.bmp", static_cast<int>(ORDER::PLAYER));
@@ -164,7 +210,6 @@ bool Player::MoveCheak()
 		if (CurState_ == PlayerState::Idle)
 		{
 			return false;
-
 		}
 	}
 	return true;

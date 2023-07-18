@@ -17,7 +17,6 @@
 #include "ClearEvent.h"
 #include"ChapterCounter.h"
 
-
 Chapter01::Chapter01()
 	:ChapterCount_(1)
 	, BotUi_()
@@ -104,6 +103,7 @@ void Chapter01::Update()
 void Chapter01::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
 	LodingManager_->Shoot("End");
+	BgmPlayer_ = GameEngineSound::SoundPlayControl("Chapter.wav");
 }
 
 void Chapter01::LevelChangeEnd(GameEngineLevel* _NextLevel)

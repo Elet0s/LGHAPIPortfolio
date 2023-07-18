@@ -25,6 +25,7 @@ private:
 	ChapterCounter* ChapterCounter_;
 	float ReloadTimer_;
 	bool ReloadCheaker_;
+	GameEngineSoundPlayer BgmPlayer_;
 
 public:
 

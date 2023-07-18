@@ -117,8 +117,8 @@ void GameObjectManager::CreateHelper(int _x, int _y, int _index)
 void GameObjectManager::CreateSton(int _x, int _y, int _index)
 {
 	GameObjectTile* StonTileBase = GameObjectTileMap_->CreateTile<GameObjectTile>(_x, _y, "TileBase.bmp", static_cast<int>(ORDER::BASETILE));
-	StonTileBase->TileObjectX_ = _x;
-	StonTileBase->TileObjectY_ = _y;
+	StonTileBase->TileObjectX_ = static_cast<float>(_x);
+	StonTileBase->TileObjectY_ = static_cast<float>(_y);
 	StonTileBase->Ston_ = CreateRenderer("Ston.bmp");
 	StonTileBase->Ston_->SetPivot({ (float)_x * 100 + 50, (float)_y * 90 + 50 });
 	StonTileBase->Ston_->CreateAnimation("Ston.bmp", "Ston", 0, 10, 0.065f, true);
@@ -131,6 +131,9 @@ void GameObjectManager::CreateSton(int _x, int _y, int _index)
 void GameObjectManager::CreateWall(int _x, int _y, int _index)
 {
 	GameObjectTile* WallTileBase = GameObjectTileMap_->CreateTile<GameObjectTile>(_x, _y, "TileBase.bmp", static_cast<int>(ORDER::BASETILE));
+	WallTileBase->TileObjectX_ = static_cast<float>(_x);
+	WallTileBase->TileObjectY_ = static_cast<float>(_y);
+	WallTileBase->TileState_ = MapObject::wall;
 }
 void GameObjectManager::CreateTrap(int _x, int _y, int _index)
 {
