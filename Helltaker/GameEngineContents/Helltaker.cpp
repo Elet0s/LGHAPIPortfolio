@@ -229,7 +229,7 @@ void Helltaker::GameInit()
 			ResourcesDir.Move("Chapter");
 			ResourcesDir.Move("Global");
 			ResourcesDir.Move("Player");
-			ResourcesDir.Move("PlayerWin");
+			ResourcesDir.Move("PlayerWinL");
 			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
 		}
 		{
@@ -240,7 +240,29 @@ void Helltaker::GameInit()
 			ResourcesDir.Move("Chapter");
 			ResourcesDir.Move("Global");
 			ResourcesDir.Move("Player");
-			ResourcesDir.Move("PlayerDie");
+			ResourcesDir.Move("PlayerWinR");
+			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
+		}
+		{
+			// Player상태이미지
+			GameEngineDirectory ResourcesDir;
+			ResourcesDir.MoveParent("Helltaker");
+			ResourcesDir.Move("Resource");
+			ResourcesDir.Move("Chapter");
+			ResourcesDir.Move("Global");
+			ResourcesDir.Move("Player");
+			ResourcesDir.Move("PlayerDieL");
+			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
+		}
+		{
+			// Player상태이미지
+			GameEngineDirectory ResourcesDir;
+			ResourcesDir.MoveParent("Helltaker");
+			ResourcesDir.Move("Resource");
+			ResourcesDir.Move("Chapter");
+			ResourcesDir.Move("Global");
+			ResourcesDir.Move("Player");
+			ResourcesDir.Move("PlayerDieR");
 			GameEngineImageManager::GetInst()->FolderImageLoad(ResourcesDir.GetFullPath());
 		}
 	//////////////////////이미지 자르는 부분

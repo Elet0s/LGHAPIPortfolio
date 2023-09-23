@@ -40,18 +40,16 @@ void Player::IdleUpdate()
 		}
 		return;
 	}
-
-	if (MoveCheak() == true)
-	{
-		ChangeState(PlayerState::Move);
-		MoveUpdate();
-		return;
-	}
+		if (MoveCheak() == true)
+		{
+			ChangeState(PlayerState::Move);
+			return;
+		}
 }
 
 void Player::MoveStart()
 {
-
+	MoveUpdate();
 }
 
 void Player::MoveUpdate()
@@ -294,7 +292,14 @@ void Player::KickUpdate()
 
 void Player::WinStart()
 {
-	PlayerS_->ChangeAnimation("PlayerWinPlay");
+	if (RLState_ == true)
+	{
+		PlayerS_->ChangeAnimation("PlayerWinLPlay");
+	}
+	else if (RLState_ == false)
+	{
+		PlayerS_->ChangeAnimation("PlayerWinRPlay");
+	}
 }
 void Player::WinUpdate()
 {
@@ -307,7 +312,14 @@ void Player::WinUpdate()
 
 void Player::DieStart()
 {
-	PlayerS_->ChangeAnimation("PlayerDiePlay");
+	if (RLState_ == true)
+	{
+		PlayerS_->ChangeAnimation("PlayerDieLPlay");
+	}
+	else if (RLState_ == false)
+	{
+		PlayerS_->ChangeAnimation("PlayerDieRPlay");
+	}
 	PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 - 300 });
 }
 void Player::DieUpdate()

@@ -42,8 +42,10 @@ void Player::Start()
 	PlayerS_->CreateAnimation("PlayerMoveR.bmp", "PlayerMoveR", 0, 5, 0.1f, true);
 	PlayerS_->CreateAnimation("PlayerKickL.bmp", "PlayerKickL", 7, 12, 0.065f, true);
 	PlayerS_->CreateAnimation("PlayerKickR.bmp", "PlayerKickR", 0, 6, 0.065f, true);
-	PlayerS_->CreateFolderAnimation("PlayerWin", "PlayerWinPlay", 0, 18, 0.065f, false);
-	PlayerS_->CreateFolderAnimation("PlayerDie", "PlayerDiePlay", 0, 17, 0.065f, false);
+	PlayerS_->CreateFolderAnimation("PlayerWinL", "PlayerWinLPlay", 0, 18, 0.065f, false);
+	PlayerS_->CreateFolderAnimation("PlayerWinR", "PlayerWinRPlay", 0, 18, 0.065f, false);
+	PlayerS_->CreateFolderAnimation("PlayerDieL", "PlayerDieLPlay", 0, 17, 0.065f, false);
+	PlayerS_->CreateFolderAnimation("PlayerDieR", "PlayerDieRPlay", 0, 17, 0.065f, false);
 	KeySet();
 
 }
@@ -109,7 +111,6 @@ void Player::ChangeState(PlayerState _State) //특정 조건이 만족하면 호출하여 상�
 {
 	if (CurState_ != _State)
 	{
-
 		switch (_State)
 		{
 		case PlayerState::Idle:
@@ -206,8 +207,8 @@ bool Player::MoveCheak()
 		false == GameEngineInput::GetInst()->IsDown("RightMove") &&
 		false == GameEngineInput::GetInst()->IsDown("UpMove") &&
 		false == GameEngineInput::GetInst()->IsDown("DownMove"))
-	{
-		if (CurState_ == PlayerState::Idle)
+	{// 입력이 없으면
+		if (CurState_ == PlayerState::Idle)//대기 상태이면
 		{
 			return false;
 		}
