@@ -111,6 +111,7 @@ void Player::ChangeState(PlayerState _State) //특정 조건이 만족하면 호출하여 상�
 {
 	if (CurState_ != _State)
 	{
+		CurState_ = _State;
 		switch (_State)
 		{
 		case PlayerState::Idle:
@@ -133,7 +134,7 @@ void Player::ChangeState(PlayerState _State) //특정 조건이 만족하면 호출하여 상�
 		}
 	}
 
-	CurState_ = _State;
+
 }
 void Player::StateUpdate()// 계속 상태를 체크하면서 현재 상태에 맞는 업데이트를 해줌
 {
