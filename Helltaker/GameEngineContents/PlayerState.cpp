@@ -56,7 +56,7 @@ void Player::MoveUpdate()
 {
 	if (MoveStart_ == true)//랜더러 이동효과
 	{
-		switch (LTUD_) 
+		switch (LTUD_)
 		{
 		case 1:
 
@@ -66,7 +66,7 @@ void Player::MoveUpdate()
 				Player::PlayerObject_->ReturnPlayerTileMap_()->DeleteTile(PlayerX_, PlayerY_);
 				PlayerX_ -= 1; // 이동한곳에 맞게 변수 바꿔주고
 				Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
-				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 +30 });
+				PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 30 });
 				MoveEnd_ = false;
 				ChangeState(PlayerState::Idle);
 				LifePoint_ -= 1;
@@ -120,158 +120,159 @@ void Player::MoveUpdate()
 
 		}
 	}
-
-
-	if (true == GameEngineInput::GetInst()->IsDown("LeftMove"))
+	if (MoveStart_ == false)//이동중이 아닐 경우만
 	{
-		RLState_ = true;//true니까 왼쪽
-		
-		if (TileMap_->GetTile<PlayerTile>(PlayerX_ - 1, PlayerY_) == nullptr)//이동할지점에 오브젝트가 없으면
+
+		if (true == GameEngineInput::GetInst()->IsDown("LeftMove"))
 		{
-			PlayerS_->ChangeAnimation("PlayerMoveL");//이동모션으로 바꿔줌
-			GameEngineSound::SoundPlayOneShot("PlayerMove.wav", 0);
-			if (MoveEnd_ == false) // 랜더러 이동효과 재생 안했으면
+			RLState_ = true;//true니까 왼쪽
+
+			if (TileMap_->GetTile<PlayerTile>(PlayerX_ - 1, PlayerY_) == nullptr)//이동할지점에 오브젝트가 없으면
 			{
-				MoveStart_ = true;
-				LTUD_ = 1;
+				PlayerS_->ChangeAnimation("PlayerMoveL");//이동모션으로 바꿔줌
+				GameEngineSound::SoundPlayOneShot("PlayerMove.wav", 0);
+				if (MoveEnd_ == false) // 랜더러 이동효과 재생 안했으면
+				{
+					MoveStart_ = true;
+					LTUD_ = 1;
+				}
+			}
+			else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Monster)//몬스터이면
+			{
+
+				ChangeState(PlayerState::Kick);//플레이어 킥 재생
+				LifePoint_ -= 1;
+				GameEngineSound::SoundPlayOneShot("MonsterKick.wav", 0);
+				GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_); //게임 오브젝트 타일 호출.
+				TileChanger_->IsLKick_ = true;//몬스터야 너 오른쪽에서 차였어
+
+			}
+			else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Ston)
+			{
+				ChangeState(PlayerState::Kick);
+				LifePoint_ -= 1;
+				GameEngineSound::SoundPlayOneShot("StoneKick.wav", 0);
+				GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_);
+				TileChanger_->IsLKick_ = true;
 			}
 		}
-		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Monster)//몬스터이면
-		{
 
-			ChangeState(PlayerState::Kick);//플레이어 킥 재생
-			LifePoint_ -= 1;
-			GameEngineSound::SoundPlayOneShot("MonsterKick.wav", 0);
-			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_); //게임 오브젝트 타일 호출.
-			TileChanger_->IsLKick_ = true;//몬스터야 너 오른쪽에서 차였어
-			
-		}
-		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_)->TileState_ == MapObject::Ston)
+
+		else if (true == GameEngineInput::GetInst()->IsDown("RightMove"))
 		{
-			ChangeState(PlayerState::Kick);
-			LifePoint_ -= 1;
-			GameEngineSound::SoundPlayOneShot("StoneKick.wav", 0);
-			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ - 1, PlayerY_);
-			TileChanger_->IsLKick_ = true;
+			RLState_ = false;
+			if (TileMap_->GetTile<PlayerTile>(PlayerX_ + 1, PlayerY_) == nullptr)//이동할지점에 오브젝트가 없으면
+			{
+				PlayerS_->ChangeAnimation("PlayerMoveR");//이동모션으로 바꿔줌
+				GameEngineSound::SoundPlayOneShot("PlayerMove.wav", 0);
+				if (MoveEnd_ == false) // 랜더러 이동효과 재생 안했으면
+				{
+					MoveStart_ = true;
+					LTUD_ = 2;
+				}
+			}
+			else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Monster)//몬스터이면
+			{
+
+				ChangeState(PlayerState::Kick);//플레이어 킥 재생
+				LifePoint_ -= 1;
+				GameEngineSound::SoundPlayOneShot("MonsterKick.wav", 0);
+				GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_); //게임 오브젝트 타일 호출.
+				TileChanger_->IsRKick_ = true;// 몬스터야 너 왼쪽에서 차였어
+
+			}
+			else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Ston)
+			{
+
+				ChangeState(PlayerState::Kick);
+				LifePoint_ -= 1;
+				GameEngineSound::SoundPlayOneShot("StoneKick.wav", 0);
+				GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_);
+				TileChanger_->IsRKick_ = true;
+			}
+		}
+
+
+		else if (true == GameEngineInput::GetInst()->IsDown("UpMove"))
+		{
+			if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ - 1) == nullptr)
+			{
+				if (RLState_ == true)
+				{
+					PlayerS_->ChangeAnimation("PlayerMoveL");
+				}
+				else if (RLState_ == false)
+				{
+					PlayerS_->ChangeAnimation("PlayerMoveR");
+				}
+				GameEngineSound::SoundPlayOneShot("PlayerMove.wav", 0);
+				if (MoveEnd_ == false)
+				{
+					MoveStart_ = true;
+					LTUD_ = 3;
+				}
+			}
+			else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ - 1)->TileState_ == MapObject::Monster)//몬스터이면
+			{
+
+				ChangeState(PlayerState::Kick);//플레이어 킥 재생
+				LifePoint_ -= 1;
+				GameEngineSound::SoundPlayOneShot("MonsterKick.wav", 0);
+				GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ - 1); //게임 오브젝트 타일 호출.
+				TileChanger_->IsUKick_ = true;// 몬스터야 너 아래에서 차였어
+
+			}
+			else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ - 1)->TileState_ == MapObject::Ston)
+			{
+
+				ChangeState(PlayerState::Kick);
+				LifePoint_ -= 1;
+				GameEngineSound::SoundPlayOneShot("StoneKick.wav", 0);
+				GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ - 1);
+				TileChanger_->IsUKick_ = true;
+			}
+		}
+
+
+		else if (true == GameEngineInput::GetInst()->IsDown("DownMove"))
+		{
+			if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1) == nullptr)
+			{
+				if (RLState_ == true)
+				{
+					PlayerS_->ChangeAnimation("PlayerMoveL");
+				}
+				else if (RLState_ == false)
+				{
+					PlayerS_->ChangeAnimation("PlayerMoveR");
+				}
+				GameEngineSound::SoundPlayOneShot("PlayerMove.wav", 0);
+				if (MoveEnd_ == false)
+				{
+					MoveStart_ = true;
+					LTUD_ = 4;
+				}
+			}
+			else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Monster)//몬스터이면
+			{
+
+				ChangeState(PlayerState::Kick);//플레이어 킥 재생
+				LifePoint_ -= 1;
+				GameEngineSound::SoundPlayOneShot("MonsterKick.wav", 0);
+				GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1); //게임 오브젝트 타일 호출.
+				TileChanger_->IsDKick_ = true;// 몬스터야 너 위에서 차였어
+			}
+			else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Ston)
+			{
+
+				ChangeState(PlayerState::Kick);
+				LifePoint_ -= 1;
+				GameEngineSound::SoundPlayOneShot("StoneKick.wav", 0);
+				GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1);
+				TileChanger_->IsDKick_ = true;
+			}
 		}
 	}
-
-
-	else if (true == GameEngineInput::GetInst()->IsDown("RightMove"))
-	{
-		RLState_ = false;
-		if (TileMap_->GetTile<PlayerTile>(PlayerX_ + 1, PlayerY_) == nullptr)//이동할지점에 오브젝트가 없으면
-		{
-			PlayerS_->ChangeAnimation("PlayerMoveR");//이동모션으로 바꿔줌
-			GameEngineSound::SoundPlayOneShot("PlayerMove.wav", 0);
-			if (MoveEnd_ == false) // 랜더러 이동효과 재생 안했으면
-			{
-				MoveStart_ = true;
-				LTUD_ = 2;
-			}
-		}
-		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Monster)//몬스터이면
-		{
-
-			ChangeState(PlayerState::Kick);//플레이어 킥 재생
-			LifePoint_ -= 1;
-			GameEngineSound::SoundPlayOneShot("MonsterKick.wav", 0);
-			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_); //게임 오브젝트 타일 호출.
-			TileChanger_->IsRKick_ = true;// 몬스터야 너 왼쪽에서 차였어
-			
-		}
-		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_)->TileState_ == MapObject::Ston)
-		{
-
-			ChangeState(PlayerState::Kick);
-			LifePoint_ -= 1;
-			GameEngineSound::SoundPlayOneShot("StoneKick.wav", 0);
-			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ + 1, PlayerY_); 
-			TileChanger_->IsRKick_ = true;
-		}
-	}
-
-
-	else if (true == GameEngineInput::GetInst()->IsDown("UpMove"))
-	{
-		if (TileMap_->GetTile<PlayerTile>(PlayerX_ , PlayerY_ -1) == nullptr)
-		{
-			if (RLState_ == true)
-			{
-				PlayerS_->ChangeAnimation("PlayerMoveL");
-			}
-			else if (RLState_ == false)
-			{
-				PlayerS_->ChangeAnimation("PlayerMoveR");
-			}
-			GameEngineSound::SoundPlayOneShot("PlayerMove.wav", 0);
-			if (MoveEnd_ == false) 
-			{
-				MoveStart_ = true;
-				LTUD_ = 3;
-			}
-		}
-		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ , PlayerY_ - 1)->TileState_ == MapObject::Monster)//몬스터이면
-		{
-
-			ChangeState(PlayerState::Kick);//플레이어 킥 재생
-			LifePoint_ -= 1;
-			GameEngineSound::SoundPlayOneShot("MonsterKick.wav", 0);
-			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ , PlayerY_ - 1); //게임 오브젝트 타일 호출.
-			TileChanger_->IsUKick_ = true;// 몬스터야 너 아래에서 차였어
-
-		}
-		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_ , PlayerY_-1)->TileState_ == MapObject::Ston)
-		{
-
-			ChangeState(PlayerState::Kick);
-			LifePoint_ -= 1;
-			GameEngineSound::SoundPlayOneShot("StoneKick.wav", 0);
-			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ - 1); 
-			TileChanger_->IsUKick_ = true;
-		}
-	}
-
-
-	else if (true == GameEngineInput::GetInst()->IsDown("DownMove"))
-	{
-		if (TileMap_->GetTile<PlayerTile>(PlayerX_, PlayerY_ + 1) == nullptr)
-		{
-			if (RLState_ == true)
-			{
-				PlayerS_->ChangeAnimation("PlayerMoveL");
-			}
-			else if (RLState_ == false)
-			{
-				PlayerS_->ChangeAnimation("PlayerMoveR");
-			}
-			GameEngineSound::SoundPlayOneShot("PlayerMove.wav", 0);
-			if (MoveEnd_ == false)
-			{
-				MoveStart_ = true;
-				LTUD_ = 4;
-			}
-		}
-		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Monster)//몬스터이면
-		{
-
-			ChangeState(PlayerState::Kick);//플레이어 킥 재생
-			LifePoint_ -= 1;
-			GameEngineSound::SoundPlayOneShot("MonsterKick.wav", 0);
-			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1); //게임 오브젝트 타일 호출.
-			TileChanger_->IsDKick_ = true;// 몬스터야 너 위에서 차였어
-		}
-		else if (GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1)->TileState_ == MapObject::Ston)
-		{
-
-			ChangeState(PlayerState::Kick);
-			LifePoint_ -= 1;
-			GameEngineSound::SoundPlayOneShot("StoneKick.wav", 0);
-			GameObjectTile* TileChanger_ = GameObjectManager::GameObjectManager_->ReturnGameTileObejctMap_()->GetTile<GameObjectTile>(PlayerX_, PlayerY_ + 1);
-			TileChanger_->IsDKick_ = true;
-		}
-	}
-
 	//플레이어 좌표기준 이동 하는 타일 확인
 	//타일안의 내용물에 따라 다른 행동
 }
