@@ -338,5 +338,9 @@ void Player::ReloadSet()//리로드시 플레이어 위치 및 라이프 초기화
 		Player::PlayerObject_->ReturnPlayerTileMap_()->CreateTile<PlayerTile>(PlayerX_, PlayerY_, "TileBase.bmp", static_cast<int>(ORDER::BASETILE)); // 이동할곳에 새로 만들어줘라
 		PlayerS_->SetPivot({ PlayerX_ * 100 + 50 , PlayerY_ * 90 + 30 });
 		LifePoint_ = 23;
+		ChangeState(PlayerState::Idle);
+
+			PlayerS_->PauseOff();
+
 	}
 }

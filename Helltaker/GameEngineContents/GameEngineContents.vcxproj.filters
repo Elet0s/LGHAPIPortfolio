@@ -11,9 +11,6 @@
     <ClInclude Include="BotUi.h">
       <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Actor\Chapter\Global</Filter>
-    </ClInclude>
     <ClInclude Include="Chapter01.h">
       <Filter>Level\Chapter</Filter>
     </ClInclude>
@@ -80,9 +77,6 @@
     <ClInclude Include="ChapterBackGound.h">
       <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerEnums.h">
-      <Filter>Actor\Chapter\Global</Filter>
-    </ClInclude>
     <ClInclude Include="TopUi.h">
       <Filter>Actor\Chapter\Global</Filter>
     </ClInclude>
@@ -98,6 +92,12 @@
     <ClInclude Include="ChapterCounter.h">
       <Filter>Actor\Chapter\Object\Ui</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Actor\Chapter\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerEnums.h">
+      <Filter>Actor\Chapter\Object\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helltaker.cpp" />
@@ -108,9 +108,6 @@
       <Filter>Actor\Title</Filter>
     </ClCompile>
     <ClCompile Include="BotUi.cpp">
-      <Filter>Actor\Chapter\Global</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
       <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
     <ClCompile Include="Chapter01.cpp">
@@ -173,9 +170,6 @@
     <ClCompile Include="MenuSelcet.cpp">
       <Filter>Actor\Menu\UI</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerState.cpp">
-      <Filter>Actor\Chapter\Global</Filter>
-    </ClCompile>
     <ClCompile Include="ChapterBackGound.cpp">
       <Filter>Actor\Chapter\Global</Filter>
     </ClCompile>
@@ -193,6 +187,12 @@
     </ClCompile>
     <ClCompile Include="ChapterCounter.cpp">
       <Filter>Actor\Chapter\Object\Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Actor\Chapter\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>Actor\Chapter\Object\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -249,6 +249,9 @@
     </Filter>
     <Filter Include="Actor\Chapter\Event">
       <UniqueIdentifier>{50ca5b66-7e72-4ca2-a4e2-ff4f96b27619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Chapter\Object\Player">
+      <UniqueIdentifier>{a845df6f-02c1-43f7-afe2-6e3138a4868e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
